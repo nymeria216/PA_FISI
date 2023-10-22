@@ -14,26 +14,19 @@ GmbH mit ihren 100 Mitarbeiter:innen eine Vielfalt an Business Services, mit und
 Transformationsprojekte rund um die Themen Cyber Security, Digitalisierung,
 Prozessoptimierung oder Automatisierung voran.
 \\In dem Projekt arbeiten interne Mitarbeiter:innen aktiv mit, um die Entwicklung des
-Projektes voranzutreiben. Dabei stellen diese die Zielgruppe dar
-\begin{itemize}
-    \item Kurze Vorstellung des Ausbildungsbetriebs (Geschäftsfeld, Mitarbeiterzahl \usw)
-	\item Wer ist Auftraggeber/Kunde des Projekts?
-\end{itemize}
+Projektes voranzutreiben. Dabei stellen diese die Zielgruppe dar.
 
 
 \subsection{Projektziel} 
 \label{sec:Projektziel}
 Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastruktur
-von OVHcloud, um einen Business Hosting Service bereitzustellen.
+von OVHCloud, um einen Business Hosting Service bereitzustellen. 
 \\Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste 
 innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
 Multi-Faktor-Authentifizierung (MFA) eingeführt wird. 
 Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
-Daten gewährleistet werden.
-\begin{itemize}
-	\item Worum geht es eigentlich?
-	\item Was soll erreicht werden?
-\end{itemize}
+Daten gewährleistet werden, indem nur eine Anmeldung mit MFA möglich ist dadurch Risiken, 
+wie Passwork-Leaks und Phishing vermieden werden können.
 
 
 \subsection{Projektbegründung} 
@@ -45,25 +38,36 @@ Benutzer müssen zusätzlich zur Eingabe des Passworts einen weiteren Authentifi
 wie zum Beispiel ein Einmalpasswort, breitstellen, was die Sicherheit erheblich erhöht. 
 Dabei werden nicht nur firmeninterne und kundenbezogene Daten geschützt, sondern auch 
 unsere Kundenzufriedenheit und das Vertrauen erhöht. Dies hat hohe Priorität und 
-verhindert unbefugten Zugriff auf sensible Informationen. 
-\begin{itemize}
-	\item Warum ist das Projekt sinnvoll (\zB Kosten- oder Zeitersparnis, weniger Fehler)?
-	\item Was ist die Motivation hinter dem Projekt?
-\end{itemize}
+verhindert unbefugten Zugriff auf sensible Informationen.
 
 
 \subsection{Projektschnittstellen} 
 \label{sec:Projektschnittstellen}
-\begin{itemize}
-	\item Mit welchen anderen Systemen interagiert die Anwendung (technische Schnittstellen)?
-	\item Wer genehmigt das Projekt \bzw stellt Mittel zur Verfügung? 
-	\item Wer sind die Benutzer der Anwendung?
-	\item Wem muss das Ergebnis präsentiert werden?
-\end{itemize}
-
-
-\subsection{Projektabgrenzung} 
-\label{sec:Projektabgrenzung}
-\begin{itemize}
-	\item Was ist explizit nicht Teil des Projekts (\insb bei Teilprojekten)?
-\end{itemize}
+Die in Kapitel 1.2 besagte Cloud-Infrastruktur wird in vier Hauptbereiche unterteilt, sodass in jedem 
+dieser Bereiche verschiedene Services bzw. Dienste bereitgestellt werden. 
+\\Beginnend mit dem 'Compliance and Security Stack', dem wörtlich übersetzten Ordnungsmäßigkeits- und 
+Sicherheitsbereich, welcher eine OPNsense Firewall umfasst, einen Nginx Proxy Manager, der als 
+Reverse Proxy den HTTP-Verkehr umleitet und andere Ports für spezielle Streaming-Anforderungen bedient. 
+Desweitren kommt der Guacamole Server zum Einsatz, um sichere Fernzugriffe zu ermöglichen, sowie das 
+Open-Source-Sicherheitstesttool Infection Monkey, um die Sicherheit der Infrastruktur zu überprüfen. 
+Der Rahmen 'Monitoring', dem Überwachungsbereich, werden alle vorhandenen Dienste der Cloud-Infrastruktur 
+auditiert und beinhaltet die Open-Source-Software Grafana zur Visualisierung und Überwachung von 
+Leistungsdaren, Uptime Kuma als Webserver für Statusseiten und Healthchecks, um die Verfügbarkeit 
+der Dienste zu kontrollieren. 
+Im dritten und 'DevOps'-Bereich, werden die Entwicklung und Bereitstellung von Anwendungen in den 
+Fokus gestellt und enthält dieser die kollaborative Entwicklugsplattform GitLab, um Projekte zu 
+verwalten. Nexus kommt zur Verwaltung von Repositories für die Anwendungsabhängigkeiten zum Einsatz. 
+Sonarqube ermöglicht die statische Analyse und Bewertung der Quelltextqualität. Zusätzlich wird SFTPGo 
+verwendet, um sichere Authentifizierungmethoden, wie zum Beispiel öffentliche Schlüssel, SSH-Schlüssel 
+und Passwörter zu verwalten. 
+Beendend mit dem 'E-Mail'-Bereich, in welchem die die E-Mail-Kommunikation stattfindent, wird der 
+Mail-Server Mailcow verwendet, um E-Mails zu senden und zu empfangen, SOGO als Groupware-ösung und 
+ermöglicht somit eine effiziente E-mail-Kommunikation und Zusammenarbeit innerhalb und außerhalb der Organisation. 
+Diese vier Bereiche sind notwendig, um den reibungslosen Betrieb der Cloud-Infrastruktur zu gewährleisten.
+\\Die Projektgenehmigung erfolgt durch den Director und Projektauftraggeber Volker Stroetmann und dessen 
+Projektmanager Edgar Kapler, welche dem Projekt die nötigen Mittel zur Verfügung stellen.
+\\Die allgemeinen Benutzer sind interne und externe Kunden, welche einen sicheren Zugriff auf ihre 
+zu nutzenden Anwendungen haben. ??? Nochmal in Präsentation JourFixe nachlesen!! ???
+%Authelia selbst ist eine wichtige Schnittstelle für die Benutzerauthentifizierung und 
+%-autorisierung bietet eine API, die von verschiedenen Anwendungen genutzt werden kann, 
+%um den benötigten Authentifizierungsmechanismus einzurichten.
