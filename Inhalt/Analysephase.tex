@@ -5,17 +5,21 @@
 
 \subsection{Ist-Analyse} 
 \label{sec:IstAnalyse}
-\begin{itemize}
-	\item Wie ist die bisherige Situation (\zB bestehende Programme, Wünsche der Mitarbeiter)?
-	\item Was gilt es zu erstellen/verbessern?
-\end{itemize}
+Das Projekt, operiert durch die Deloitte Wirtschaftsprüfungsgesellschaft GmbH, verwendet die Cloud-Infrastruktur 
+von OVHCloud, um einen Business Hosting Service bereitzustellen. Dabei enthält diese Konfiguration der 
+Cloud-Umgebung eine Firewall, welcher eine öffentliche IP-Adresse zugewiesen bekommen hat. Zusätzlich sollte erwähnt werden, 
+dass dieses Netzwerk privat ist und andere Services und Instanzen enthält, welche von der Firewall geschützt werden.
+Um einen Zugriff auf die Instanzen zu ermögliche, wird den Command-Line-Interface-Usern die Möglichkeit geboten, 
+über die Kontrollinstanz ''control\_node'' die Instanzen hoch- und runterzufahren und die grundlegenden Einstellungen, wie 
+zum Beispiel Portzuweisungen, vorzunehmen. Die Graphical-User-Interface-User haben des Weiteren die Chance die Services über 
+den Reverse Proxy Manager zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, 
+ohne weiterer Schutzebene erfolgt.
+
 
 
 \subsection{Wirtschaftlichkeitsanalyse}
 \label{sec:Wirtschaftlichkeitsanalyse}
-\begin{itemize}
-	\item Lohnt sich das Projekt für das Unternehmen?
-\end{itemize}
+
 
 
 \subsubsection{\gqq{Make or Buy}-Entscheidung}
@@ -53,7 +57,7 @@ Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung}
 \label{sec:Amortisationsdauer}
 \begin{itemize}
 	\item Welche monetären Vorteile bietet das Projekt (\zB Einsparung von Lizenzkosten, Arbeitszeitersparnis, bessere Usability, Korrektheit)?
-	\item Wann hat sich das Projekt amortisiert?
+ \item Wann hat sich das Projekt amortisiert?
 \end{itemize}
 
 \paragraph{Beispielrechnung (verkürzt)}
