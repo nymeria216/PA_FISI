@@ -27,7 +27,7 @@ Multi-Faktor-Authentifizierung (MFA) eingeführt wird.
 Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
 Daten gewährleistet werden, indem nur eine Anmeldung mit MFA möglich ist dadurch Risiken, 
 wie Passwork-Leaks und Phishing vermieden werden können.
-\\Um das Ziel zu erreichen wird Authelia für die Implementierung von MFA auf verschiedene Services 
+Um das Ziel zu erreichen wird Authelia für die Implementierung von MFA auf verschiedene Services 
 in der Cloud-Infrastruktur eingeführt, um die Sicherheit der Zugriffskontrollen zu verbessern. 
 Dabei ist Authelia eine Identity- und Access-Managment-Lösung (IAM), die den Zugriff auf 
 verschiedene Dienste und Ressourcen in der Cloud-Infrastruktur verwalten und sichern soll. 
@@ -53,26 +53,25 @@ verhindert unbefugten Zugriff auf sensible Informationen.
 Die in Kapitel 1.2 besagte Cloud-Infrastruktur wird in vier \bzw mit Authelia in fünf 
 Hauptbereiche unterteilt, sodass in jedem dieser Bereiche verschiedene Services bzw. 
 Dienste zur Verfügung werden.
-\\
 \\\textit{Compliance and Security Stack}
 \\Dieser Bereich umfasst den Einsatz von Docker-Containern für Dienste, wie die OPNsense Firewall, 
 den Nginx Proxy Manager, Guacamole Server und Infection Monkey zur Sicherheitsüberprüfung. 
 Zusammenfassend ist zu sagen, dass der Nginx Proxy Manager als Reverse Proxy fungiert und den HTTP-Verkehr 
 umleitet und andere Ports für Streaming-Anforderungen bedient. Das Open-Source-Sicherheitstesttool 
 Infection Monkey überprüft die Sicherheit der Infrastruktur.
-\\
 \\\textit{Monitoring}
+% \begin{center}
+% 	\begin{minipage}{0.9\textwidth}
+% 	  This is a block of text that is indented from both sides, creating a centered block of text on the page. You can adjust the width by changing the value in the minipage environment.
+% 	\end{minipage}
+% \end{center}
 \\Im Überwachungsbereich werden alle vorhandenen Dienste mittels Docker-Containern der Cloud-Infrastruktur auditiert und beinhaltet dieser die Open-Source-Software Grafana zur Visualisierung und Überwachung von Leistungsdaten, Uptime Kuma als Webserver für Statusseiten und Healtchchecks, um die Verfügbarkeit der Dienste zu kontrollieren. 
-\\
 \\\textit{DevOps}
 \\Der Fokus dieses Bereiches liegt bei den Anwendungen in der Entwicklung und Bereitstellung dieser und enthält die kollaborationsplattform GitLab, um Projekte zu verwalten. Dabei werden diese Dienste mittels Docker-Containern hochgefahren. Nexus kommt als Verwaltungstool der Repositories für die Anwendungsabhängigkeiten zum Einsatz. Sonarqube ermöglicht die statische Analyse und Bewertung der Quelltextqualität. Zusätzlich wird SFTPgo verwendet, um sichere Authentifizierungsmethoden, wie zum Beispile öffentliche Schlüssel, SSH-Schlüssel und Passwörter zu verwalten.
-\\
 \\\textit{E-Mail-Kommunikation}
 \\In diesem Bereich werden Docker-Container eingesetzt, der den Mail-Server Mailcow verwendet, um E-Mail zu senden und zu empfangen, SOGO als Groupware-Lösung und ermöglich somit eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb und außerhalb der Organisation.
-\\
 \\\textit{Authelia}
 \\Authelia, als Freeware, stellt eine wichtige Schnittstelle für die Benutzerauthenfizierung und -autorisierung bereit und kann von verschiedenen Anwendungen über Docker-Container genutzt werden, um Authentifizierungsmechanismen einzurichten.
-
 \subsubsection{Organisatorisch}
 \label{sec:Organisatorisch}
 Nach der Implementierung Authelias in der Cloud-Umgebung erfolgen erste Tests und Validierungen in den erstellten Docker-Containers, um sicherzustellen, dass die MFA ordnungsgemäß funktioniert und den Sicherheitsanforderungen entspricht. Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall des Entwicklerteams, zur genauen Verwendung von Authelia mit MFA. Nach den Test und Schulungen wird die Authelia-MFA-Implementierung in der Cloud-Umgebung bereitgestellt und kann in die kontinuierliche Überwachung und Wartung der Docker-Container sichergestellt werden.

@@ -11,7 +11,7 @@ Zeit die anderen Aufgaben und das Brainstorming für dieses Projekt erledigt wer
 \\Die im Projektantrag festgelegten Projektphasen lassen sich chronologisch in die 5-stündige Planungsphase, 
 die 16-stündige Implementierungsphase, die 6-stündige Testphase, die 4-stündige Phase, in der die 
 Einführung und Übergabe erfolgt und die 7-stündige Dokumentation mit der 2-stündigen Pufferzeit im Anschluss.
-\\Dabei änderte sich die Zeit in der Implementierungsphase von 14 auf 16 Stunden, die Zeit in der 
+Dabei änderte sich die Zeit in der Implementierungsphase von 14 auf 16 Stunden, die Zeit in der 
 Dokumentation von 6 auf 7 Stunden und die Pufferzeit, welche hinzugefügt wurde, um zeitliche Konflikte mit 
 den anderen Phasen zu vermeiden.
 
@@ -40,21 +40,23 @@ sich auf Authelia änderte.
 
 \subsubsection{Sachmittelplanung}
 \label{sec:Sachmittelplanung}
-EDGAR NACH DEN RESSOURCEN FRAGEN!!
-\\Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
+Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
 \begin{itemize}
-	\item Notebook - Lenovo (Welches Modell genau?) (für die Entwicklung)
-	\item Betriebssystem - Windows (Verion ?) auf dem Lenovo-Notebook mit Linux als Betriebssystem für die Instanzen
-	\item IDE - Visual Studio Code (für die Entwicklung)
-	\item Server
-	\item Hardware
+	\item Notebook - Lenovo ThinkPad T15 Gen 1 (für die Entwicklung)
+	\item Betriebssystem - Microsoft Windows 10 Enterprise auf dem Lenovo-Notebook
+	\item IDE - Visual Studio Code 1.83.1 (user setup)
+	\item Docker-Containerisierung in einer Linux-Umgebung
+	\item OVHCloud-Server - Ext-Net-Baremetal
+	\item OVHCloud-Instanz - firewall\_instance\_dev (flavor name: b2-7)
+	\item OVHCloud-Instanz - tal\_cloud\_infra (flavor name: r2-60)
+	\item OVHCloud-Instanz - rev\_prox-dev (flavor name: b2-15)
 \end{itemize}
 
 \subsubsection{Personalplanung}
 \label{sec:Personalplanung}
-\paragraph{Tabelle}
+% \paragraph{Tabelle}
 Tabelle~\ref{tab:Personalplanung} zeigt die Personalplanung des Projektes.
-\tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung}\\
+\tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung.tex}
 
 \subsection{Entwicklungsprozess}
 \label{sec:Entwicklungsprozess}
