@@ -4,23 +4,28 @@
 
 \subsection{Zielplattform}
 \label{sec:Zielplattform}
+Die zu resultierende Zielplattform definiert sich über die Benutzerfreundlichkeit, Sicherheit, Implementierung, 
+Dokumentation und Skalierbarkeit und entscheidet sich durch die im Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign} 
+dargestellte Nutzwertanalyse.
 
-\begin{itemize}
-	\item Beschreibung der Kriterien zur Auswahl der Zielplattform (\ua Programmiersprache, Datenbank, Client/Server, Hardware).
-\end{itemize}
 
-
-\subsection{Architekturdesign}
-\label{sec:Architekturdesign}
-\begin{itemize}
-	\item Beschreibung und Begründung der gewählten Anwendungsarchitektur (\zB \acs{MVC}).
-	\item \Ggfs Bewertung und Auswahl von verwendeten Frameworks sowie \ggfs eine kurze Einführung in die Funktionsweise des verwendeten Frameworks.
-\end{itemize}
-
-\paragraph{Beispiel}
-Anhand der Entscheidungsmatrix in Tabelle~\ref{tab:Entscheidungsmatrix} wurde für die Implementierung der Anwendung das \acs{PHP}-Framework Symfony\footnote{\Vgl \citet{Symfony}.} ausgewählt. 
-
-\tabelle{Entscheidungsmatrix}{tab:Entscheidungsmatrix}{Nutzwert.tex}
+\subsection{Authentifizierungs-Tool}
+\label{sec:Authentifizierungs-Tool}
+Anhand der Entscheidungsmatrix in Tabelle~\ref{tab:Entscheidungsmatrix} wurde Authelia ausgewählt. 
+\\Die in Kapitel~\ref{sec:Zielplattform}: \nameref{sec:Zielplattform} erwähnten Eigenschaften tragen zur Entscheidungsfindung bei, sodass 
+sich anhand der gegebenen~\nameref{tab:Entscheidungsmatrix} Authelia herauskristallisierte.
+\\\tabelle{Entscheidungsmatrix}{tab:Entscheidungsmatrix}{Nutzwert.tex}
+\\Die Gewichtung hat einen Gesamtwert von 100 Wertungspunkten mit einem Maximalwert von 25 und Mindestwert von 15. Grund dafür sind die 
+unterschiedlichen Eigenschaften, welche in der Entwicklung und bei der Auswahl der Authentifizierungsmethode jeweils verschiedene Rollen 
+spielen und resultierend daraus variierend evaluiert werden. Nach der Zuordnung und Addierung der Punkte bei den drei Authentifizierungs-Tools, 
+wird die Gesamtheit aller durch den Wert 100 dividiert und das Endergebnis ausgerechnet. Dabei hat die Einhaltung der Sicherheit Priorität und 
+erhält den Maximalwert von 25 Punkten, bedingt dessen, dass Dritten der Zugriff auf die jeweiligen Dienste mit kunden- und firmeninternen Daten 
+der Cloud-Infrastruktur verweigert werden sollte. 
+Die Benutzerfreundlichkeit, Skalierbarkeit und Implementierung werden mit 20 Punkten bewertet, aufgrund der Tatsache, dass jeder User schnell und 
+einfach auf den jeweiligen Dienst zugreifen muss. Für dieses Projekt ist es des Weiteren wichtig, ein Tool zu implementieren, was den 
+zeitlichen Rahmen nicht überschreitet und die Gesamtheit der Einführung zu komplex gestaltet. Die Skalierbarkeit hat für das Projekt eine 
+Relevanz, weil die Möglichkeit besteht, Dienste hinzuzufügen oder rauszunehmen. Am wenigsten bedeutend ist die Dokumentation, welche 
+gleichermaßen nicht zu unterschätzen ist, da eine gut geschriebene Dokumentation des Herstellers die Entwicklung enorm beeinflusst und erleichert.
 
 
 \subsection{Entwurf der Benutzeroberfläche}

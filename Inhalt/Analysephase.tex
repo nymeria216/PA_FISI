@@ -61,40 +61,26 @@ Des Weiteren ermöglicht Docker eine Arbeitszeitersparnis durch die einfache Ber
 Einrichtung und Wartung von Umgebungen verkürzt.
 
 
-\subsection{Nutzwertanalyse}
-\label{sec:Nutzwertanalyse}
-\begin{itemize}
-	\item Darstellung des nicht-monetären Nutzens (\zB Vorher-/Nachher-Vergleich anhand eines Wirtschaftlichkeitskoeffizienten). 
-\end{itemize}
-
-\paragraph{Beispiel}
-Ein Beispiel für eine Entscheidungsmatrix findet sich in Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign}.
+\subsection{Nicht-monetärer Nutzen}
+\label{sec:Nicht-monetärer Nutzen}
+Für das Projekt werden die drei Optionen, MFA-SSO, Authelia und Sitecar, zur Implementierung in Erwägung gezogen. Wobei mittels einer 
+Nutzwertanalyse, welche im Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign} zu sehen ist, der Sachverhalt durch 
+eine Entscheidungsmatrix dargestellt wird.
+\\Da die Ergebnisse der Wirtschaftlichkeitsanalyse bereits eine ausreichende Begründung für die Umsetzung des Projekts bieten, 
+ist es an dieser Stelle nicht notwendig, eine eingehende Untersuchung der nicht-monetären Vorteile vorzunehmen.
+\\Ohne der Einführung eines Authentifizierungs-Tools wird die Sicherheit der angebotenen Dienste nicht geboten und das Risiko des 
+Datenverlustes gewährleistet. Um das Risiko auszulöschen, soll durch die Nutzwertanalyse ein Ergebnis und die Entscheidungsfindung 
+der jeweiligen Authentifizierungsmethode erleichtert werden.
 
 
 \subsection{Anwendungsfälle}
 \label{sec:Anwendungsfaelle}
-\begin{itemize}
-	\item Welche Anwendungsfälle soll das Projekt abdecken?
-	\item Einer oder mehrere interessante (!) Anwendungsfälle könnten exemplarisch durch ein Aktivitätsdiagramm oder eine \ac{EPK} detailliert beschrieben werden. 
-\end{itemize}
-
-\paragraph{Beispiel}
-Ein Beispiel für ein Use Case-Diagramm findet sich im \Anhang{app:UseCase}.
-
-
-\subsection{Qualitätsanforderungen}
-\label{sec:Qualitaetsanforderungen}
-\begin{itemize}
-	\item Welche Qualitätsanforderungen werden an die Anwendung gestellt (\zB hinsichtlich Performance, Usability, Effizienz \etc (siehe \citet{ISO9126}))?
-\end{itemize}
-
-
-\subsection{Lastenheft/Fachkonzept}
-\label{sec:Lastenheft}
-\begin{itemize}
-	\item Auszüge aus dem Lastenheft/Fachkonzept, wenn es im Rahmen des Projekts erstellt wurde.
-	\item Mögliche Inhalte: Funktionen des Programms (Muss/Soll/Wunsch), User Stories, Benutzerrollen
-\end{itemize}
-
-\paragraph{Beispiel}
-Ein Beispiel für ein Lastenheft findet sich im \Anhang{app:Lastenheft}. 
+Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \Anhang{app:UseCase}.
+In diesem interagiert aus der Sicht eines Projektentwicklers, dieser als Akteur mit dem System, in welchem verschiedene 
+Anwendungsfälle existieren. Der Akteur hat direkten Zugriff auf die Firewall und den Nginx Reverse Proxy Manager. Der Zugriff 
+über dieFirewall erfolgt verbindlich mit Authelia, während beim NGinx Reverse Proxy Manager der Akteur sich erst dort anmeldet und im 
+Anschluss 
+hat das Bedürfnis sich am Nginx 
+Reverse Proxy Manager einzuloggen und bevor dieser die Möglichkeit erhält, muss er sich mit Authelia authentifizieren. Nach der 
+Authentifizierung ist dieser eingeloggt und kann über den NPM auf die verschiedenen Dienste zugreifen, ohne sich erneut via 
+Authelia anmelden zu müssen.
