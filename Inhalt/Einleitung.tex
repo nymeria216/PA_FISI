@@ -8,7 +8,8 @@
 Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH ist ein internationales 
 Unternehmen für Wirtschaftsprüfung, Steuer-, Unternehmens-, Risiko- und Finanzberatung.
 Die Deloitte hat Niederlassungen in vielen Ländern, darunter auch Deutschland. 
-Mit Vertreter:innen in über 150 Ländern weltweit und 415.000 Mitarbeiter:innen bietet das Unternehmen eine breite Palette von Dienstleistungen für Unternehmen und Organisationen in verschiedenen Branchen.
+Mit Vertreter:innen in über 150 Ländern weltweit und 415.000 Mitarbeiter:innen bietet das Unternehmen eine breite Palette 
+von Dienstleistungen für Unternehmen und Organisationen in verschiedenen Branchen.
 Im B\&TCL, auch dem Business \& Technology Center Leipzig, erbringt die Deloitte
 GmbH mit ihren 100 Mitarbeiter:innen eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
 Transformationsprojekte rund um die Themen Cyber Security, Digitalisierung,
@@ -25,10 +26,10 @@ von OVHCloud, um einen Business Hosting Service bereitzustellen.
 innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
 Multi-Faktor-Authentifizierung (MFA) eingeführt wird. 
 Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
-Daten gewährleistet werden, indem nur eine Anmeldung mit MFA möglich ist dadurch Risiken, 
+Daten gewährleistet werden, indem nur eine Anmeldung mit MFA möglich ist und resultierend Risiken, 
 wie Passwork-Leaks und Phishing vermieden werden können.
 Um das Ziel zu erreichen wird Authelia für die Implementierung von MFA auf verschiedene Services 
-in der Cloud-Infrastruktur eingeführt, um die Sicherheit der Zugriffskontrollen zu verbessern. 
+in der Cloud-Infrastruktur eingeführt. 
 Dabei ist Authelia eine Identity- und Access-Managment-Lösung (IAM), die den Zugriff auf 
 verschiedene Dienste und Ressourcen in der Cloud-Infrastruktur verwalten und sichern soll. 
 
@@ -37,9 +38,9 @@ verschiedene Dienste und Ressourcen in der Cloud-Infrastruktur verwalten und sic
 \label{sec:Projektbegruendung}
 Die Einführung der MFA erhöht die Sicherheit und stellt sicher, dass der Zugriff 
 auf Dienste und Daten der Cloud-Infrastruktur nicht allein durch ein gestohlenes
-Passwort gefährdet ist.
+Passwort gefährdet sind.
 Benutzer müssen zusätzlich zur Eingabe des Passworts einen weiteren Authentifizierungsfaktor, 
-wie zum Beispiel ein Einmalpasswort, breitstellen, was die Sicherheit erheblich erhöht. 
+wie zum Beispiel ein Einmalpasswort, bereitstellen, was die Sicherheit erheblich erhöht. 
 Dabei werden nicht nur firmeninterne und kundenbezogene Daten geschützt, sondern auch 
 unsere Kundenzufriedenheit und das Vertrauen erhöht. Dies hat hohe Priorität und 
 verhindert unbefugten Zugriff auf sensible Informationen.
@@ -50,7 +51,7 @@ verhindert unbefugten Zugriff auf sensible Informationen.
 
 \subsubsection{Technisch}
 \label{sec:Technisch}
-Die in Kapitel 1.2 besagte Cloud-Infrastruktur wird in vier \bzw mit Authelia in fünf 
+Die in Kapitel 1.2 besagte Cloud-Infrastruktur wird in vier  
 Hauptbereiche unterteilt, sodass in jedem dieser Bereiche verschiedene Services bzw. 
 Dienste zur Verfügung werden.
 \\\textit{Compliance and Security Stack}
@@ -58,23 +59,35 @@ Dienste zur Verfügung werden.
 den Nginx Proxy Manager, Guacamole Server und Infection Monkey zur Sicherheitsüberprüfung. 
 Zusammenfassend ist zu sagen, dass der Nginx Proxy Manager als Reverse Proxy fungiert und den HTTP-Verkehr 
 umleitet und andere Ports für Streaming-Anforderungen bedient. Das Open-Source-Sicherheitstesttool 
-Infection Monkey überprüft die Sicherheit der Infrastruktur.
+Infection Monkey überprüft die Sicherheit der Infrastruktur. Mit Authelia, als Freeware, wodurch eine wichtige 
+Schnittstelle für die Benutzerauthenfizierung und -autorisierung bereitgestellt wird, können von verschiedenen 
+Anwendungen über Docker-Container Authentifizierungsmechanismen eingerichtet werden.
 \\\textit{Monitoring}
 % \begin{center}
 % 	\begin{minipage}{0.9\textwidth}
 % 	  This is a block of text that is indented from both sides, creating a centered block of text on the page. You can adjust the width by changing the value in the minipage environment.
 % 	\end{minipage}
 % \end{center}
-\\Im Überwachungsbereich werden alle vorhandenen Dienste mittels Docker-Containern der Cloud-Infrastruktur auditiert und beinhaltet dieser die Open-Source-Software Grafana zur Visualisierung und Überwachung von Leistungsdaten, Uptime Kuma als Webserver für Statusseiten und Healtchchecks, um die Verfügbarkeit der Dienste zu kontrollieren. 
+\\Im Überwachungsbereich werden alle vorhandenen Dienste mittels Docker-Containern der Cloud-Infrastruktur auditiert 
+und beinhaltet dieser die Open-Source-Software Grafana zur Visualisierung und Überwachung von Leistungsdaten, 
+Uptime Kuma als Webserver für Statusseiten und Healtchchecks, um die Verfügbarkeit der Dienste zu kontrollieren. 
 \\\textit{DevOps}
-\\Der Fokus dieses Bereiches liegt bei den Anwendungen in der Entwicklung und Bereitstellung dieser und enthält die kollaborationsplattform GitLab, um Projekte zu verwalten. Dabei werden diese Dienste mittels Docker-Containern hochgefahren. Nexus kommt als Verwaltungstool der Repositories für die Anwendungsabhängigkeiten zum Einsatz. Sonarqube ermöglicht die statische Analyse und Bewertung der Quelltextqualität. Zusätzlich wird SFTPgo verwendet, um sichere Authentifizierungsmethoden, wie zum Beispile öffentliche Schlüssel, SSH-Schlüssel und Passwörter zu verwalten.
+\\Der Fokus dieses Bereiches liegt bei den Anwendungen in der Entwicklung und Bereitstellung dieser und enthält die 
+kollaborationsplattform GitLab, um Projekte zu verwalten. Dabei werden diese Dienste mittels Docker-Containern hochgefahren. 
+Nexus kommt als Verwaltungstool der Repositories für die Anwendungsabhängigkeiten zum Einsatz. Sonarqube ermöglicht die 
+statische Analyse und Bewertung der Quelltextqualität. Zusätzlich wird SFTPGo verwendet, um sichere Authentifizierungsmethoden, 
+wie zum Beispiele SSH-Schlüssel und Passwörter zu verwalten.
 \\\textit{E-Mail-Kommunikation}
-\\In diesem Bereich werden Docker-Container eingesetzt, der den Mail-Server Mailcow verwendet, um E-Mail zu senden und zu empfangen, SOGO als Groupware-Lösung und ermöglich somit eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb und außerhalb der Organisation.
-\\\textit{Authelia}
-\\Authelia, als Freeware, stellt eine wichtige Schnittstelle für die Benutzerauthenfizierung und -autorisierung bereit und kann von verschiedenen Anwendungen über Docker-Container genutzt werden, um Authentifizierungsmechanismen einzurichten.
+\\In diesem Bereich werden Docker-Container eingesetzt, der den Mail-Server Mailcow verwendet, um E-Mail zu senden und 
+zu empfangen, SOGO als Groupware-Lösung und ermöglich somit eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb 
+und außerhalb der Organisation.
 \subsubsection{Organisatorisch}
 \label{sec:Organisatorisch}
-Nach der Implementierung Authelias in der Cloud-Umgebung erfolgen erste Tests und Validierungen in den erstellten Docker-Containers, um sicherzustellen, dass die MFA ordnungsgemäß funktioniert und den Sicherheitsanforderungen entspricht. Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall des Entwicklerteams, zur genauen Verwendung von Authelia mit MFA. Nach den Test und Schulungen wird die Authelia-MFA-Implementierung in der Cloud-Umgebung bereitgestellt und kann in die kontinuierliche Überwachung und Wartung der Docker-Container sichergestellt werden.
+Nach der Implementierung Authelias in der Cloud-Umgebung erfolgen erste Tests und Validierungen in den erstellten 
+Docker-Containers, um sicherzustellen, dass die MFA ordnungsgemäß funktioniert und den Sicherheitsanforderungen entspricht. 
+Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall des Entwicklerteams, zur genauen Verwendung von Authelia mit MFA. 
+Nach den Test und Schulungen wird die Authelia-MFA-Implementierung in der Cloud-Umgebung bereitgestellt und kann in die 
+kontinuierliche Überwachung und Wartung der Docker-Container sichergestellt werden.
 
 \subsubsection{Personell}
 \label{sec:Personell}
@@ -82,6 +95,10 @@ Das Projektteam besteht aus folgenden Personen:
 \begin{itemize}
 	\item Projektauftraggeber/ Director: Herr Dr. Volker Stroetmann
 	\item Projektleiter/ Manager/ Projektentwickler: Herr Edgar Johann Kapler
+	\item Projektentwickler/ Auszubildender: Herr Dmytro Datsiuk
+	\item Projektentwickler/ dualer Student: Herr Neo-Pascal Loest
+	\item Projektentwicklerin/ duale Studentin: Frau Martyna Mol 
+	\item Projektentwickler/ Auszubildender: Herr Angelo Juliano Vogt
 	\item Projektentwicklerin/ Auszubildende: Frau Melissa Futtig
 \end{itemize}
 Der Projektauftraggeber und -leiter sind die Verantwortlichen für die 

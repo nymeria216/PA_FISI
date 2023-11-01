@@ -32,13 +32,7 @@ ohne weiterer Schutzebene erfolgt.
 
 \subsubsection{Projektkosten}
 \label{sec:Projektkosten}
-\begin{itemize}
-	\item Welche Kosten fallen bei der Umsetzung des Projekts im Detail an (\zB Entwicklung, Einführung/Schulung, Wartung)?
-\end{itemize}
-
-\paragraph{Beispielrechnung (verkürzt)}
-Die Kosten für die Durchführung des Projekts setzen sich sowohl aus Personal-, als auch aus Ressourcenkosten zusammen.
-Laut Tarifvertrag verdient ein Auszubildender im dritten Lehrjahr pro Monat \eur{1400} Brutto. 
+Die Kosten für die Durchführung des Projekts setzen sich aus den Personal- und Ressourcenkosten zusammen.   
 
 \begin{eqnarray}
 	8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
@@ -46,32 +40,25 @@ Laut Tarifvertrag verdient ein Auszubildender im dritten Lehrjahr pro Monat \eur
 	\frac{\eur{16800} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{9,55}\mbox{/h}
 \end{eqnarray}
 
-Es ergibt sich also ein Stundenlohn von \eur{7,56}. 
-Die Durchführungszeit des Projekts beträgt 40 Stunden. Für die Nutzung von Ressourcen\footnote{Räumlichkeiten, Arbeitsplatzrechner etc.} wird 
-ein pauschaler Stundensatz von \eur{15} angenommen. Für die anderen Mitarbeiter wird pauschal ein Stundenlohn von \eur{25} angenommen. 
-Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung} und sie betragen insgesamt \eur{2739,20}.
+Daraus ergibt sich ein Stundenlohn von \eur{9,55}. 
+\\Die Durchführungszeit des Projekts beträgt 40 Stunden. 
+Dabei sind mögliche Ressourcen der Stromverbrauch, die zu verwendete Hardware und die Räumlichkeiten, sowie das Büromaterial, wie \zB der zu verwendete 
+Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) oder das Möbelar, was pauschal mit \eur{15} kalkuliert werden kann. 
+Das Brutto-Einkommen eines Auszubildenden im 3. Lehrjahr im Fachbereich Fachinformatik bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH 
+beträgt \eur{1400} pro Monat. 
+Für die weiteren Mitarbeiter wird pauschal ein Stundenlohn von \eur{35} angenommen. 
+Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung} und sie betragen insgesamt \eur{1394,68}.
 \tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
 
 
 \subsubsection{Amortisationsdauer}
 \label{sec:Amortisationsdauer}
-\begin{itemize}
-	\item Welche monetären Vorteile bietet das Projekt (\zB Einsparung von Lizenzkosten, Arbeitszeitersparnis, bessere Usability, Korrektheit)?
- \item Wann hat sich das Projekt amortisiert?
-\end{itemize}
-
-\paragraph{Beispielrechnung (verkürzt)}
-Bei einer Zeiteinsparung von 10 Minuten am Tag für jeden der 25 Anwender und 220 Arbeitstagen im Jahr ergibt sich eine gesamte Zeiteinsparung von 
-\begin{eqnarray}
-25 \cdot 220 \mbox{ Tage/Jahr} \cdot 10 \mbox{ min/Tag} = 55000 \mbox{ min/Jahr} \approx 917 \mbox{ h/Jahr} 
-\end{eqnarray}
-
-Dadurch ergibt sich eine jährliche Einsparung von 
-\begin{eqnarray}
-917 \mbox{h} \cdot \eur{(25 + 15)}{\mbox{/h}} = \eur{36680}
-\end{eqnarray}
-
-Die Amortisationszeit beträgt also $\frac{\eur{2739,20}}{\eur{36680}\mbox{/Jahr}} \approx 0,07 \mbox{ Jahre} \approx 4 \mbox{ Wochen}$.
+Die Amortisation beschleunigt sich durch die Verwendung von Docker, GitLab und Authelia, was die Einsparung von Lizenzkosten zur Folge hat. 
+Grund dafür ist, dass diese Plattformen eine Open-Source sind und kostenlos genutzt werden können, was zu einer Reduzierung der  
+Gesamtbetriebskosten (Total Cost of Ownerships (TCO)) führt. 
+Im Vergleich zu einigen kostenpflichtigen Virtualisierungslösungen, wie \zB Microsoft Hyper-V, können also Lizenzkosten eingespart werden. 
+Des Weiteren ermöglicht Docker eine Arbeitszeitersparnis durch die einfache Bereitstellung und Verwaltung von Diensten, was die Arbeitszeit für die 
+Einrichtung und Wartung von Umgebungen verkürzt.
 
 
 \subsection{Nutzwertanalyse}

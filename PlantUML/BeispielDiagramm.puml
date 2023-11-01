@@ -1,27 +1,35 @@
 @startuml
-'https://plantuml.com/class-diagram
-
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+left to right direction
+actor "Projektentwickler: in" as fc
+rectangle Cloud-Infrastruktur {
+  usecase "Firewall" as UC1
+  usecase "Login \nNginx Reverse Proxy" as UC2
+  UC2 ..> (Authelia) : <<include>>
+  (Authelia) <.. (Guacamole) : <<extends>>
+  (Authelia) <.. (Infection Monkey) : <<extends>>
+  (Authelia) <.. (Grafana) : <<extends>>
+  (Authelia) <.. (Uptime Kuma) : <<extends>>
+  (Authelia) <.. (Healthchecks) : <<extends>>
+  (Authelia) <.. (SFTPGo) : <<extends>>
+  (Authelia) <.. (Sonarqube) : <<extends><
+  (Authelia) <.. (GitLab) : <<extends>>
+  (Authelia) <.. (Mailcow) : <<extends>>
+  (Mailcow) ..> (SOGO) : <<includes>>
+  note "E-Mail Kommunikation" as N1
+  (Mailcow) .. N1
+  (SOGO) .. N1
+  note "DevOps" as N2
+  (GitLab) .. N2
+  (Sonarqube) .. N2
+  (SFTPGo) .. N2
+  note "Monitoring" as N3
+  (Healthchecks) .. N3
+  (Uptime Kuma) .. N3
+  (Grafana) .. N3
+  note "Compliance and Security" as N4
+  (Infection Monkey) .. N4
+  (Guacamole) .. N4
 }
-
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
-
+fc --> UC1
+fc --> UC2
 @enduml
