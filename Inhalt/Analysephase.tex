@@ -12,22 +12,41 @@ dass dieses Netzwerk privat ist und andere Services und Instanzen enthält, welc
 Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Usern die Möglichkeit geboten, 
 über die Kontrollinstanz ''control\_node'' die Instanzen hoch- und runterzufahren und die grundlegenden Einstellungen, wie 
 zum Beispiel Portzuweisungen, vorzunehmen. Die Graphical-User-Interface-User haben des Weiteren die Chance die Services über 
-den Reverse Proxy Manager zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, 
-ohne weiterer Schutzebene erfolgt.
+den Nginx Proxy Manager zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, 
+ohne einer weiteren Schutzebene erfolgt.
+
+\subsection{Soll-Analyse}
+\label{sec:SollAnalyse}
+Das Soll des Projektes ist es die Dienste mittels Authentik durch die MFA zu schützen. Dabei wird vor jedem Service 
+der Identiy-Provider Authentik vorgeschalten, sodass nicht nur MFA, sondern auch SSO passiert und die User automatisch 
+authentifiziert werden und das Schutzziel Authentizität erfüllt wird.
+\\Schlussfolgernd ist zu sagen, dass der Benutzer sich vor jeder Anmeldung bei einem Service sich erst bei Authentik 
+anmeldet, um auf den gewünschten Dienst zugreifen zu können.
 
 
 
 \subsection{Wirtschaftlichkeitsanalyse}
 \label{sec:Wirtschaftlichkeitsanalyse}
-
+Durch die schon vorhandene Cloud-Infrastruktur entstehen keine weiteren Kosten. Bedingt dessen, dass die 
+OVH-Cloud-Infrastruktur zu einem Fix-Preis pro Instanz gemietet wird und keine weiteren Instanzen für die Implementierung 
+des Tochter-Projektes erforderlich sind, bleiben die Kosten unverändert. An Ressourcen wird Speicher und mehr 
+Rechenleistung benötigt, welche auf der vorhandenen Instanz zur Verfügung stehen und die beiden Faktoren das Arbeiten 
+der Instanz nicht beeinträchtigen und resultierend daraus keine größere Instanz notwendig ist. Die wirklich zu entstehenden 
+Kosten sind ausschließlich Personal- und Materialkosten, wobei letztere aus der Nutzung des Büromöbelars zusammengefasst wird. 
+\\Durch die Einführung von MFA durch Authentik in der Cloud-Infrastruktur werden besonders die Schutzziele der 
+Einhaltung der Integrität und Vertraulichkeit der Daten auf den jeweiligen Diensten eingehalten. So wird die Sicherheit 
+erheblich verbessert und trägt dazu bei, unbefugten Zugriff, Datenverluste und Betrug zu verhindern. Dieser Schutz 
+vor Sicherheitsverletzungen kann erhebliche finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
+werden können. Des Weiteren erfolgen Kostenersparnisse in dem Punkt des Verhinderns der Passwort-Resets durch das Anfragen des 
+administrativen Supports, bei welchem Zeit und daraus Kosten entstehen, die vermieden werden können. Durch die Implementierung 
+kann den Nutzern ein sicherer und bequemerer Zugriff gewährleistet und die Kosten gesenkt werden.
 
 
 \subsubsection{\gqq{Make or Buy}-Entscheidung}
 \label{sec:MakeOrBuyEntscheidung}
-\begin{itemize}
-	\item Gibt es vielleicht schon ein fertiges Produkt, dass alle Anforderungen des Projekts abdeckt?
-	\item Wenn ja, wieso wird das Projekt trotzdem umgesetzt?
-\end{itemize}
+In der Entscheidungsmatrix für die Zielplattform aus dem Kapitel~\ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool}
+auf der Seite \pageref{sec:Authentifizierungs-Tool} sind einige alternative Produkte sichtbar, welche wie Authentik, 
+implementiert werden müssen.
 
 
 \subsubsection{Projektkosten}
@@ -40,21 +59,23 @@ Die Kosten für die Durchführung des Projekts setzen sich aus den Personal- und
 	\frac{\eur{16800} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{9,55}\mbox{/h}
 \end{eqnarray}
 
-Daraus ergibt sich ein Stundenlohn von \eur{9,55}. 
+Anhand der oben genannten Formel ergibt sich ein Stundenlohn von \eur{9,55}. 
 \\Die Durchführungszeit des Projekts beträgt 40 Stunden. 
-Dabei sind mögliche Ressourcen der Stromverbrauch, die zu verwendete Hardware und die Räumlichkeiten, sowie das Büromaterial, wie \zB der zu verwendete 
-Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) oder das Möbelar, was pauschal mit \eur{15} kalkuliert werden kann. 
+Dabei sind mögliche Ressourcen, wie der Stromverbrauch, die zu verwendende Hardware und die Räumlichkeiten, sowie das Büromaterial, 
+wie \zB der zu nutzende Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) oder das Möbelar, was pauschal mit \eur{15,00} kalkuliert werden kann. 
 Das Brutto-Einkommen eines Auszubildenden im 3. Lehrjahr im Fachbereich Fachinformatik bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH 
-beträgt \eur{1400} pro Monat. 
-Für die weiteren Mitarbeiter wird pauschal ein Stundenlohn von \eur{35} angenommen. 
-Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung} und sie betragen insgesamt \eur{1394,68}.
+beträgt \eur{1400,00} pro Monat. 
+Für die weiteren Mitarbeiter werden pauschale Beträge zur Berechnung des Stundensatzes genutzt, aus den Gründen, dass die 
+Deloitte Wirtschaftsprüfungsgesellschaft GmbH die Kosten pro Stunde nicht preisgeben möchte. Duale Studenten werden pauschal mit 
+\eur{15,00}, während die Manager mit \eur{50,00} pro Stunde berechnet werden. Bei jeweils beiden addiert sich die Summe der 
+Ressourcenkosten auf. Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung} betragen \eur{1228,78}.
 \tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
 
 
 \subsubsection{Amortisationsdauer}
 \label{sec:Amortisationsdauer}
-Die Amortisation beschleunigt sich durch die Verwendung von Docker, GitLab und Authelia, was die Einsparung von Lizenzkosten zur Folge hat. 
-Grund dafür ist, dass diese Plattformen eine Open-Source sind und kostenlos genutzt werden können, was zu einer Reduzierung der  
+Die Amortisation beschleunigt sich durch die Verwendung von Docker, GitLab und Authentik, was die Einsparung von Lizenzkosten zur Folge hat. 
+Grund dafür ist, dass diese Plattformen Open-Source sind und kostenlos genutzt werden können, was zu einer Reduzierung der  
 Gesamtbetriebskosten (Total Cost of Ownerships (TCO)) führt. 
 Im Vergleich zu einigen kostenpflichtigen Virtualisierungslösungen, wie \zB Microsoft Hyper-V, können also Lizenzkosten eingespart werden. 
 Des Weiteren ermöglicht Docker eine Arbeitszeitersparnis durch die einfache Bereitstellung und Verwaltung von Diensten, was die Arbeitszeit für die 
@@ -63,24 +84,27 @@ Einrichtung und Wartung von Umgebungen verkürzt.
 
 \subsection{Nicht-monetärer Nutzen}
 \label{sec:Nicht-monetärer Nutzen}
-Für das Projekt werden die drei Optionen, MFA-SSO, Authelia und Sitecar, zur Implementierung in Erwägung gezogen. Wobei mittels einer 
-Nutzwertanalyse, welche im Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign} zu sehen ist, der Sachverhalt durch 
-eine Entscheidungsmatrix dargestellt wird.
+Für das Projekt werden die Produkte Authelia, Authentik, Microsoft Azure AD und Sitecar, zur Implementierung in Erwägung gezogen. 
+Wobei mittels einer Nutzwertanalyse, welche im Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign} zu sehen ist, der 
+Sachverhalt durch eine Entscheidungsmatrix dargestellt wird.
 \\Da die Ergebnisse der Wirtschaftlichkeitsanalyse bereits eine ausreichende Begründung für die Umsetzung des Projekts bieten, 
 ist es an dieser Stelle nicht notwendig, eine eingehende Untersuchung der nicht-monetären Vorteile vorzunehmen.
 \\Ohne der Einführung eines Authentifizierungs-Tools wird die Sicherheit der angebotenen Dienste nicht geboten und das Risiko des 
-Datenverlustes gewährleistet. Um das Risiko auszulöschen, soll durch die Nutzwertanalyse ein Ergebnis und die Entscheidungsfindung 
+Datenverlustes gewährleistet. Um das Risiko zu minimieren, soll durch die Nutzwertanalyse ein Ergebnis und die Entscheidungsfindung 
 der jeweiligen Authentifizierungsmethode erleichtert werden.
 
 
 \subsection{Anwendungsfälle}
 \label{sec:Anwendungsfaelle}
 Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \Anhang{app:UseCase}.
-In diesem interagiert aus der Sicht eines Projektentwicklers, dieser als Akteur mit dem System, in welchem verschiedene 
-Anwendungsfälle existieren. Der Akteur hat direkten Zugriff auf die Firewall und den Nginx Reverse Proxy Manager. Der Zugriff 
-über dieFirewall erfolgt verbindlich mit Authelia, während beim NGinx Reverse Proxy Manager der Akteur sich erst dort anmeldet und im 
-Anschluss 
-hat das Bedürfnis sich am Nginx 
-Reverse Proxy Manager einzuloggen und bevor dieser die Möglichkeit erhält, muss er sich mit Authelia authentifizieren. Nach der 
-Authentifizierung ist dieser eingeloggt und kann über den NPM auf die verschiedenen Dienste zugreifen, ohne sich erneut via 
-Authelia anmelden zu müssen.
+In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
+Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
+Nach der erfolgreicher Anmeldung mit der MFA hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
+Nginx Reverse Proxy Manager aus zuzugreifen.
+\\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
+integrierten Außenposten (Embedded oupost) besteht. Einkommende Anfragen an den Server-Containern werden an den Authentik Server Core 
+or dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den großteil der Logik von Authentik, wie \zB API- und/oder 
+SSO-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
+eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
+oder Benachrichtigen von Ereignisses und alles, was im Frontend sichtbar ist. Authentik nutzt PostgreSQL, um alle seiner 
+Konfigurationen und Daten zu speichern. Redis wird als Message-Queue und Cache verwendet.
