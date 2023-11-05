@@ -1,3 +1,4 @@
+
 % !TEX root = ../Projektdokumentation.tex
 \section{Einleitung}
 \label{sec:Einleitung}
@@ -8,42 +9,39 @@
 Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH ist ein internationales 
 Unternehmen für Wirtschaftsprüfung, Steuer-, Unternehmens-, Risiko- und Finanzberatung.
 Die Deloitte hat Niederlassungen in vielen Ländern, darunter auch Deutschland. 
-Mit Vertreter:innen in über 150 Ländern weltweit und 415.000 Mitarbeiter:innen bietet das Unternehmen eine breite Palette 
+Mit Vertreter: innen in über 150 Ländern weltweit und 415.000 Mitarbeiter: innen bietet das Unternehmen eine breite Palette 
 von Dienstleistungen für Unternehmen und Organisationen in verschiedenen Branchen.
 Im B\&TCL, auch dem Business \& Technology Center Leipzig, erbringt die Deloitte
-GmbH mit ihren 100 Mitarbeiter:innen eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
+GmbH mit ihren 100 Mitarbeiter: innen eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
 Transformationsprojekte rund um die Themen Cyber Security, Digitalisierung,
 Prozessoptimierung oder Automatisierung voran.
-\\In dem Projekt arbeiten interne Mitarbeiter:innen aktiv mit, um die Entwicklung des
+\\Das Projekt ist ein Tochterprojekt eines größeren und beinhaltet die Implementierung eines Teilfeatures, was zur 
+Verbesserung des Gesamtprojektes führt. In diesem arbeiten interne Mitarbeiter: innen aktiv mit, um die Entwicklung des
 Projektes voranzutreiben. Dabei stellen diese die Zielgruppe dar.
 
 
 \subsection{Projektziel} 
 \label{sec:Projektziel}
-Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastruktur
-von OVHCloud, um einen Business Hosting Service bereitzustellen. 
-\\Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste 
-innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
-Multi-Faktor-Authentifizierung (MFA) eingeführt wird. 
-Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
-Daten gewährleistet werden, indem nur eine Anmeldung mit MFA möglich ist und resultierend Risiken, 
-wie Passwork-Leaks und Phishing vermieden werden können.
-Um das Ziel zu erreichen wird Authelia für die Implementierung von MFA auf verschiedene Services 
-in der Cloud-Infrastruktur eingeführt. 
-Dabei ist Authelia eine Identity- und Access-Managment-Lösung (IAM), die den Zugriff auf 
-verschiedene Dienste und Ressourcen in der Cloud-Infrastruktur verwalten und sichern soll. 
+Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastrukturvon OVHCloud, um einen Business 
+Hosting Service bereitzustellen. 
+\\Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
+Multi-Faktor-Authentifizierung (MFA) eingeführt wird. Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
+Daten gewährleistet werden, indem nur eine Anmeldung mit MFA möglich ist und resultierend daraus Risiken, wie Passwork-Leaks 
+und Phishing vermieden werden können.
+Um das Ziel zu erreichen wird Authentik für die Implementierung von MFA auf verschiedene Services in der 
+Cloud-Infrastruktur eingeführt. 
+Dabei ist Authentik ein Open-Source-Identitätsanbieter (Identity Provider), der den Zugriff auf verschiedene Dienste und 
+Ressourcen in der Cloud-Infrastruktur verwalten und sichern soll und legt den Fokus auf die Flexibilität und Vielseitigkeit. 
 
 
 \subsection{Projektbegründung} 
 \label{sec:Projektbegruendung}
-Die Einführung der MFA erhöht die Sicherheit und stellt sicher, dass der Zugriff 
-auf Dienste und Daten der Cloud-Infrastruktur nicht allein durch ein gestohlenes
-Passwort gefährdet sind.
-Benutzer müssen zusätzlich zur Eingabe des Passworts einen weiteren Authentifizierungsfaktor, 
-wie zum Beispiel ein Einmalpasswort, bereitstellen, was die Sicherheit erheblich erhöht. 
-Dabei werden nicht nur firmeninterne und kundenbezogene Daten geschützt, sondern auch 
-unsere Kundenzufriedenheit und das Vertrauen erhöht. Dies hat hohe Priorität und 
-verhindert unbefugten Zugriff auf sensible Informationen.
+Die Implementierung der MFA steigert die Sicherheit und gewährleistet, dass der Zugang zu Diensten und Daten in der 
+Cloud-Infrastruktur nicht allein durch den Diebstahl eines Passworts gefährdet ist. Benutzer müssen zusätzlich zur Eingabe des 
+Nutzernamens und Passworts einen weiteren Authentifizierungsfaktor, wie zum Beispiel ein Einmalpasswort, bereitstellen, 
+was die Sicherheit erheblich erhöht. Dabei werden nicht nur firmeninterne und kundenbezogene Daten geschützt, sondern auch 
+die Kundenzufriedenheit und das Vertrauen gegenüber der zukünftigen Kunden erhöht. Dies hat hohe Priorität und verhindert 
+unbefugten Zugriff auf sensible Informationen.
 
 
 \subsection{Projektschnittstellen} 
@@ -56,12 +54,15 @@ Hauptbereiche unterteilt, sodass in jedem dieser Bereiche verschiedene Services 
 Dienste zur Verfügung werden.
 \\\textit{Compliance and Security Stack}
 \\Dieser Bereich umfasst den Einsatz von Docker-Containern für Dienste, wie die OPNsense Firewall, 
-den Nginx Proxy Manager, Guacamole Server und Infection Monkey zur Sicherheitsüberprüfung. 
+den Nginx Proxy Manager, dem Authentik- und Guacamole Server und Infection Monkey zur Sicherheitsüberprüfung. 
 Zusammenfassend ist zu sagen, dass der Nginx Proxy Manager als Reverse Proxy fungiert und den HTTP-Verkehr 
-umleitet und andere Ports für Streaming-Anforderungen bedient. Das Open-Source-Sicherheitstesttool 
-Infection Monkey überprüft die Sicherheit der Infrastruktur. Mit Authelia, als Freeware, wodurch eine wichtige 
-Schnittstelle für die Benutzerauthenfizierung und -autorisierung bereitgestellt wird, können von verschiedenen 
-Anwendungen über Docker-Container Authentifizierungsmechanismen eingerichtet werden.
+umleitet und andere Ports für Streaming-Anforderungen bedient. Der Guacamole Server dient als Proxy-Server 
+und ermöglicht den Zugriff auf interne Dienste, die normalerweise nicht über eine Web-Schnittstelle erreichbar sind.
+Das Open-Source-Sicherheitstesttool Infection Monkey überprüft die Sicherheit der Infrastruktur. 
+Mit dem Identity Provider Authentik, werden verschiedene Identitäts- und Authentifizierungsmethoden in 
+Anwendungen und Diensten ermöglicht zu integrieren. Dadurch wird eine wichtige Schnittstelle für die 
+Benutzerauthenfizierung und -autorisierung bereitgestellt und kann von verschiedenen Anwendungen über 
+Docker-Container Authentifizierungsmechanismen einrichten.
 \\\textit{Monitoring}
 % \begin{center}
 % 	\begin{minipage}{0.9\textwidth}
@@ -69,25 +70,25 @@ Anwendungen über Docker-Container Authentifizierungsmechanismen eingerichtet we
 % 	\end{minipage}
 % \end{center}
 \\Im Überwachungsbereich werden alle vorhandenen Dienste mittels Docker-Containern der Cloud-Infrastruktur auditiert 
-und beinhaltet dieser die Open-Source-Software Grafana zur Visualisierung und Überwachung von Leistungsdaten, 
+und beinhaltet dieser die Open-Source-Software Grafana zur Visualisierung und Überwachung von Leistungsdaten, sowie 
 Uptime Kuma als Webserver für Statusseiten und Healtchchecks, um die Verfügbarkeit der Dienste zu kontrollieren. 
 \\\textit{DevOps}
-\\Der Fokus dieses Bereiches liegt bei den Anwendungen in der Entwicklung und Bereitstellung dieser und enthält die 
-kollaborationsplattform GitLab, um Projekte zu verwalten. Dabei werden diese Dienste mittels Docker-Containern hochgefahren. 
+\\Der Fokus diesen Bereiches liegt bei den Anwendungen in der Entwicklung und Bereitstellung und enthält die 
+Kollaborationsplattform GitLab, um Projekte zu verwalten. Dabei werden diese Dienste mittels Docker-Containern hochgefahren. 
 Nexus kommt als Verwaltungstool der Repositories für die Anwendungsabhängigkeiten zum Einsatz. Sonarqube ermöglicht die 
 statische Analyse und Bewertung der Quelltextqualität. Zusätzlich wird SFTPGo verwendet, um sichere Authentifizierungsmethoden, 
 wie zum Beispiele SSH-Schlüssel und Passwörter zu verwalten.
 \\\textit{E-Mail-Kommunikation}
-\\In diesem Bereich werden Docker-Container eingesetzt, der den Mail-Server Mailcow verwendet, um E-Mail zu senden und 
-zu empfangen, SOGO als Groupware-Lösung und ermöglich somit eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb 
+\\In diesem Bereich werden Docker-Container eingesetzt, der den Mail-Server Mailcow hochfährt, um E-Mails zu senden und 
+zu empfangen, SOGO als Groupware-Lösung und ermöglich dadurch eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb 
 und außerhalb der Organisation.
 \subsubsection{Organisatorisch}
 \label{sec:Organisatorisch}
-Nach der Implementierung Authelias in der Cloud-Umgebung erfolgen erste Tests und Validierungen in den erstellten 
-Docker-Containers, um sicherzustellen, dass die MFA ordnungsgemäß funktioniert und den Sicherheitsanforderungen entspricht. 
-Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall des Entwicklerteams, zur genauen Verwendung von Authelia mit MFA. 
-Nach den Test und Schulungen wird die Authelia-MFA-Implementierung in der Cloud-Umgebung bereitgestellt und kann in die 
-kontinuierliche Überwachung und Wartung der Docker-Container sichergestellt werden.
+Nach der Implementierung Authentiks in der Cloud-Umgebung, erfolgen erste Tests und Validierungen in den erstellten 
+Docker-Containern via 'docker-compose.yml-Dateien', um sicherzustellen, dass die MFA ordnungsgemäß funktioniert und den 
+Sicherheitsanforderungen entspricht. 
+Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall das Entwicklerteam, zur genauen Verwendung von Authentik mit MFA. 
+Nach den Tests und der Schulungen wird die Authentik-MFA-Implementierung in der Cloud-Umgebung bereitgestellt.
 
 \subsubsection{Personell}
 \label{sec:Personell}
@@ -101,9 +102,8 @@ Das Projektteam besteht aus folgenden Personen:
 	\item Projektentwickler/ Auszubildender: Herr Angelo Juliano Vogt
 	\item Projektentwicklerin/ Auszubildende: Frau Melissa Futtig
 \end{itemize}
-Der Projektauftraggeber und -leiter sind die Verantwortlichen für die 
-Projektleitung und -finanzierung. Sie genehmigen das Projekt und stellen 
-die notwenidgen Ressourcen brereit.
-\\Die Projektentwickler: innen sind die allgemeinen Benutzer und das Entwicklerteam, die 
-für die Umsetzung und den reibungslosen Betrieb der Cloud-Infrastruktur verantwortlich 
-und benötigen sichere Zugriffsmöglichkeiten zu den bereitgestellten Anwendungen.
+Der Projektauftraggeber und -leiter sind die Verantwortlichen für die Projektleitung und -finanzierung des Projektes. 
+Sie genehmigen dieses und stellen die notwendigen Ressourcen zur Entwicklung bereit.
+\\Die Projektentwickler: innen sind die allgemeinen Benutzer und das Entwicklerteam. Sie sind für die Umsetzung und den 
+reibungslosen Betrieb der Cloud-Infrastruktur verantwortlich und benötigen sichere Zugriffsmöglichkeiten zu den 
+bereitgestellten Anwendungen.
