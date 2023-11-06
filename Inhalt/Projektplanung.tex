@@ -1,0 +1,64 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Projektplanung} 
+\label{sec:Projektplanung}
+
+
+\subsection{Projektphasen}
+\label{sec:Projektphasen}
+
+Das Projekt findet in zwei Wochen mit vier Stunden Arbeitszeit pro Tag statt, sodass Pufferzeit und 
+Krankheit eingerechnet werden können.
+\\Die im Projektantrag festgelegten Projektphasen lassen sich chronologisch in die 5-stündige Planungsphase, 
+die 16-stündige Implementierungsphase, die 6-stündige Testphase, die 4-stündige Phase einteilen, in der die 
+Einführung und Übergabe erfolgt und die 7-stündige Dokumentation mit der 2-stündigen Pufferzeit im Anschluss.
+Dabei änderte sich die Zeit in der Implementierungsphase von 14 auf 16 Stunden, die Zeit in der 
+Dokumentation von 6 auf 7 Stunden und die Pufferzeit von 2 Stunden, welche hinzugefügt wurde, um zeitliche Konflikte mit 
+den anderen Phasen zu vermeiden.
+
+Tabelle~\ref{tab:Zeitplanung} zeigt ein Beispiel für eine grobe Zeitplanung.
+\tabelle{Zeitplanung}{tab:Zeitplanung}{ZeitplanungKurz}\\
+Eine detailliertere Zeitplanung findet sich im \Anhang{app:Zeitplanung}.
+
+
+\subsection{Abweichungen vom Projektantrag}
+\label{sec:AbweichungenProjektantrag}
+
+Die im Projektantrag mit ''in Auflage genehmigten'' Inhalte, erfordern Änderungen in der Projektdokumentation.
+\\Die ursprüngliche Zeitplanung von 35 Stunden streckt sich auf 40 Stunden.
+\\Im Anschluss passieren Änderungen in der Zeitplanung, im Schritt der Planungsphase, in welcher der Punkt ''Klärung der 
+Projektziele'' in den Start dieser Phase geschoben wird.
+\\Des Weiteren erfolgt in der Zeitplanung, der Dokumentation, in welchem geplant keine Entwicklerdokumentation 
+stattfindet, sondern gewünscht eine Benutzerdokumentation.
+\\Die technische Umsetzung von Sitecars sollte sich in der Implementierungsphase nach der Auswahl einer MFA-Lösung 
+ereignen, was bedingt der Nutzwertanalyse auf der Seite \pageref{sec:Authentifizierungs-Tool} im Kapitel~\ref{sec:Entwurfsphase}: \nameref{sec:Authentifizierungs-Tool} 
+auf Authentik änderte.
+
+
+\subsection{Ressourcenplanung}
+\label{sec:Ressourcenplanung}
+
+\subsubsection{Sachmittelplanung}
+\label{sec:Sachmittelplanung}
+Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
+\begin{itemize}
+	\item Notebook - Lenovo ThinkPad T15 Gen 1 (für die Entwicklung)
+	\item Betriebssystem - Microsoft Windows 10 Enterprise auf dem Lenovo-Notebook
+	\item IDE - Visual Studio Code 1.83.1 (user setup)
+	\item Docker-Containerisierung auf der OVHCloud-Infrastruktur in einer Linux-Umgebung
+	\item OVHCloud-Instanz - firewall\_instance\_dev (flavor name: b2-7)
+	\item OVHCloud-Instanz - tal\_cloud\_infra (flavor name: r2-60)
+	\item OVHCloud-Instanz - rev\_prox-dev (flavor name: b2-15)
+\end{itemize}
+
+\subsubsection{Personalplanung}
+\label{sec:Personalplanung}
+% \paragraph{Tabelle}
+Tabelle~\ref{tab:Personalplanung} zeigt die Personalplanung des Projektes.
+\tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung.tex}
+
+\subsection{Entwicklungsprozess}
+\label{sec:Entwicklungsprozess}
+Das Projekt unterteilt sich in einem überschaubaren, zeitlich und inhaltlich begrenzten Entwicklungsprozess 
+mit einzelnene begrenzten Phasen, die nach- und voneinander aufbauen. So wird eine Sicherstellung der Schritt 
+für Schritt-Beendingung der jeweiligen Phasen und Übersicht gewährleistet. Bedingt dessen, dass in diesem Projekt 
+wenig Projektteilnehmer: innen zur Verfügung stehen, kann auf die agile Methodik verzichtet werden.
