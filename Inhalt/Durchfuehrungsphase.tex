@@ -22,14 +22,19 @@ installiert und eingerichtet werden.
 \label{sec:Auswahl einer MFA-Lösung}
 Bei Authentik werden die drei Optionen \textbf{WebAuthn Authenticator Setup Stage}, \textbf{Static Authenticator Stage} und 
 \textbf{\acs{TOTP} Authenticator Setup Stage} angeboten. 
-\\ Das Ergebnis der Tabelle \ref*{tab:Nutzwertanalyse} \nameref{tab:Nutzwertanalyse} 
+\\Das Ergebnis der Tabelle \ref*{tab:Nutzwertanalyse} \nameref{tab:Nutzwertanalyse} ist nicht eindeutig zuordbar, bedingt dessen, dass 
+die Optionen WebAuthn Authenticator Setup Stage und \acs{TOTP} Authenticator Setup Stage um 0,05 Wertungspunkte auseinander liegen und 
+die Entscheidung des finalen Ergebnisses nicht anhand der \nameref{tab:Nutzwertanalyse} manifestierend festzulegen ist.
 \tabelle{Nutzwertanalyse zur MFA-Lösung}{tab:Nutzwertanalyse}{Nutzwertanalyse_MFA.tex}
-% Bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH wird das \acs{TOTP}-Verfahren (Eingabe eines Einmalpassworts) empfohlen. 
-% Zu Beginn geben, in dem Fall des Projektes, die Entwickler :innnen das Passwort und den Nutzernamen ein. 
-% Bei einer erfolgreichen Eingabe haben die Entwickler: innen die Möglichkeit sich weiter über den zeitbasierten Einmalcode, generiert im Microsoft 
-% Authenticator, einzugeben. Vorteilhaft ist der schon vorhandene Authenticator, welcher nicht zusätzlich installiert und konfiguriert 
-% werden muss. Da jede zu benutzende Person bei der Deloitte das Firmentelefon den Microsoft Authenticator schon vorinstalliert 
-% bei der Einstellung dieser erhält, entfällt die Konfiguration, sodass nur noch der QR-Code des jeweiligen Dienstes gescannt werden muss.
+\\Die Entscheidungstreffung erfolgte besonders auf der Prämisse, dass die Deloitte Wirtschaftsprüfungsgesellschaft GmbH das \acs{TOTP}-Verfahren, 
+quasi die Eingabe eines Einmalpassworts durch einen Authenticator, wie das iPhone 12, gestellt durch die Deloitte, bei allen zur Verfügung 
+stehenden Services verwendet. So fiel die Entscheidung auf das \textbf{\acs{TOTP}-Verfahren}, was hingegen zum WebAuth Authenticator 
+Setup Stage weniger Sicherheit aber weniger Implementierungsaufwand erfordert und kein weiteres Gerät oder eine weitere Datei oder Software 
+notwendig ist, um die in der zu entstehenden hardwarebasierten Token zu verwalten. In dem \acs{TOTP} Authenticator Setup Stage geben die 
+Entwickler :innen alle zu Beginn ihren Nutzernamen und das zugehörige Passwort ein. Nach einer erfolgreichen Anmeldung, werden die 
+Entwickler :innen weitergeleitet, um ihren 6-stelligen Zahlencode, der in dem Microsoft Authenticator für 30 Sekunden sichtbar ist, einzugeben. 
+Wenn die Entwicker :innen sich noch nicht über Authentik angemeldet hatten, werden diese nach der Anmeldung mit einem QR-Code gepromptet und 
+daraufhin aufgefordert den 6-stelligen Code einzugeben.
 
 
 \subsection{Erstellung der docker-compose.yml, .env}
