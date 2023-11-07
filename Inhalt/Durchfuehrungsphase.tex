@@ -2,26 +2,56 @@
 \section{Projektdurchführung} 
 \label{sec:Projektdurchführung}
 
-Hinweis: Wie in Kapitel~\ref{sec:Einleitung}: \nameref{sec:Einleitung} zitiert, 
-wird nicht ein lauffähiges Programm bewertet, sondern die Projektdurchführung. 
-Dennoch würde ich immer Quelltextausschnitte zeigen, da sonst Zweifel an der 
-tatsächlichen Leistung des Prüflings aufkommen können.
-
 \subsection{Vorbereitung der Entwicklungsumgebung}
-\label{Vorbereitung der Entwicklungsumgebung}
+\label{sec:Vorbereitung der Entwicklungsumgebung}
+Die Voraussetzung zur Implementierung von Authentik ist, dass Docker und Docker Compose auf dem im Kapitel \ref{sec:Sachmittelplanung} 
+\nameref{sec:Sachmittelplanung} erwähnten Notebook vorinstalliert sind und einen Zugang zum Internet verfügen. Des Weiteren sollten die zu 
+benötigenden Hard- und Softwarekomponenten, welche ebenfalls in der \nameref{sec:Sachmittelplanung} auf der Seit \pageref{sec:Sachmittelplanung} 
+gelistet sind, funktionierend sein. Wichtig für die Durchführung ist nicht nur Docker mit dem Notebook selbst, sondern auch der 
+Besitz einer Domain oder Subdomain, welche bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH, die \textbf{tal.deloitte.de} ist. 
+Diese muss entweder mit einem A- oder CNAME-Record versehen sein. Um die Domain-Names übersichtlich verwalten zu können, 
+empfiehlt sich ein Reverse Proxy, in diesem Fall wird es auf den NGinx Proxy Manager zurückzuführen sein. Und zu guter letzt einen SMTP 
+E-Mail Server zur beispielsweise Zurücksetzung eines Passworts. Für das Testen der kommenden Schritte im Kapitel 
+\ref{sec:Konfiguration des zweiten Faktors} \nameref{sec:Konfiguration des zweiten Faktors} ab der Seite 
+\pageref{sec:Konfiguration des zweiten Faktors} wird das iPhone 12, erwähnt in der \nameref{sec:Sachmittelplanung}, verwendet. 
+Dieses mobile Endgerät ist ein Firmentelefon und beinhaltet zusätzlich den Microsoft Authenticator, um sich 
+gewissermaßen remote mit dem VPN des Firmennetzwerkes verbinden zu können. Aus diesem Grund muss kein weiteres Active Directory 
+installiert und eingerichtet werden.
 
 \subsection{Auswahl einer MFA-Lösung}
-\label{Auswahl einer MFA-Lösung}
+\label{sec:Auswahl einer MFA-Lösung}
+Bei Authentik werden die drei Optionen \textbf{WebAuthn Authenticator Setup Stage}, \textbf{Static Authenticator Stage} und 
+\textbf{\acs{TOTP} Authenticator Setup Stage} angeboten. 
+\\ Das Ergebnis der Tabelle \ref*{tab:Nutzwertanalyse} \nameref{tab:Nutzwertanalyse} 
+\tabelle{Nutzwertanalyse zur MFA-Lösung}{tab:Nutzwertanalyse}{Nutzwertanalyse_MFA.tex}
+% Bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH wird das \acs{TOTP}-Verfahren (Eingabe eines Einmalpassworts) empfohlen. 
+% Zu Beginn geben, in dem Fall des Projektes, die Entwickler :innnen das Passwort und den Nutzernamen ein. 
+% Bei einer erfolgreichen Eingabe haben die Entwickler: innen die Möglichkeit sich weiter über den zeitbasierten Einmalcode, generiert im Microsoft 
+% Authenticator, einzugeben. Vorteilhaft ist der schon vorhandene Authenticator, welcher nicht zusätzlich installiert und konfiguriert 
+% werden muss. Da jede zu benutzende Person bei der Deloitte das Firmentelefon den Microsoft Authenticator schon vorinstalliert 
+% bei der Einstellung dieser erhält, entfällt die Konfiguration, sodass nur noch der QR-Code des jeweiligen Dienstes gescannt werden muss.
 
-\subsubsection{Erstellung der docker-compose.yml, .env}
-\label{Erstellung der docker-compose.yml, .env}
 
+\subsection{Erstellung der docker-compose.yml, .env}
+\label{sec:Erstellung der docker-compose.yml, .env}
+Um Authentik über eine ''\nameref{app:docker-compose.yml}''-Datei im \nameref{sec:Anhang} des Kapitels \ref{app:docker-compose.yml} 
+zum Laufen zu bringen, ist es erforderlich, dass nicht nur der Authelia-Server, sondern auch der Authelia-Worker, 
+Redis und PostgreSQL gleichzeitig erstellt werden. PostgreSQL ist eine objektrelationale Datenbank und unterstützt 
+die Erweiter- und Skalierbarkeit der Cloud-Infrastruktur. Redis hingegen ist ein In-Memory-Datenspeicher, der als 
+schneller Datenspeicher dient. Die ''\nameref{app:dotenv}''-Datei im Kapitel \ref{app:dotenv} \nameref{app:dotenv} 
+enthält die individuellen Umgebungsvariablen für die Zugangsdaten der Nutzer: innen. 
+\\Beide Dateien werden in einem Ordner ''Authentik'' auf der Instanz \textbf{''tal\_cloud\_infra''} durch docker erstellt.
 
 \subsection{Installation und Konfiguration von Authentik}
-\label{Installation und Konfiguration von Authentik}
+\label{sec:Installation und Konfiguration von Authentik}
+% Nachdem Authentik in einem Docker-Container läuft, erfolgt nun der Zugriff über den Nginx. Dabei wird vor dem Zugriff 
+% eine Demonstrations-Domain auf dem Nginx Proxy Manager erstellt, die Authentik vorerst darstellen soll. 
+% So wird verhindert, dass bei einer Konfiguration von Authentik, kein Service kaputt gehen kann und aufgrund dessen der 
+% Service geschützt bleibt.
+
 
 \subsection{Integration mit Cloud-Diensten}
-\label{Integration mit Cloud-Diensten}
+\label{sec:Integration mit Cloud-Diensten}
 
 \subsection{Konfiguration des zweiten Faktors}
-\label{Konfiguration des zweiten Faktors}
+\label{sec:Konfiguration des zweiten Faktors}

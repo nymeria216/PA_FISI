@@ -82,6 +82,14 @@ wie zum Beispiele SSH-Schlüssel und Passwörter zu verwalten.
 \\In diesem Bereich werden Docker-Container eingesetzt, der den Mail-Server Mailcow hochfährt, um E-Mails zu senden und 
 zu empfangen, SOGO als Groupware-Lösung und ermöglich dadurch eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb 
 und außerhalb der Organisation.
+Insgesamt werden für die Infrastruktur und dieses Projekt drei Instanzen verwendet. Zum Einen ist es die \textbf{''control\_node''} 
+als eine Instanz, auf welcher sich zu Beginn die Benutzer :innen verbinden, woraufhin die folgende Verbindung auf die nächste Instanz, 
+entweder der auf den \textbf{''rev\_prox\_dev''} oder der \textbf{''tal\_cloud\_infra''} über SSH passiert. Dabei befinden 
+sich alle Services in den oben genannten Bereichen auf der \textbf{''tal\_cloud\_infra''} außer 
+der Nginx Proxy, der auf dem \textbf{''rev\_prox\_dev''} lokalisiert ist. Eine Vorschau der Cloud-Infrastruktur befindet 
+sich im \nameref{sec:Anhang} im Kapitel \ref{app:Cloud-Infrastruktur} in der \nameref{app:Cloud-Infrastruktur} auf der Seite 
+\pageref{app:Cloud-Infrastruktur}.
+
 \subsubsection{Organisatorisch}
 \label{sec:Organisatorisch}
 Nach der Implementierung Authentiks in der Cloud-Umgebung, erfolgen erste Tests und Validierungen in den erstellten 
