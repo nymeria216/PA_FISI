@@ -47,18 +47,23 @@ schneller Datenspeicher dient. Die ''\nameref{app:dotenv}''-Datei im Kapitel \re
 enthält die individuellen Umgebungsvariablen für die Zugangsdaten der Nutzer :innen. 
 \\Beide Dateien werden in einem Ordner ''Authentik'' auf der Instanz \textbf{''tal\_cloud\_infra''} durch docker erstellt. 
 Eine Darstellung der Instanzen befindet sich im Kapitel \ref{app:Cloud-Infrastruktur} \nameref{app:Cloud-Infrastruktur}  auf der Seite 
-\pageref{app:Cloud-Infrastruktur}.
-\\Die ''\nameref{app:docker-compose.yml}''-Datei wurde über Composerize, einer Applikation aus dem Internet entnommen, welche öffentlich 
-zugänglich ist. Auch die ''\nameref{app:dotenv}''-Datei ist öffentlich über die Webpage von Authentik einsehbar. Die einzigen in dieser 
-Datei vorzunehmenden Änderungen, sind die Variablen: ''PG\_PASS'', ''AUTHENTIK\_SECRET\_KEY'', ''AUTHENTIK\_EMAIL\_\_HOST'', 
-''AUTHENTIK\_EMAIL\_\_USERNAME'', sowie ''AUTHENTIK\_EMAIL\_\_PASSWORD'' und ''AUTHENTIK\_EMAIL\_\_FROM''. 
+\pageref{app:Cloud-Infrastruktur}. Die ''\nameref{app:docker-compose.yml}''-Datei wurde über \href{https://www.composerize.com/}{Composerize}, einer 
+Applikation aus dem Internet entnommen, welche öffentlich zugänglich ist. Auch die ''\nameref{app:dotenv}''-Datei ist öffentlich über die 
+Webpage von \href{https://goauthentik.io/}{Authentik} einsehbar. Die einzigen in dieser Datei vorzunehmenden Änderungen, sind die Variablen: 
+''PG\_PASS'', ''AUTHENTIK\_SECRET\_KEY'', ''AUTHENTIK\_EMAIL\_\_HOST'', ''AUTHENTIK\_EMAIL\_\_USERNAME'', sowie ''AUTHENTIK\_EMAIL\_\_PASSWORD'' 
+und ''AUTHENTIK\_EMAIL\_\_FROM''. Um Authentik zu starten, werden beide Dateien im Unterordner Authentik eingefügt. Nun wird mit dem Befehl 
+\textbf{docker-compose pull} in Docker Compose die \textbf{\nameref{app:docker-compose.yml}} mit deren enthaltenen Diensten heruntergeladen, 
+die Images und Volumes heruntergezogen. Mit dem Befehl \textbf{docker-compose up -d} erfolgt zu Beginn die Sicherstellung, dass das 
+\nameref{app:docker-compose.yml} wirklich vorhanden ist, um dann gelesen und den Container für die darin definierten Dienste im Hintergrund zu starten. Der 
+Parameter \textbf{-d (--detach)} bewirkt, dass die Conrainer im Hintergrund ausgeführt werden. Nach dem Start der Container erfolgt die Statusüberprüfung dieser 
+mit dem Befehl \textbf{docker-compose ps}.
 
-\subsection{Installation und Konfiguration von Authentik}
-\label{sec:Installation und Konfiguration von Authentik}
-% Nachdem Authentik in einem Docker-Container läuft, erfolgt nun der Zugriff über den Nginx. Dabei wird vor dem Zugriff 
-% eine Demonstrations-Domain auf dem Nginx Proxy Manager erstellt, die Authentik vorerst darstellen soll. 
-% So wird verhindert, dass bei einer Konfiguration von Authentik, kein Service kaputt gehen kann und aufgrund dessen der 
-% Service geschützt bleibt.
+\subsection{Konfiguration von Authentik und NGinx Reverse Proxy Manager}
+\label{sec:Konfiguration von Authentik und NGinx Reverse Proxy Manager}
+Nachdem Authentik in einem Docker-Container läuft, erfolgt nun der Zugriff über den Nginx. Dabei wird vor dem Zugriff 
+eine Authentifzierungs-Domain auf dem Nginx Proxy Manager erstellt, die Authentik vorerst darstellen soll. 
+So wird verhindert, dass bei einer Konfiguration von Authentik, kein Service kaputt gehen kann und aufgrund dessen der 
+Service geschützt bleibt.
 
 
 \subsection{Integration mit Cloud-Diensten}

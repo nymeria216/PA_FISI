@@ -40,7 +40,7 @@ auf Authentik änderte.
 \subsubsection{Sachmittelplanung}
 \label{sec:Sachmittelplanung}
 Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
-\begin{itemize}
+\begin{itemize} [label=--]
 	\item Notebook - Lenovo ThinkPad T15 Gen 1 (für die Entwicklung)
 	\item Betriebssystem - Microsoft Windows 10 Enterprise auf dem Lenovo-Notebook
 	\item iPhone 12 - iOS 17.0.3 (zum Testen des Einmalpassworts)
@@ -58,9 +58,41 @@ Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Softwa
 Tabelle~\ref{tab:Personalplanung} zeigt die Personalplanung des Projektes.
 \tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung.tex}
 
+\subsubsection{Ablaufplanung}
+\label{sec:Ablaufplaung und Meilensteine}
+Die Ablaufplanung ist mittels eines \nameref{app:Gantt}-Diagramms im Kapitel \ref{app:Gantt} des \nameref{sec:Anhang}s 
+auf der Seite \pageref{app:Gantt} dargestellt.
+
 \subsection{Entwicklungsprozess}
 \label{sec:Entwicklungsprozess}
 Das Projekt unterteilt sich in einem überschaubaren, zeitlich und inhaltlich begrenzten Entwicklungsprozess 
 mit einzelnene begrenzten Phasen, die nach- und voneinander aufbauen. So wird eine Sicherstellung der Schritt 
 für Schritt-Beendingung der jeweiligen Phasen und Übersicht gewährleistet. Bedingt dessen, dass in diesem Projekt 
 wenig Projektteilnehmer: innen zur Verfügung stehen, kann auf die agile Methodik verzichtet werden.
+
+\subsection{Anforderungsanalyse}
+\label{sec:Anforderungsanalyse}
+
+\subsubsection{Funktional}
+\label{sec:Funktional}
+Authenik muss folgende funktionale Anforderungen erfüllen:
+\begin{itemize} [label=--]
+	\item problemlose Registrierung und einfacher Login
+	\item nachvollziehbare Schritte während der Anmeldung bei der Eingabe des Einmalpassworte
+	\item übersichtliche Darstellung und Verwaltung der einzuloggenden Nutzer :innen
+	\item Login als Admin und durchschnittlicher User
+	\item vor jeden konfigurierten Service schalten und nach Eingabe der Nutzerdaten freigeben
+	\item muss sicher sein und Zugriff von Dritten verweigern
+	\item kompatibel mit einer Authenticator-Software
+	\item schnelle Eingabe der Nutzerdaten
+\end{itemize}
+
+\subsubsection{Nicht-Funktional}
+\label{sec:Nicht-Funktional}
+\begin{itemize} [label=--]
+	\item Skalierbarkeit der Services
+	\item das Überleiten auf den nächsten Service sollte in weniger als 2 Sekunden geladen haben
+	\item Enthalten des Brandings vond er Deloitte Wirtschaftsprüfungsgesellschaft GmbH
+	\item übersichtliche, englischsprachiges Willkommens-Display
+\end{itemize}
+	
