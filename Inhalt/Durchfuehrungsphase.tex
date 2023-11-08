@@ -58,16 +58,48 @@ die Images und Volumes heruntergezogen. Mit dem Befehl \textbf{docker-compose up
 Parameter \textbf{-d (--detach)} bewirkt, dass die Conrainer im Hintergrund ausgeführt werden. Nach dem Start der Container erfolgt die Statusüberprüfung dieser 
 mit dem Befehl \textbf{docker-compose ps}.
 
-\subsection{Konfiguration von Authentik und NGinx Reverse Proxy Manager}
-\label{sec:Konfiguration von Authentik und NGinx Reverse Proxy Manager}
-Nachdem Authentik in einem Docker-Container läuft, erfolgt nun der Zugriff über den Nginx. Dabei wird vor dem Zugriff 
-eine Authentifzierungs-Domain auf dem Nginx Proxy Manager erstellt, die Authentik vorerst darstellen soll. 
-So wird verhindert, dass bei einer Konfiguration von Authentik, kein Service kaputt gehen kann und aufgrund dessen der 
-Service geschützt bleibt.
+\subsection{Konfiguration des NGinx Reverse Proxy Managers}
+\label{sec:Konfiguration des NGinx Reverse Proxy Managers}
+Nachdem Authentik in einem Docker-Container läuft, erfolgt die Konfiguration des NGinx Reverse Proxy Managers:
+\begin{enumerate}[label=\arabic*.]
+    \item Erstellung einer Authentifizierungs-Domain (auth.example.domain) und Einstellung eines A-Records im DNS-Resolver
+    \item Im NGinx Reverse Proxy Managers einen neuen Host erstellen, was im \nameref{sec:Anhang} in der \nameref{app:ProxyHostConfig} einsehbar ist
+    \item private IP-Adresse des Authentik-Servers mit der in der \textbf{\nameref{app:dotenv}}-Datei eingegebenen Portnummer (80) eingeben 
+    mit dem Resultat für das Beispiel: \textbf{0.0.0.0:80} - Einsicht im \ref{app:ProxyHostConfig} \nameref{app:ProxyHostConfig}
+    \item im SSL-Tab des Konfigurationsfeldes, anklicken: \textit{Force SSL}, \textit{HTTP/2 Support}, \textit{HSTS Enabled} und \textit{HSTS Subdomains}
+    \item im E-Mail Feld die E-Mail Adresse (admin@example.domain.de) eingeben und den Nutzungsbedingungen zustimmen
+    \item Ergebnis: Zugriff auf Authentik möglich, sodass die Willkommens-Seite sichtbar wird, welche im \nameref{sec:Anhang} im Kapitel 
+    \ref{app:ProxyHostConfig} \nameref{app:ProxyHostConfig}
+\end{enumerate}
+
+\subsection{Konfiguration von Authentik}
+\label{sec: Konfiguration von Authentik}
+Nach der Konfiguration des NGinx Reverse Proxy Managers, werden in Authenik ein Projekt und die vorhandenen User erstellt. Diese Vorgehensweise 
+ist im \nameref{sec:Anhang} in der \nameref{app:AuthentikConfig} detailliert beschrieben.
 
 
 \subsection{Integration mit Cloud-Diensten}
 \label{sec:Integration mit Cloud-Diensten}
+Damit sich Authentik vor jeden Dienst in der gegebenen Cloud-Infrastruktur schalten kann, wird in der Host-Konfiguration im NGinx Reverse 
+Proxy Manager im Bereich \textit{Advanced} die im \nameref{sec:Anhang} erwähnte \nameref{app:CustomNGinxConfig} einzufügen. Wobei zu beachten ist, 
+dass bei jedem Service die Portnummer geändert wird, sodass eine Umleitung von Authelik auf diesen erfolgen kann.
 
 \subsection{Konfiguration des zweiten Faktors}
 \label{sec:Konfiguration des zweiten Faktors}
+Nach dem Ergebnis aus der \nameref{tab:Nutzwertanalyse} im Kapitel \ref{sec:Auswahl einer MFA-Lösung} \nameref{sec:Auswahl einer MFA-Lösung} 
+geht das \acs{TOTP}-Verfahren hervor. Eine mit Bildern behaftete Ansicht befindet sich im \nameref{sec:Anhang} im \ref{sec:TOTPConfig} 
+\nameref{sec:TOTPConfig}.
+\\Ein kurze Schrittfolge zur Einrichtung dieses:
+\begin{enumerate}
+    \item Login bei Authentik
+    \item auf \textbf{Einstellungen} - \textbf{MFA Devices} bestätigen
+    \item \textbf{Enroll} bestätigen - eine Methode auswählen:
+    \begin{itemize}
+        \item WebAuth Authenticator Setup Stage
+        \item Static Authenticator Stage
+        \item \textit{TOTP Authenticator Setup Stage} - auswählen
+    \end{itemize}
+   \item Logout bei Authentik
+   \item erneut Login - QR-Code mit Microsoft AD scannen
+   \item 6-stelligen Code eingeben und eingeloggt
+\end{enumerate}
