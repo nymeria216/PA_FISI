@@ -1,13 +1,3 @@
-%-----------------------------------------------------------------------------------------
-% Autor dieser Vorlage:
-% Stefan Macke (http://fachinformatiker-anwendungsentwicklung.net)
-% Permalink zur Vorlage: http://fiae.link/LaTeXVorlageFIAE
-%
-% Sämtliche verwendeten Abbildungen, Tabellen und Listings stammen von Dirk Grashorn.
-%
-% Lizenz: Creative Commons 4.0 Namensnennung - Weitergabe unter gleichen Bedingungen
-% -----------------------------------------------------------------------------------------
-
 \documentclass[
 	ngerman,
 	toc=listof, % Abbildungsverzeichnis sowie Tabellenverzeichnis in das Inhaltsverzeichnis aufnehmen
@@ -27,23 +17,17 @@
 
 \begin{document}
 
-% kann nach dem Lesen entfernt werden ---------------------------------------
-\pagestyle{plain}
-\input{Vorlage}
+\phantomsection
+\thispagestyle{plain}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{Deckblatt}
 \cleardoublepage
-\pagestyle{scrheadings}
-% ---------------------------------------------------------------------------
+
 
 \phantomsection
 \thispagestyle{empty}
 \pdfbookmark[1]{Projektantrag}{ProjektantragMF}
 \includepdf[pages={1-6}]{Allgemein/ProjektantragMF.pdf}
-\cleardoublepage
-
-\phantomsection
-\thispagestyle{plain}
-\pdfbookmark[1]{Deckblatt}{deckblatt}
-\input{Deckblatt}
 \cleardoublepage
 
 % Preface --------------------------------------------------------------------
