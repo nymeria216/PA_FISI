@@ -9,20 +9,20 @@
 Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH ist ein internationales 
 Unternehmen für Wirtschaftsprüfung, Steuer-, Unternehmens-, Risiko- und Finanzberatung.
 Die Deloitte hat Niederlassungen in vielen Ländern, darunter auch Deutschland. 
-Mit Vertreter: innen in über 150 Ländern weltweit und 415.000 Mitarbeiter: innen bietet das Unternehmen eine breite Palette 
+Mit Vertreter/-innen in über 150 Ländern weltweit und 415.000 Mitarbeiter/-innen bietet das Unternehmen eine breite Palette 
 von Dienstleistungen für Unternehmen und Organisationen in verschiedenen Branchen.
 Im B\&TCL, auch dem Business \& Technology Center Leipzig, erbringt die Deloitte
-GmbH mit ihren 100 Mitarbeiter: innen eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
+GmbH mit ihren 100 Mitarbeiter/-innen eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
 Transformationsprojekte rund um die Themen Cyber Security, Digitalisierung,
 Prozessoptimierung oder Automatisierung voran.
 \\Das Projekt ist ein Tochterprojekt eines größeren und beinhaltet die Implementierung eines Teilfeatures, was zur 
-Verbesserung des Gesamtprojektes führt. In diesem arbeiten interne Mitarbeiter: innen aktiv mit, um die Entwicklung des
+Verbesserung des Gesamtprojektes führt. In diesem arbeiten interne Mitarbeiter/-innen aktiv mit, um die Entwicklung des
 Projektes voranzutreiben. Dabei stellen diese die Zielgruppe dar.
 
 
 \subsection{Projektziel} 
 \label{sec:Projektziel}
-Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastrukturvon OVHCloud, um einen Business 
+Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastruktur von OVHCloud, um einen Business 
 Hosting Service bereitzustellen. 
 \\Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
 Multi-Faktor-Authentifizierung (MFA) eingeführt wird. Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
@@ -37,10 +37,10 @@ Ressourcen in der Cloud-Infrastruktur verwalten und sichern soll und legt den Fo
 \subsection{Projektbegründung} 
 \label{sec:Projektbegruendung}
 Die Implementierung der MFA steigert die Sicherheit und gewährleistet, dass der Zugang zu Diensten und Daten in der 
-Cloud-Infrastruktur nicht allein durch den Diebstahl eines Passworts gefährdet ist. Benutzer müssen zusätzlich zur Eingabe des 
-Nutzernamens und Passworts einen weiteren Authentifizierungsfaktor, wie zum Beispiel ein Einmalpasswort, bereitstellen, 
+Cloud-Infrastruktur nicht allein durch den Diebstahl eines Passworts gefährdet ist. Benutzer/-innen müssen zusätzlich zur Eingabe des 
+Nutzernamens und Passworts einen weiteren Authentifizierungsfaktor, wie zum Beispiel ein Einmalpasswort, eingeben, 
 was die Sicherheit erheblich erhöht. Dabei werden nicht nur firmeninterne und kundenbezogene Daten geschützt, sondern auch 
-die Kundenzufriedenheit und das Vertrauen gegenüber der zukünftigen Kunden erhöht. Dies hat hohe Priorität und verhindert 
+die Kundenzufriedenheit und das Vertrauen gegenüber der zukünftigen Kund/-innen erhöht. Dies hat hohe Priorität und verhindert 
 unbefugten Zugriff auf sensible Informationen.
 
 
@@ -54,21 +54,16 @@ Hauptbereiche unterteilt, sodass in jedem dieser Bereiche verschiedene Services 
 Dienste zur Verfügung werden.
 \\\textit{Compliance and Security Stack}
 \\Dieser Bereich umfasst den Einsatz von Docker-Containern für Dienste, wie die OPNsense Firewall, 
-den Nginx Proxy Manager, dem Authentik- und Guacamole Server und Infection Monkey zur Sicherheitsüberprüfung. 
-Zusammenfassend ist zu sagen, dass der Nginx Proxy Manager als Reverse Proxy fungiert und den HTTP-Verkehr 
+den NGinx Proxy Manager, dem Authentik- und Guacamole Server und Infection Monkey zur Sicherheitsüberprüfung. 
+Zusammenfassend ist zu sagen, dass der NGinx Proxy Manager als Reverse Proxy fungiert und den HTTP-Verkehr 
 umleitet und andere Ports für Streaming-Anforderungen bedient. Der Guacamole Server dient als Proxy-Server 
 und ermöglicht den Zugriff auf interne Dienste, die normalerweise nicht über eine Web-Schnittstelle erreichbar sind.
 Das Open-Source-Sicherheitstesttool Infection Monkey überprüft die Sicherheit der Infrastruktur. 
-Mit dem Identity Provider Authentik, werden verschiedene Identitäts- und Authentifizierungsmethoden in 
-Anwendungen und Diensten ermöglicht zu integrieren. Dadurch wird eine wichtige Schnittstelle für die 
+Mit dem Identitätsanbieter Authentik, werden verschiedene Identitäts- und Authentifizierungsmethoden in 
+Anwendungen und Diensten ermöglicht, zu integrieren. Dadurch wird eine wichtige Schnittstelle für die 
 Benutzerauthenfizierung und -autorisierung bereitgestellt und kann von verschiedenen Anwendungen über 
 Docker-Container Authentifizierungsmechanismen einrichten.
 \\\textit{Monitoring}
-% \begin{center}
-% 	\begin{minipage}{0.9\textwidth}
-% 	  This is a block of text that is indented from both sides, creating a centered block of text on the page. You can adjust the width by changing the value in the minipage environment.
-% 	\end{minipage}
-% \end{center}
 \\Im Überwachungsbereich werden alle vorhandenen Dienste mittels Docker-Containern der Cloud-Infrastruktur auditiert 
 und beinhaltet dieser die Open-Source-Software Grafana zur Visualisierung und Überwachung von Leistungsdaten, sowie 
 Uptime Kuma als Webserver für Statusseiten und Healtchchecks, um die Verfügbarkeit der Dienste zu kontrollieren. 
@@ -88,7 +83,8 @@ entweder der auf den \textbf{''rev\_prox\_dev''} oder der \textbf{''tal\_cloud\_
 sich alle Services in den oben genannten Bereichen auf der \textbf{''tal\_cloud\_infra''} außer 
 der Nginx Proxy, der auf dem \textbf{''rev\_prox\_dev''} lokalisiert ist. Eine Vorschau der Cloud-Infrastruktur befindet 
 sich im \nameref{sec:Anhang} im Kapitel \ref{app:Cloud-Infrastruktur} in der \nameref{app:Cloud-Infrastruktur} auf der Seite 
-\pageref{app:Cloud-Infrastruktur}.
+\pageref{app:Cloud-Infrastruktur}. Eine Darstellung, wie der Zugriff eines Users auf eine Instanz über die CLI erhält, 
+befindet sich im \nameref{sec:Anhang} \ref*{app:Sequenzdiagramm CLI Zugriff auf die Instanzen} \nameref*{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}.
 
 \subsubsection{Organisatorisch}
 \label{sec:Organisatorisch}
