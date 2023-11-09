@@ -20,7 +20,7 @@ Schutzebene erfolgt.
 \subsection{Soll-Analyse}
 \label{sec:SollAnalyse}
 Das Soll des Projektes ist es die Dienste mittels Authentik durch die \acs*{MFA} zu schützen. Dabei wird vor jedem Service 
-der Identiy-Provider Authentik vorgeschalten, sodass nicht nur \acs*{MFA}, sondern auch SSO passiert und die User automatisch 
+der Identiy-Provider Authentik vorgeschalten, sodass nicht nur \acs*{MFA}, sondern auch \acs*{SSO} passiert und die User automatisch 
 authentifiziert werden und das Schutzziel Authentizität erfüllt wird.
 \\Schlussfolgernd ist zu sagen, dass der Benutzer sich vor jeder Anmeldung bei einem Service sich erst bei Authentik 
 anmeldet, um auf den gewünschten Dienst zugreifen zu können.
@@ -106,7 +106,7 @@ Nginx Reverse Proxy Manager aus zuzugreifen.
 \\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
 integrierten Außenposten (Embedded oupost) besteht. Einkommende Anfragen an den Server-Containern werden an den Authentik Server Core 
 or dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den großteil der Logik von Authentik, wie \zB API- und/oder 
-SSO-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
+\acs*{SSO}-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
 eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
 oder Benachrichtigen von Ereignisses und alles, was im Frontend sichtbar ist. Authentik nutzt PostgreSQL, um alle seiner 
 Konfigurationen und Daten zu speichern. Redis wird als Message-Queue und Cache verwendet.
