@@ -6,19 +6,21 @@
 \subsection{Ist-Analyse} 
 \label{sec:IstAnalyse}
 Das Projekt, operiert durch die Deloitte Wirtschaftsprüfungsgesellschaft GmbH, verwendet die Cloud-Infrastruktur 
-von OVHCloud, um einen Business Hosting Service bereitzustellen. Dabei enthält diese Konfiguration der 
-Cloud-Umgebung eine Firewall, welcher eine öffentliche IP-Adresse zugewiesen bekommen hat. Zusätzlich sollte erwähnt werden, 
+von OVHCloud, um einen Business Hosting Service bereitzustellen. Dabei enthält die Konfiguration der 
+Cloud-Umgebung eine Firewall, welche eine öffentliche IP-Adresse zugewiesen wurde. Zusätzlich sollte erwähnt werden, 
 dass dieses Netzwerk privat ist und andere Services und Instanzen enthält, welche von der Firewall geschützt werden.
-Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Usern die Möglichkeit geboten, 
-über die Kontrollinstanz ''control\_node'' die Instanzen hoch- und runterzufahren und die grundlegenden Einstellungen, wie 
-zum Beispiel Portzuweisungen, vorzunehmen. Die Graphical-User-Interface-User haben des Weiteren die Chance die Services über 
-den Nginx Proxy Manager zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, 
-ohne einer weiteren Schutzebene erfolgt.
+Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Nutzer/-innen mit einem gültigen
+SSH-Schlüssel die Möglichkeit geboten, über die Kontrollinstanz \textit{control\_node} auf die anderen Instanzen 
+zuzugreifen. Die anderen für das Projekt relevanten Instanzen sind \textit{rev\_proxy\_dev} und \textit{tal\_cloud\_infra} 
+auf denen sich, die im Kapitel \ref*{sec:Technisch} \nameref{sec:Technisch}e \nameref{sec:Projektschnittstellen} 
+erwähnten Instanzen befinden. Die Graphical-User-Interface-Nutzer/-innen können die Services über den NGinx Reverse Proxy Manager 
+zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, ohne einer weiteren 
+Schutzebene erfolgt.
 
 \subsection{Soll-Analyse}
 \label{sec:SollAnalyse}
-Das Soll des Projektes ist es die Dienste mittels Authentik durch die MFA zu schützen. Dabei wird vor jedem Service 
-der Identiy-Provider Authentik vorgeschalten, sodass nicht nur MFA, sondern auch SSO passiert und die User automatisch 
+Das Soll des Projektes ist es die Dienste mittels Authentik durch die \acs*{MFA} zu schützen. Dabei wird vor jedem Service 
+der Identiy-Provider Authentik vorgeschalten, sodass nicht nur \acs*{MFA}, sondern auch SSO passiert und die User automatisch 
 authentifiziert werden und das Schutzziel Authentizität erfüllt wird.
 \\Schlussfolgernd ist zu sagen, dass der Benutzer sich vor jeder Anmeldung bei einem Service sich erst bei Authentik 
 anmeldet, um auf den gewünschten Dienst zugreifen zu können.
@@ -33,7 +35,7 @@ des Tochter-Projektes erforderlich sind, bleiben die Kosten unverändert. An Res
 Rechenleistung benötigt, welche auf der vorhandenen Instanz zur Verfügung stehen und die beiden Faktoren das Arbeiten 
 der Instanz nicht beeinträchtigen und resultierend daraus keine größere Instanz notwendig ist. Die wirklich zu entstehenden 
 Kosten sind ausschließlich Personal- und Materialkosten, wobei letztere aus der Nutzung des Büromöbelars zusammengefasst wird. 
-\\Durch die Einführung von MFA durch Authentik in der Cloud-Infrastruktur werden besonders die Schutzziele der 
+\\Durch die Einführung von \acs*{MFA} durch Authentik in der Cloud-Infrastruktur werden besonders die Schutzziele der 
 Einhaltung der Integrität und Vertraulichkeit der Daten auf den jeweiligen Diensten eingehalten. So wird die Sicherheit 
 erheblich verbessert und trägt dazu bei, unbefugten Zugriff, Datenverluste und Betrug zu verhindern. Dieser Schutz 
 vor Sicherheitsverletzungen kann erhebliche finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
@@ -99,7 +101,7 @@ der jeweiligen Authentifizierungsmethode erleichtert werden.
 Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \Anhang{app:UseCase}.
 In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
 Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
-Nach der erfolgreicher Anmeldung mit der MFA hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
+Nach der erfolgreicher Anmeldung mit der \acs*{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
 Nginx Reverse Proxy Manager aus zuzugreifen.
 \\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
 integrierten Außenposten (Embedded oupost) besteht. Einkommende Anfragen an den Server-Containern werden an den Authentik Server Core 
