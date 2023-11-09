@@ -20,10 +20,10 @@ Schutzebene erfolgt.
 \subsection{Soll-Analyse}
 \label{sec:SollAnalyse}
 Das Soll des Projektes ist es die Dienste mittels Authentik durch die \acs*{MFA} zu schützen. Dabei wird vor jedem Service 
-der Identiy-Provider Authentik vorgeschalten, sodass nicht nur \acs*{MFA}, sondern auch \acs*{SSO} passiert und die User automatisch 
-authentifiziert werden und das Schutzziel Authentizität erfüllt wird.
-\\Schlussfolgernd ist zu sagen, dass der Benutzer sich vor jeder Anmeldung bei einem Service sich erst bei Authentik 
-anmeldet, um auf den gewünschten Dienst zugreifen zu können.
+der Identiy-Provider Authentik vorgeschalten, sodass nicht nur \acs*{MFA}, sondern auch \acs*{SSO} passiert und die 
+Benutzer/-innen automatisch authentifiziert werden und das Schutzziel Authentizität erfüllt wird.
+\\Schlussfolgernd ist zu sagen, dass die Benutzer/-innen sich vor jeder Anmeldung bei einem Service erst bei Authentik 
+anmelden, um auf den gewünschten Dienst zugreifen zu können.
 
 
 
@@ -31,17 +31,17 @@ anmeldet, um auf den gewünschten Dienst zugreifen zu können.
 \label{sec:Wirtschaftlichkeitsanalyse}
 Durch die schon vorhandene Cloud-Infrastruktur entstehen keine weiteren Kosten. Bedingt dessen, dass die 
 OVH-Cloud-Infrastruktur zu einem Fix-Preis pro Instanz gemietet wird und keine weiteren Instanzen für die Implementierung 
-des Tochter-Projektes erforderlich sind, bleiben die Kosten unverändert. An Ressourcen wird Speicher und mehr 
-Rechenleistung benötigt, welche auf der vorhandenen Instanz zur Verfügung stehen und die beiden Faktoren das Arbeiten 
-der Instanz nicht beeinträchtigen und resultierend daraus keine größere Instanz notwendig ist. Die wirklich zu entstehenden 
-Kosten sind ausschließlich Personal- und Materialkosten, wobei letztere aus der Nutzung des Büromöbelars zusammengefasst wird. 
+des Tochter-Projektes erforderlich sind. An Ressourcen wird Speicher und mehr Rechenleistung benötigt, welche 
+auf der vorhandenen Instanz zur Verfügung stehen und die beiden Faktoren das Arbeiten der Instanz nicht 
+beeinträchtigen und resultierend daraus keine größere Instanz notwendig ist. Die wirklich zu entstehenden Kosten 
+sind ausschließlich Personal- und Materialkosten, wobei letztere aus der Nutzung des Büromöbelars zusammengefasst wird. 
 \\Durch die Einführung von \acs*{MFA} durch Authentik in der Cloud-Infrastruktur werden besonders die Schutzziele der 
 Einhaltung der Integrität und Vertraulichkeit der Daten auf den jeweiligen Diensten eingehalten. So wird die Sicherheit 
 erheblich verbessert und trägt dazu bei, unbefugten Zugriff, Datenverluste und Betrug zu verhindern. Dieser Schutz 
-vor Sicherheitsverletzungen kann erhebliche finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
+vor Sicherheitsverletzungen kann signifikante finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
 werden können. Des Weiteren erfolgen Kostenersparnisse in dem Punkt des Verhinderns der Passwort-Resets durch das Anfragen des 
 administrativen Supports, bei welchem Zeit und daraus Kosten entstehen, die vermieden werden können. Durch die Implementierung 
-kann den Nutzern ein sicherer und bequemerer Zugriff gewährleistet und die Kosten gesenkt werden.
+kann den Nutzer/-innen ein sicherer und bequemerer Zugriff gewährleistet und die Kosten gesenkt werden.
 
 
 \subsubsection{\gqq{Make or Buy}-Entscheidung}
@@ -67,10 +67,10 @@ Dabei sind mögliche Ressourcen, wie der Stromverbrauch, die zu verwendende Hard
 wie \zB der zu nutzende Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) oder das Möbelar, was pauschal mit \eur{15,00} kalkuliert werden kann. 
 Das Brutto-Einkommen eines Auszubildenden im 3. Lehrjahr im Fachbereich Fachinformatik bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH 
 beträgt \eur{1400,00} pro Monat. 
-Für die weiteren Mitarbeiter werden pauschale Beträge zur Berechnung des Stundensatzes genutzt, aus den Gründen, dass die 
-Deloitte Wirtschaftsprüfungsgesellschaft GmbH die Kosten pro Stunde nicht preisgeben möchte. Duale Studenten werden pauschal mit 
-\eur{15,00}, während die Manager mit \eur{50,00} pro Stunde berechnet werden. Bei jeweils beiden addiert sich die Summe der 
-Ressourcenkosten auf. Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung} betragen \eur{1228,78}.
+Für die weiteren Mitarbeiter/-innen werden pauschale Beträge zur Berechnung des Stundensatzes genutzt, aus den Gründen, dass die 
+Deloitte Wirtschaftsprüfungsgesellschaft GmbH die Kosten pro Stunde nicht preisgeben möchte. Duale Student/-innen werden pauschal mit 
+\eur{15,00}, während der Manager mit \eur{50,00} pro Stunde berechnet werden. Bei jeweils beiden addiert sich die Summe der 
+Ressourcenkosten auf. Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung}, betragen \eur{1228,78}.
 \tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
 
 
@@ -100,11 +100,11 @@ der jeweiligen Authentifizierungsmethode erleichtert werden.
 \label{sec:Anwendungsfaelle}
 Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \Anhang{app:UseCase}.
 In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
-Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
+Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem NGinx Reverse Proxy Manager an. 
 Nach der erfolgreicher Anmeldung mit der \acs*{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
 Nginx Reverse Proxy Manager aus zuzugreifen.
 \\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
-integrierten Außenposten (Embedded oupost) besteht. Einkommende Anfragen an den Server-Containern werden an den Authentik Server Core 
+integrierten Außenposten (Embedded outpost) besteht. Einkommende Anfragen an den Server-Containern werden an den Authentik Server Core 
 or dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den großteil der Logik von Authentik, wie \zB API- und/oder 
 \acs*{SSO}-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
 eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
