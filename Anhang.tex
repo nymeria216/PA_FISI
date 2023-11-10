@@ -15,15 +15,15 @@
 \label{app:UseCase}
 \begin{figure}[htb]
 \centering
-% \includepdf[pages=-]{Use-Case-Diagram.pdf}
-\rotatebox[origin=c]{90}{\includegraphicsKeepAspectRatio{Bilder/Use-Case-Diagram.pdf}{1}}
+\includegraphicsKeepAspectRatio{Anhang/UseCaseCloudInfra.png}{1}
+% \rotatebox[origin=c]{90}{\includegraphicsKeepAspectRatio{Anhang/UseCaseCloudInfra.png}{1}}
 \caption{Use Case-Diagramm}
 \end{figure}
 \clearpage
 
 \subsection{Sequenzdiagramm CLI Zugriff auf die Instanzen}
 \label{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}
-% \includegraphicsKeepAspectRatio{Sequenzdiagramm.pdf}{1}
+\includegraphicsKeepAspectRatio{Anhang/SequenzDiagrammCLI.png}{1}
 
 \subsection{Cloud-Infrastruktur}
 \label{app:Cloud-Infrastruktur}
@@ -31,7 +31,7 @@
 
 \subsection{docker-compose.yml}
 \label{app:docker-compose.yml}
-\includegraphics{Anhang/docker-compose.pdf}
+\includegraphicsKeepAspectRatio{Anhang/docker-compose.pdf}{1}
 
 \subsection{.env}
 \label{app:dotenv}
@@ -39,9 +39,27 @@
 
 \subsection{Proxy Host Konfiguration}
 \label{app:ProxyHostConfig}
-\includegraphics[width=8cm]{Bilder/Authentik-Doc/NewProxyHost.png}
-\includegraphics[width=8cm]{Bilder/Authentik-Doc/NewProxyHostSSL.png}
-\includegraphics[width=8cm]{Bilder/Authentik-Doc/WP_00_WelcomePageFirstTimeAfterSetup.png}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Bilder/Authentik-Doc/NewProxyHost.png}
+    \caption{Proxy Host Konfiguration - Details}
+  \end{figure}
+  
+  \vspace{0.75cm} % Space between images and subtitles
+  
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Bilder/Authentik-Doc/NewProxyHostSSL.png}
+    \caption{Proxy Host Konfiguration - SSL}
+  \end{figure}
+  
+  \vspace{0.75cm} % Space between images and subtitles
+  
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{Bilder/Authentik-Doc/WP_00_WelcomePageFirstTimeAfterSetup.png}
+    \caption{Authentik - Willkommensseite}
+  \end{figure}
 
 \subsection{Authentik Konfiguration}
 \label{app:AuthentikConfig}
