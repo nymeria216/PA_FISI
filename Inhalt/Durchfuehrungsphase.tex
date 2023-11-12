@@ -76,6 +76,14 @@ Nachdem Authentik in einem Docker-Container läuft, erfolgt die Konfiguration de
 \label{sec: Konfiguration von Authentik}
 Nach der Konfiguration des NGinx Reverse Proxy Managers, werden in Authenik ein Projekt und die vorhandenen User erstellt. Diese Vorgehensweise 
 ist im \nameref{sec:Anhang} in der \nameref{app:AuthentikConfig} detailliert beschrieben.
+Grobe Vorgehensweise:
+\begin{enumerate}
+    \item Einrichtung eines Projektes
+    \item Erstellung von Benutzer/-innen
+    \item NGinx Proxy Manager hinzufügen
+    \item \nameref{sec:Einrichtung des zweiten Faktors} erfolgt in Kapitel \ref*{sec:Einrichtung des zweiten Faktors} auf der 
+    Seite \pageref{sec:Einrichtung des zweiten Faktors}
+\end{enumerate}
 
 
 \subsection{Integration mit Cloud-Diensten}
@@ -84,15 +92,15 @@ Damit sich Authentik vor jeden Dienst in der gegebenen Cloud-Infrastruktur schal
 Proxy Manager im Bereich \textit{Advanced} die im \nameref{sec:Anhang} erwähnte \nameref{app:CustomNGinxConfig} einzufügen. Wobei zu beachten ist, 
 dass bei jedem Service die Portnummer geändert wird, sodass eine Umleitung von Authelik auf diesen erfolgen kann.
 
-\subsection{Konfiguration des zweiten Faktors}
-\label{sec:Konfiguration des zweiten Faktors}
+\subsection{Einrichtung des zweiten Faktors}
+\label{sec:Einrichtung des zweiten Faktors}
 Nach dem Ergebnis aus der \nameref{tab:Nutzwertanalyse} im Kapitel \ref{sec:Auswahl einer MFA-Lösung} \nameref{sec:Auswahl einer MFA-Lösung} 
-geht das \acs{TOTP}-Verfahren hervor. Eine mit Bildern behaftete Ansicht befindet sich im \nameref{sec:Anhang} im \ref{sec:TOTPConfig} 
-\nameref{sec:TOTPConfig}.
-\\Ein kurze Schrittfolge zur Einrichtung dieses:
+geht das \acs{TOTP}-Verfahren hervor. Ein Auszug der \nameref{sec:TOTPConfig} im \nameref{sec:Anhang} zeigt die Konfiguration des 
+zweiten Faktors.
+\\Ein kurze Schrittfolge zur Einrichtung diesens:
 \begin{enumerate}
     \item Login bei Authentik
-    \item auf \textbf{Einstellungen} - \textbf{\acs*{MFA} Devices} bestätigen
+    \item auf \textbf{Einstellungen} gehen und \textbf{\acs*{MFA} Devices} bestätigen
     \item \textbf{Enroll} bestätigen - eine Methode auswählen:
     \begin{itemize}
         \item WebAuth Authenticator Setup Stage
@@ -100,6 +108,6 @@ geht das \acs{TOTP}-Verfahren hervor. Eine mit Bildern behaftete Ansicht befinde
         \item \textit{TOTP Authenticator Setup Stage} - auswählen
     \end{itemize}
    \item Logout bei Authentik
-   \item erneut Login - QR-Code mit Microsoft AD scannen
+   \item erneut Login - QR-Code mit Microsoft Azure scannen
    \item 6-stelligen Code eingeben und eingeloggt
 \end{enumerate}
