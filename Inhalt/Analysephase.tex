@@ -8,21 +8,22 @@
 Das Projekt, operiert durch die Deloitte Wirtschaftsprüfungsgesellschaft GmbH, verwendet die Cloud-Infrastruktur 
 von OVHCloud, um einen Business Hosting Service bereitzustellen. Dabei enthält die Konfiguration der 
 Cloud-Umgebung eine Firewall, welche eine öffentliche IP-Adresse zugewiesen wurde. Zusätzlich sollte erwähnt werden, 
-dass dieses Netzwerk privat ist und andere Services und Instanzen enthält, welche von der Firewall geschützt werden.
-Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Nutzer/-innen mit einem gültigen
-SSH-Schlüssel die Möglichkeit geboten, über die Kontrollinstanz \textit{control\_node} auf die anderen Instanzen 
+dass dieses Netzwerk privat ist und die in Kapitel \ref{sec:Technisch} \nameref{sec:Technisch}e \nameref{sec:Projektschnittstellen} 
+Dienste und Instanzen enthält, welche von der Firewall geschützt werden.
+Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Nutzern (\acs{CLI}) mit einem gültigen
+SSH-Schlüssel die Möglichkeit geboten, von der Kontrollinstanz \textit{control\_node} auf die anderen Instanzen 
 zuzugreifen. Die anderen für das Projekt relevanten Instanzen sind \textit{rev\_proxy\_dev} und \textit{tal\_cloud\_infra} 
 auf denen sich, die im Kapitel \ref*{sec:Technisch} \nameref{sec:Technisch}e \nameref{sec:Projektschnittstellen} 
-erwähnten Instanzen befinden. Die Graphical-User-Interface-Nutzer/-innen können die Services über den NGinx Reverse Proxy Manager 
+erwähnten Instanzen befinden. Die Graphical-User-Interface-Nutzer (\acs{GUI}) können die Services über den NGinx Reverse Proxy Manager 
 zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, ohne einer weiteren 
 Schutzebene erfolgt.
 
 \subsection{Soll-Analyse}
 \label{sec:SollAnalyse}
-Das Soll des Projektes ist es die Dienste mittels Authentik durch die \acs{MFA} zu schützen. Dabei wird vor jedem Service 
+Das Soll des Projektes ist es, die Dienste mittels Authentik durch die \acs{MFA} zu schützen. Dabei wird vor jedem Dienst 
 der Identiy-Provider Authentik vorgeschalten, sodass nicht nur \acs{MFA}, sondern auch \acs{SSO} passiert und die User automatisch 
 authentifiziert werden und das Schutzziel Authentizität erfüllt wird.
-\\Schlussfolgernd ist zu sagen, dass der Benutzer sich vor jeder Anmeldung bei einem Service sich erst bei Authentik 
+\\Schlussfolgernd ist zu sagen, dass der Benutzer sich vor jeder Anmeldung bei einem Dienst erst bei Authentik 
 anmeldet, um auf den gewünschten Dienst zugreifen zu können.
 
 
@@ -48,7 +49,7 @@ kann den Nutzern ein sicherer und bequemerer Zugriff gewährleistet und die Kost
 \label{sec:MakeOrBuyEntscheidung}
 In der Entscheidungsmatrix für die Zielplattform aus dem Kapitel~\ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool}
 auf der Seite \pageref{sec:Authentifizierungs-Tool} sind einige alternative Produkte sichtbar, welche wie Authentik, 
-implementiert werden müssen.
+implementiert werden müssen. Daraus resultierend wird sich für Authentik entschieden.
 
 
 \subsubsection{Projektkosten}
@@ -61,7 +62,7 @@ Die Kosten für die Durchführung des Projekts setzen sich aus den Personal- und
 	\frac{\eur{16800} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{9,55}\mbox{/h}
 \end{eqnarray}
 
-Anhand der oben genannten Formel ergibt sich ein Stundenlohn von \eur{9,55}. 
+Anhand der oben genannten Formel ergibt sich ein Stundenlohn von \eur{9,55}. Dieser wird aus dem Brutto-Einkommen des Auszubildenden berechnet.
 \\Die Durchführungszeit des Projekts beträgt 40 Stunden. 
 Dabei sind mögliche Ressourcen, wie der Stromverbrauch, die zu verwendende Hardware und die Räumlichkeiten, sowie das Büromaterial, 
 wie \zB der zu nutzende Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) oder das Möbelar, was pauschal mit \eur{15,00} kalkuliert werden kann. 
@@ -69,8 +70,8 @@ Das Brutto-Einkommen eines Auszubildenden im 3. Lehrjahr im Fachbereich Fachinfo
 beträgt \eur{1400,00} pro Monat. 
 Für die weiteren Mitarbeiter werden pauschale Beträge zur Berechnung des Stundensatzes genutzt, aus den Gründen, dass die 
 Deloitte Wirtschaftsprüfungsgesellschaft GmbH die Kosten pro Stunde nicht preisgeben möchte. Duale Studenten werden pauschal mit 
-\eur{15,00}, während die Manager mit \eur{50,00} pro Stunde berechnet werden. Bei jeweils beiden addiert sich die Summe der 
-Ressourcenkosten auf. Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung} betragen \eur{1228,78}.
+\eur{15,00}, während die Manager mit \eur{75,00} pro Stunde berechnet werden. Bei jeweils beiden addiert sich die Summe der 
+Ressourcenkosten auf. Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung} betragen \eur{1.264,68}.
 \tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
 
 
@@ -82,12 +83,22 @@ Gesamtbetriebskosten (Total Cost of Ownerships (TCO)) führt.
 Im Vergleich zu einigen kostenpflichtigen Virtualisierungslösungen, wie \zB Microsoft Hyper-V, können also Lizenzkosten eingespart werden. 
 Des Weiteren ermöglicht Docker eine Arbeitszeitersparnis durch die einfache Bereitstellung und Verwaltung von Diensten, was die Arbeitszeit für die 
 Einrichtung und Wartung von Umgebungen verkürzt.
-
+\\Bei der Einsparung von einer Minute am Tag für jeden der 7 Anwender, nach der dualen Ausbildung und/ oder dem Studium und 
+220 Arbeitstagen im Jahr, ergibt sich eine gesamte Zeiteinsparung von 
+\begin{eqnarray}
+7 \cdot 220 \mbox{ Tage/Jahr} \cdot 1 \mbox{ min/Tag} = 1540 \mbox{ min/Jahr} \approx 25,67 \mbox{ h/Jahr} 
+\end{eqnarray}
+Dadurch ergibt sich eine jährliche Einsparung von 
+\begin{eqnarray}
+25,67 \mbox{ h} \cdot \eur{(40 + 15)}{\mbox{/h}} = \eur{1.411,85}
+\end{eqnarray}
+Die \eur{40} wird der Pauschalbetrag für alle Projektmitarbeiter sein.
+\\Die Amortisationszeit beträgt also $\frac{\eur{1.264,68}}{\eur{1.411,85}\mbox{/Jahr}} \approx 0,90 \mbox{ Jahre} \approx 5 \mbox{ Wochen}$.
 
 \subsection{Nicht-monetärer Nutzen}
 \label{sec:Nicht-monetärer Nutzen}
 Für das Projekt werden die Produkte Authelia, Authentik, Microsoft Azure AD und Sitecar, zur Implementierung in Erwägung gezogen. 
-Wobei mittels einer Nutzwertanalyse, welche im Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign} zu sehen ist, der 
+Wobei mittels einer Nutzwertanalyse, welche im Kapitel \ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool} zu sehen ist, der 
 Sachverhalt durch eine Entscheidungsmatrix dargestellt wird.
 \\Da die Ergebnisse der Wirtschaftlichkeitsanalyse bereits eine ausreichende Begründung für die Umsetzung des Projekts bieten, 
 ist es an dieser Stelle nicht notwendig, eine eingehende Untersuchung der nicht-monetären Vorteile vorzunehmen.
@@ -98,14 +109,14 @@ der jeweiligen Authentifizierungsmethode erleichtert werden.
 
 \subsection{Anwendungsfälle}
 \label{sec:Anwendungsfaelle}
-Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \Anhang{app:UseCase}.
+Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \nameref{sec:Anhang} \ref{app:UseCase} \nameref{app:UseCase}.
 In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
 Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
-Nach der erfolgreicher Anmeldung mit der \acs{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
+Nach der erfolgreichen Anmeldung mit der \acs{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
 Nginx Reverse Proxy Manager aus zuzugreifen.
 \\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
-integrierten Außenposten (Embedded oupost) besteht. Einkommende Anfragen an den Server-Containern werden an den Authentik Server Core 
-or dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den großteil der Logik von Authentik, wie \zB API- und/oder 
+integrierten Außenposten (Embedded oupost) besteht, werden einkommende Anfragen an den Server-Containern und den Authentik Server Core 
+und dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den Großteil der Logik von Authentik, wie \zB \acs{API}- und/ oder 
 \acs{SSO}-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
 eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
 oder Benachrichtigen von Ereignisses und alles, was im Frontend sichtbar ist. Authentik nutzt PostgreSQL, um alle seiner 
