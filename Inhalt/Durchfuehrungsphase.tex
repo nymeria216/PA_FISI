@@ -6,18 +6,18 @@
 \label{sec:Vorbereitung der Entwicklungsumgebung}
 Die Voraussetzung zur Implementierung von Authentik ist, dass Docker und Docker Compose auf dem im Kapitel \ref{sec:Sachmittelplanung} 
 \nameref{sec:Sachmittelplanung} erwähnten Notebook vorinstalliert sind und einen Zugang zum Internet verfügen. Des Weiteren sollten die zu 
-benötigenden Hard- und Softwarekomponenten, welche ebenfalls in der \nameref{sec:Sachmittelplanung} auf der Seit \pageref{sec:Sachmittelplanung} 
+benötigenden Hard- und Softwarekomponenten, welche ebenfalls in der \nameref{sec:Sachmittelplanung} auf der Seite \pageref{sec:Sachmittelplanung} 
 gelistet sind, funktionierend sein. Wichtig für die Durchführung ist nicht nur Docker mit dem Notebook selbst, sondern auch der 
 Besitz einer Domain oder Subdomain, welche bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH, die \textbf{domain.de} ist. 
 Die eigentliche Domain der Deloitte wird mit der \textit{example.domain.de} und später der \textit{auth.example.domain.de} ersetzt.
 Diese muss entweder mit einem A- oder CNAME-Record versehen sein. Um die Domain-Names übersichtlich verwalten zu können, 
 empfiehlt sich ein Reverse Proxy, in diesem Fall wird es auf den NGinx Proxy Manager zurückzuführen sein. Und zu guter letzt einen SMTP 
 E-Mail Server zur beispielsweise Zurücksetzung eines Passworts. Für das Testen der kommenden Schritte im Kapitel 
-\ref{sec:Konfiguration des zweiten Faktors} \nameref{sec:Konfiguration des zweiten Faktors} ab der Seite 
-\pageref{sec:Konfiguration des zweiten Faktors} wird das iPhone 12, erwähnt in der \nameref{sec:Sachmittelplanung}, verwendet. 
+\ref{sec:Einrichtung des zweiten Faktors} \nameref{sec:Einrichtung des zweiten Faktors} ab der Seite 
+\pageref{sec:Einrichtung des zweiten Faktors} wird das iPhone 12, erwähnt in der \nameref{sec:Sachmittelplanung}, verwendet. 
 Dieses mobile Endgerät ist ein Firmentelefon und beinhaltet zusätzlich den Microsoft Authenticator, um sich 
 gewissermaßen remote mit dem VPN des Firmennetzwerkes verbinden zu können. Aus diesem Grund muss kein weiteres Active Directory 
-installiert und eingerichtet werden.
+installiert und eingerichtet werden. Ein Active Directory ist ein Verzeichnisdienst, der gebündelte Informationen zur Verfügung stellt.
 
 \subsection{Auswahl einer MFA-Lösung}
 \label{sec:Auswahl einer MFA-Lösung}
@@ -28,19 +28,18 @@ die Optionen WebAuthn Authenticator Setup Stage und \acs{TOTP} Authenticator Set
 die Entscheidung des finalen Ergebnisses nicht anhand der \nameref{tab:Nutzwertanalyse} manifestierend festzulegen ist.
 \tabelle{Nutzwertanalyse zur MFA-Lösung}{tab:Nutzwertanalyse}{Nutzwertanalyse_MFA.tex}
 \\Die Entscheidungstreffung erfolgte besonders auf der Prämisse, dass die Deloitte Wirtschaftsprüfungsgesellschaft GmbH das \acs{TOTP}-Verfahren, 
-quasi die Eingabe eines Einmalpassworts durch einen Authenticator, wie das iPhone 12, gestellt durch die Deloitte, bei allen zur Verfügung 
-stehenden Services verwendet. So fiel die Entscheidung auf das \textbf{\acs{TOTP}-Verfahren}, was hingegen zum WebAuth Authenticator 
+also die Eingabe eines Einmalpassworts, durch einen Authenticator, wie in dem iPhone 12, gestellt durch die Deloitte, bei allen zur Verfügung 
+stehenden Diensten verwendet wird. So fiel die Entscheidung auf das \textbf{\acs{TOTP}-Verfahren}, was hingegen zum WebAuth Authenticator 
 Setup Stage weniger Sicherheit aber weniger Implementierungsaufwand erfordert und kein weiteres Gerät oder eine weitere Datei oder Software 
 notwendig ist, um die in der zu entstehenden hardwarebasierten Token zu verwalten. In dem \acs{TOTP} Authenticator Setup Stage geben die 
-Entwickler :innen alle zu Beginn ihren Nutzernamen und das zugehörige Passwort ein. Nach einer erfolgreichen Anmeldung, werden die 
-Entwickler :innen weitergeleitet, um ihren 6-stelligen Zahlencode, der in dem Microsoft Authenticator für 30 Sekunden sichtbar ist, einzugeben. 
-Wenn die Entwicker :innen sich noch nicht über Authentik angemeldet hatten, werden diese nach der Anmeldung mit einem QR-Code gepromptet und 
-daraufhin aufgefordert den 6-stelligen Code einzugeben.
-
+Benutzer alle zu Beginn ihren Nutzernamen und das zugehörige Passwort ein. Nach einer erfolgreichen Anmeldung, werden die 
+Benutzer weitergeleitet, um ihren 6-stelligen Zahlencode, der in dem Microsoft Authenticator für 30 Sekunden sichtbar ist, einzugeben. 
+Wenn die Benutzer sich noch nicht über Authentik angemeldet hatten, werden diese nach der Anmeldung durch einen QR-Code aufgefordert 
+den 6-stelligen Code einzugeben.
 
 \subsection{Erstellung der docker-compose.yml, .env}
 \label{sec:Erstellung der docker-compose.yml, .env}
-Um Authentik über eine ''\nameref{app:docker-compose.yml}''-Datei im \nameref{sec:Anhang} des Kapitels \ref{app:docker-compose.yml} 
+Um Authentik über eine \textit{\nameref{app:docker-compose.yml}}-Datei im \nameref{sec:Anhang} des Kapitels \ref{app:docker-compose.yml} 
 zum Laufen zu bringen, ist es erforderlich, dass nicht nur der Authenik-Server, sondern auch der Authentik-Worker, 
 Redis und PostgreSQL gleichzeitig erstellt werden. PostgreSQL ist eine objektrelationale Datenbank und unterstützt 
 die Erweiter- und Skalierbarkeit der Cloud-Infrastruktur. Redis hingegen ist ein In-Memory-Datenspeicher, der als 
@@ -57,7 +56,8 @@ und ''AUTHENTIK\_EMAIL\_\_FROM''. Um Authentik zu starten, werden beide Dateien 
 die Images und Volumes heruntergezogen. Mit dem Befehl \textbf{docker-compose up -d} erfolgt zu Beginn die Sicherstellung, dass das 
 \nameref{app:docker-compose.yml} wirklich vorhanden ist, um dann gelesen und den Container für die darin definierten Dienste im Hintergrund zu starten. Der 
 Parameter \textbf{-d (--detach)} bewirkt, dass die Conrainer im Hintergrund ausgeführt werden. Nach dem Start der Container erfolgt die Statusüberprüfung dieser 
-mit dem Befehl \textbf{docker-compose ps}.
+mit dem Befehl \textbf{docker-compose ps}. Die Einsicht mit dem Ergebnis der Befehle ist im \nameref{sec:Anhang} \ref{app:dockercommands} 
+\nameref{app:dockercommands} einzusehen.
 
 \subsection{Konfiguration des NGinx Reverse Proxy Managers}
 \label{sec:Konfiguration des NGinx Reverse Proxy Managers}
@@ -80,7 +80,7 @@ ist im \nameref{sec:Anhang} in der \nameref{app:AuthentikConfig} detailliert bes
 Grobe Vorgehensweise:
 \begin{enumerate}
     \item Einrichtung eines Projektes
-    \item Erstellung von Benutzer/-innen
+    \item Erstellung von Benutzern
     \item Hinzufügen des NGinx Proxy Managers
     \item \nameref{sec:Einrichtung des zweiten Faktors} erfolgt in Kapitel \ref*{sec:Einrichtung des zweiten Faktors} auf der 
     Seite \pageref{sec:Einrichtung des zweiten Faktors}
@@ -90,8 +90,8 @@ Grobe Vorgehensweise:
 \subsection{Integration mit Cloud-Diensten}
 \label{sec:Integration mit Cloud-Diensten}
 Damit sich Authentik vor jeden Dienst in der gegebenen Cloud-Infrastruktur schalten kann, wird in der Host-Konfiguration im NGinx Reverse 
-Proxy Manager im Bereich \textit{Advanced} die im \nameref{sec:Anhang} erwähnte \nameref{app:CustomNGinxConfig} einzufügen. Wobei zu beachten ist, 
-dass bei jedem Service die Portnummer geändert wird, sodass eine Umleitung von Authelik auf diesen erfolgen kann.
+Proxy Manager im Bereich \textit{Advanced} die im \nameref{sec:Anhang} erwähnte \nameref{app:CustomNGinxConfig} eingefügt. Wobei zu beachten ist, 
+dass bei jedem Dienst die Portnummer geändert werden muss, sodass eine Umleitung von Authelik auf diesen erfolgen kann.
 
 \subsection{Einrichtung des zweiten Faktors}
 \label{sec:Einrichtung des zweiten Faktors}
