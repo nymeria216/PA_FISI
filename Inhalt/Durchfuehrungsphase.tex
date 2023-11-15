@@ -8,7 +8,8 @@ Die Voraussetzung zur Implementierung von Authentik ist, dass Docker und Docker 
 \nameref{sec:Sachmittelplanung} erwähnten Notebook vorinstalliert sind und einen Zugang zum Internet verfügen. Des Weiteren sollten die zu 
 benötigenden Hard- und Softwarekomponenten, welche ebenfalls in der \nameref{sec:Sachmittelplanung} auf der Seit \pageref{sec:Sachmittelplanung} 
 gelistet sind, funktionierend sein. Wichtig für die Durchführung ist nicht nur Docker mit dem Notebook selbst, sondern auch der 
-Besitz einer Domain oder Subdomain, welche bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH, die \textbf{tal.deloitte.de} ist. 
+Besitz einer Domain oder Subdomain, welche bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH, die \textbf{domain.de} ist. 
+Die eigentliche Domain der Deloitte wird mit der \textit{example.domain.de} und später der \textit{auth.example.domain.de} ersetzt.
 Diese muss entweder mit einem A- oder CNAME-Record versehen sein. Um die Domain-Names übersichtlich verwalten zu können, 
 empfiehlt sich ein Reverse Proxy, in diesem Fall wird es auf den NGinx Proxy Manager zurückzuführen sein. Und zu guter letzt einen SMTP 
 E-Mail Server zur beispielsweise Zurücksetzung eines Passworts. Für das Testen der kommenden Schritte im Kapitel 
@@ -80,7 +81,7 @@ Grobe Vorgehensweise:
 \begin{enumerate}
     \item Einrichtung eines Projektes
     \item Erstellung von Benutzer/-innen
-    \item NGinx Proxy Manager hinzufügen
+    \item Hinzufügen des NGinx Proxy Managers
     \item \nameref{sec:Einrichtung des zweiten Faktors} erfolgt in Kapitel \ref*{sec:Einrichtung des zweiten Faktors} auf der 
     Seite \pageref{sec:Einrichtung des zweiten Faktors}
 \end{enumerate}

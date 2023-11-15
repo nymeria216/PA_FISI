@@ -16,7 +16,6 @@
 \begin{figure}[htb]
 \centering
 \includegraphicsKeepAspectRatio{Anhang/UseCaseCloudInfra.png}{1}
-% \rotatebox[origin=c]{90}{\includegraphicsKeepAspectRatio{Anhang/UseCaseCloudInfra.png}{1}}
 \caption{Use Case-Diagramm}
 \end{figure}
 \clearpage
@@ -24,57 +23,47 @@
 \subsection{Sequenzdiagramm CLI Zugriff auf die Instanzen}
 \label{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}
 \includegraphicsKeepAspectRatio{Anhang/SequenzDiagrammCLI.png}{1}
+\clearpage
 
 \subsection{Cloud-Infrastruktur}
 \label{app:Cloud-Infrastruktur}
-\includegraphicsKeepAspectRatio{Bilder/Cloud-Infra-Topology.png}{1}
+\begin{figure}[htb]
+    \centering
+    \includegraphicsKeepAspectRatio{Anhang/Cloud-Infra-Topology.png}{1}
+\end{figure}
+\pagebreak
 
 \subsection{docker-compose.yml}
 \label{app:docker-compose.yml}
-\includegraphicsKeepAspectRatio{Anhang/docker-compose.pdf}{1}
+\includegraphicsKeepAspectRatio{Anhang/docker-compose.pdf}{0.9}
 
 \subsection{.env}
 \label{app:dotenv}
-\includegraphicsKeepAspectRatio{Anhang/(.)env.pdf}{1}
-
+\includegraphicsKeepAspectRatio{Anhang/(.)env.pdf}{0.9}
+% \begin{figure}[htb]
 \subsection{Proxy Host Konfiguration}
 \label{app:ProxyHostConfig}
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.4\textwidth]{Bilder/Authentik-Doc/NewProxyHost.png}
-    \caption{Proxy Host Konfiguration - Details}
-  \end{figure}
-  
-  \vspace{0.75cm} % Space between images and subtitles
-  
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.4\textwidth]{Bilder/Authentik-Doc/NewProxyHostSSL.png}
-    \caption{Proxy Host Konfiguration - SSL}
-  \end{figure}
-  
-  \vspace{0.75cm} % Space between images and subtitles
-  
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\textwidth]{Bilder/Authentik-Doc/WP_00_WelcomePageFirstTimeAfterSetup.png}
-    \caption{Authentik - Willkommensseite}
-  \end{figure}
+\includegraphicsKeepAspectRatio{Anhang/ProxyHostKonfiguration.pdf}{0.9}
 
 \subsection{Authentik-Konfiguration}
 \label{app:AuthentikConfig}
-% \includepdf[pages={1-2}]{Anhang/Authentik-Konfiguration.pdf}
+\includepdf[pages={1-3}, scale=0.9]{Anhang/Authentik-Konfiguration.pdf}
 
 \subsection{NGinx Konfiguration}
 \label{app:CustomNGinxConfig}
-\includegraphics{Anhang/Custom_NGinx_Configuration.pdf}
+\includegraphicsKeepAspectRatio{Anhang/Custom_NGinx_Configuration.pdf}{0.9}
+\clearpage
+\begin{figure}[htb]
+    \centering
+    \includegraphicsKeepAspectRatio{Bilder/Authentik-Doc/NS_03_ChangeIPInCustomNGinxConfig.png}{0.4}
+    \captionbelow{Proxy Host Konfiguration - Einfügen des Code-Snippets in den Bereich \textbf{Advanced} 
+    und erfolgt das Ändern der IP-Adresse mit dem zugehörigen Port}
+\end{figure}
 
 \subsection{TOTP-Einrichtung}
 \label{sec:TOTPConfig}
-\includepdf[page=1]{Anhang/TOTP-Einrichtung.pdf}
+\includegraphicsKeepAspectRatio{Anhang/TOTP-Einrichtung.pdf}{0.9}
 
 \subsection{Benutzerdokumentation}
 \label{app:Benutzerdokumentation}
-% \includepdf[pages={1}]{Anhang/Benutzerdokumentation.pdf}
-% \includegraphics{Anhang/Benutzerdokumentation.pdf}
-\includegraphics[scale=0.8]{Anhang/Benutzerdokumentation.pdf}
+\includegraphicsKeepAspectRatio{Anhang/Benutzerdokumentation.pdf}{0.9}
