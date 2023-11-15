@@ -15,11 +15,10 @@ der Skalierbarkeit und den Erfahrungswerten von anderen Entwicklern mit dem ents
 Anhand der Entscheidungsmatrix in Tabelle~\ref{tab:Nutzwert} wurde Authentik ausgewählt. 
 \\Die im Kapitel~\ref{sec:Zielplattform}: \nameref{sec:Zielplattform} erwähnten Eigenschaften, tragen zur 
 Entscheidungsfindung bei, sodass sich anhand der gegebenen~\nameref{tab:Nutzwert} Authentik herauskristallisierte.
-\\\tabelle{Entscheidungsmatrix}{tab:Nutzwert}{Nutzwert.tex}
-\\Die Gewichtung bildet sich durch den Gesamtwert von 100 Wertungspunkten mit einem Maximalwert von 25 und Mindestwert von 10. 
+\\Die Gewichtung bildet sich durch den Gesamtwert von 100 Wertungspunkten mit einem Maximalwert von 25 und Mindestwert von 10 Punkten. 
 Grund dafür sind die unterschiedlichen Eigenschaften, welche in der Entwicklung und bei der Auswahl der 
 Authentifizierungsmethode jeweils verschiedene Rollen spielen und folglich daraus evaluiert werden. Nach der Zuordnung 
-und Addierung der Punkte bei den vier Authentifizierungs-Tools, wird die Gesamtheit aller Punkt eines Produktes durch den 
+und Addierung der Punkte bei den vier Authentifizierungs-Tools, wird die Gesamtheit aller Punkte eines Produktes durch den 
 Wert 100 dividiert und das Endergebnis ausgerechnet. Dabei hat die Einhaltung der Sicherheit Priorität und erhält den 
 Maximalwert von 25 Punkten, aufgrund dessen, dass Dritten der Zugriff auf die jeweiligen Dienste mit kunden- und 
 firmeninternen Daten der Cloud-Infrastruktur verweigert werden sollte. Die \acs{MFA} wird mit 20 Punkten bewertet, weil 
@@ -32,11 +31,12 @@ gleichermaßen nicht zu unterschätzen sind, weil eine Community über das Produ
 \\Dabei erhält Authentik den größten Nutzwert mit 17,05 Punkten und schneidet vor Authelia, Microsoft Azure AD und Sitecar am besten ab. 
 Aus diesem Grund wird sich für Authentik anstatt für Sitecar entschieden, da besonders die Implementierungsdauer und -komplexität 
 bei Sitecar den Rahmen des Projektes sprengen würde.
+\tabelle{Entscheidungsmatrix}{tab:Nutzwert}{Nutzwert.tex}
 
 \subsection{Geschäftslogik}
 \label{sec:Geschaeftslogik}
 Im \nameref{sec:Anhang} befindet sich eine genaue Darstellung der \nameref{app:Cloud-Infrastruktur} und des \nameref{app:UseCase}s, 
-sowie das \nameref{app:Sequenzdiagramm} zur besseren Visualisierung. 
+sowie das Sequenzdiagramm zur besseren Visualisierung. 
 \\Die Implementierung von Authentik erleichert den Entwicklern den Arbeitsfluss durch das einmalige Anmelden bei allen Diensten.
 
 \subsection{Maßnahmen zur Qualitätssicherung}
@@ -49,8 +49,11 @@ sowie das \nameref{app:Sequenzdiagramm} zur besseren Visualisierung.
 \label{sec:ProzessorientierteMaßnahmen}
 Durch die kontinuierliche Anwendung des Qualitätsmanagementsystems gemäß ISO 9001 im Qualitätsmanagement erfolgt nach der Planung 
 eine sorgfältige Überprüfung jedes Schrittes auf Richtigkeit. Bei festgestellten Fehlern wird nach alternativen Wegen zur 
-Zielerreichung gesucht, um schließlich erfolgreich umzusetzen. Dieser Prozess folgt dem Plan-Do-Check-Act-Zyklus.
+Zielerreichung gesucht, um diese erfolgreich umzusetzen. Dieser Prozess folgt dem Plan-Do-Check-Act-Zyklus.
 \\Als Online-Dienstleister ist es laut den Vorschriften des Bundesamts für Sicherheit in der Informationstechnik (BSI) 
 zwingend erforderlich, Daten und Geräte durch eine Mehrfaktor-Authentifizierung (\acs{MFA}) zu schützen, bei der der Login durch 
 die Verwendung eines Passworts und eines weiteren Faktors abgesichert wird. Authentik, als Identitätsprovider, nutzt ein 
-Informationssicherheitssystem, das auf etablierten Standards wie BSI100-2 und ISO27001 basiert.
+Informationssicherheitssystem, das auf etablierten Standards wie BSI100-2 und ISO27001 basiert und die Anforderungen erfüllt.
+Der Standard BSI 100-2 ist ein Standard des Bundesamtes für Sicherheit in der Informationstechnik, der allgemeine Anforderungen 
+an eine Managementsystem für Informationssicherheit (\acs{ISMS}) definiert. Die ISO 27001 ist eine internationale Norm für \acs{ISMS} 
+und ist auf der Basis von IT-Grundschutz für die Standard-Absicherung, als auch für die Kern-Absicherung möglich.
