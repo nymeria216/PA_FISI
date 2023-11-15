@@ -1,11 +1,12 @@
-\section{Testphase}
+\section{Test- und Abnahmephase}
 \label{sec:Testphase}
 
-\subsection{Überwachung der Laufzeit der Services}
-\label{sec:Überwachung der Laufzeit der Services}
+\subsection{Überwachung der Laufzeit der Dienste}
+\label{sec:Überwachung der Laufzeit der Dienste}
 Die Überwachung der Laufzeit der eingetragenen Dienste passiert über das Dashboard von Authentik.
 \\Um jeden einzelnen Dienst schlussendlich zu überprüfen, erfolgte über den NGinx Reverse Proxy Manager ein jeweiliger Zugriff auf alle Dienste, um 
-zu testen, ob sich Authentik auch wirklich vor den Dienst schaltet.
+zu testen, ob sich Authentik auch wirklich vor den Dienst schaltet. Zusätzlich wird das Monitoring-Tool Uptime Kuma verwendet, um die 
+Laufzeit aller Dienste zu überprüfen.
 
 \subsection{Überprüfung/ Beseitung von Fehlern}
 \label{sec:Überprüfung/ Beseitung von Fehlern}
@@ -18,3 +19,7 @@ mittels des Plan-Do-Check-Act-Zyklus, in welchem die Fehlern, \zB Tippfehler gle
 \label{sec:Zugriffstests}
 Um den Zugriff zu testen, wurden End-to-End-Tests durchgeführt, die Authentik auf die Gesamtheit überprüfen und 
 sicherstellen, dass die Benutzeranmeldungen und Authentifizierungen erfolgreich verlaufen.
+
+\subsection{Abnahme}
+\label{sec:Abnahme}
+Die Abnahme war erfolgreich, sodass das Projekt am 08.11.2023 an Edgar Johann Kapler übergeben werden konnte.
