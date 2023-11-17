@@ -7,6 +7,7 @@
 \usepackage[
 	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
 	headsepline, % Trennlinie unter Kopfzeile
+	footsepline, % Trennlinie über Fußzeile
 	ilines % Trennlinie linksbündig ausrichten
 ]{scrlayer-scrpage}
 
@@ -26,6 +27,7 @@
 
 % Fußzeile
 \ifoot{\autorName}
+\setlength{\footheight}{10mm} % Hier die gewünschte Fußzeilenhöhe einstellen
 \cfoot{}
 \ofoot{\pagemark}
 
