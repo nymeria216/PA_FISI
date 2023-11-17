@@ -34,33 +34,20 @@
 \phantomsection
 \pagenumbering{Roman}
 \pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
-
-% Inhalt ---------------------------------------------------------------------
-\pagenumbering{arabic}
-\input{Inhalt.tex}
-
-% \tableofcontents
-% \cleardoublepage
-
-% \phantomsection
-% \listoffigures
-% \cleardoublepage
+\tableofcontents
 
 \cleardoublepage
+
+\phantomsection
+\listoffigures
+\cleardoublepage
+
 \phantomsection
 \listoftables
 \cleardoublepage
 
 \phantomsection
 % \lstlistoflistings
-\cleardoublepage
-
-% Literatur ------------------------------------------------------------------
-\clearpage
-% \renewcommand{\refname}{Literaturverzeichnis}
-% \bibliography{Bibliographie}
-% \bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
-\input{Erklaerung}
 \cleardoublepage
 
 \newcommand{\abkvz}{Abkürzungsverzeichnis}
@@ -71,11 +58,21 @@
 \input{Abkuerzungen}
 \clearpage
 
+% Inhalt ---------------------------------------------------------------------
+\pagenumbering{arabic}
+\input{Inhalt.tex}
+
+% Literatur ------------------------------------------------------------------
+\clearpage
+\renewcommand{\refname}{Literaturverzeichnis}
+\bibliography{Bibliographie}
+\bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
+\input{Erklaerung}
+
 % Anhang ---------------------------------------------------------------------
 \clearpage
 \appendix
 \pagenumbering{roman}
 \input{Anhang}
-
 
 \end{document}
