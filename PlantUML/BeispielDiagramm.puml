@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor "Projektentwickler: in" as fc
+rectangle Cloud-Infrastruktur {
+  usecase "Authentik Server" as UC1
+  usecase "Firewall" as UC2
+  usecase "Login \nNginx Reverse Proxy Manager" as UC3
+  UC1 ..> (Authentik Server Core) : <<include>>
+  UC1 ..> (Embedded outpost) : <<include>>
+  (Authentik Server Core) ..> (PostgreSQL) : <<include>>
+  UC1 ..> (Redis) : <<include>>
+  (PostgreSQL) ..> (Background Worker) : <<include>>
+  (Background Worker) ..> (Redis) : <<include>>
+  UC2 ..> UC1 : <<include>>
+  UC3 ..> UC1 : <<include>>
+  
+ 
+
+}
+fc --> UC2
+fc --> UC3
+@enduml
