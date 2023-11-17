@@ -1,0 +1,115 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Projektplanung} 
+\label{sec:Projektplanung}
+
+
+\subsection{Projektphasen}
+\label{sec:Projektphasen}
+Die im Projektantrag festgelegten Projektphasen lassen sich chronologisch in die 5-stündige Planungsphase, 
+die 16-stündige Implementierungsphase, die 4-stündige Testphase, die 4-stündige Phase einteilen, in der die 
+Einführung und Übergabe erfolgt und die 8-stündige Dokumentation im Anschluss.
+Dabei änderte sich die Zeit in der Implementierungsphase von 14 auf 16 Stunden, die Zeit in der 
+Dokumentation von 6 auf 8 Stunden.
+\\Das Projekt findet in zwei Wochen, vom 30.10.2023 bis zum 10.11.2023 statt. Grund dafür ist ein Feiertag 
+und ein möglich entstehender Krankheitsfall.
+
+Tabelle~\ref{tab:Zeitplanung} \nameref{tab:Zeitplanung} zeigt ein Beispiel für eine grobe Zeitplanung. 
+Eine detailliertere Zeitplanung befindet sich im \nameref{sec:Anhang} \ref{app:Zeitplanung}.
+\tabelle{Zeitplanung}{tab:Zeitplanung}{ZeitplanungKurz}
+
+
+\subsection{Abweichungen vom Projektantrag}
+\label{sec:AbweichungenProjektantrag}
+Die im Projektantrag mit in \textit{Auflage genehmigt}en Inhalte, erforderten Änderungen in der 
+Projektdokumentation. Einige Änderungen sind im Kapitel \ref*{sec:Entwurfsphase} 
+\nameref{sec:Authentifizierungs-Tool} einsehbar. 
+\\Erforderten Änderungen:
+\begin{itemize} [label=--]
+	\item gesamte Zeitplanung - von 35 auf \textit{40} Stunden gestreckt
+	\item Zeitplanung/ Planungsphase - \textit{Klärung der Projektziele} nach \textit{vorn} der Phase geschoben
+	\item Zeitplanung/ Dokumentation - \textit{Benutzerdokumentation} statt Entwicklerdokumentation
+\end{itemize}
+
+Nicht erforderten Änderungen:
+\begin{itemize} [label=--]
+	\item Stundenplanung - Planungsphase von 5 auf \textit{8} Stunden
+	\item Stundenplanung - Implementierungsphase von 14 auf \textit{16} Stunden
+	\item Stundenplanung - Tesphase von 6 auf \textit{4} Stunden
+	\item Stundenplanung - Dokumentation von 8 auf \textit{6} Stunden
+	\item Implementierungsphase/ Installation und Konfiguration von Sitecars - \textit{Authentik} statt Sitecars
+\end{itemize}
+
+
+\subsection{Ressourcenplanung}
+\label{sec:Ressourcenplanung}
+
+\subsubsection{Sachmittelplanung}
+\label{sec:Sachmittelplanung}
+Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
+\begin{itemize} [label=--]
+	\item Notebook - Lenovo ThinkPad T15 Gen 1 (für die Entwicklung)
+	\item Betriebssystem - Microsoft Windows 10 Enterprise auf dem Lenovo-Notebook
+	\item iPhone 12 - iOS 17.0.3 (zum Testen des Einmalpassworts)
+	\item Microsoft Authenticator (auf dem iPhone 12 vorinstalliert)
+	\item \acs{IDE} - Visual Studio Code 1.83.1 (Benutzereinstellung)
+	\item Docker-Containerisierung auf der OVHCloud-Infrastruktur in einer Linux-Umgebung
+	\item OVHCloud-Instanz - firewall\_instance\_dev (Name der Instanz: b2-7)
+	\item OVHCloud-Instanz - tal\_cloud\_infra (Name der Instanz: r2-60)
+	\item OVHCloud-Instanz - rev\_prox-dev (Name der Instanz: b2-15)
+\end{itemize}
+
+\subsubsection{Personalplanung}
+\label{sec:Personalplanung}
+% \paragraph{Tabelle}
+Tabelle~\ref{tab:Personalplanung} zeigt die \nameref{tab:Personalplanung} des Projektes.
+\tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung.tex}\\
+In diesem Projekt arbeitet die Autorin Melissa Futtig 40 Stunden die Woche, während der Projektmanager Edgar Johann Kapler 
+2 Stunden in das Projekt für das Überlesen der Dokumentation und dem Testen der Anwendung investiert. Der duale Student Birk 
+Spinn unterstützt bei der Implementierung und dem Testen der Anwendung und benötigt für diese Aufgaben insgesamt 3 Stunden. 
+Die nicht genannten Personen sind einfache Projektmitglieder.
+
+\subsubsection{Ablaufplanung und Meilensteine}
+\label{sec:Ablaufplaung und Meilensteine}
+Die Ablaufplanung ist mit einem \nameref{app:Gantt} im Kapitel \ref{app:Gantt} des \nameref{sec:Anhang}s dargestellt. 
+Dabei stellt die Farbe pink \textit{keine Arbeitszeit}, die Farbe grün eine \textit{reine Abrbeitszeit} 
+von 8 Stunden am Tag und die hellblaue Farbe einen \textit{halben Arbeitstag} von 4 Stunden dar. Die jeweiligen Phasen 
+werden mit Meilensteinen abgeschlossen. Die erste Phase startet am Mittwoch, den 01.11.2023, während die letzte 
+mit ihrem Meilenstein am 08.11.2023 endet. Dabei erfolgt die reguläre Arbeitszeit in einer normalen Arbeitswoche 
+von Montag bis Freitag.
+
+\subsection{Entwicklungsprozess}
+\label{sec:Entwicklungsprozess}
+Das Projekt unterteilt sich in einem überschaubaren, zeitlich und inhaltlich begrenzten Entwicklungsprozess 
+mit gesondert eingeteilten Phasen, die nach- und voneinander aufbauen. So wird eine Sicherstellung der Schritt- 
+für Schritt-Fertigstellung der jeweiligen Phasen und Übersicht garantiert. Bedingt dessen, dass das Projekt klare Anforderungen 
+hat, welche umfassend mit vorhersehbaren Bedingungen formuliert sind und einen linearen Fortschritt ermöglicht, braucht 
+die agile Methode nicht verwendet zu werden. Auch ist der Umfang des Projektes zeitlich eingegrenzt und besitzt eine 
+strukturierte Vorgehensweise mit einer geringen Interaktion zum und mit dem Entwicklerteam und des Projektleiters als Kunden.
+
+\subsection{Anforderungsanalyse}
+\label{sec:Anforderungsanalyse}
+
+\subsubsection{Funktional}
+\label{sec:Funktional}
+Authenik muss folgende funktionale Anforderungen erfüllen:
+\begin{itemize} [label=--]
+	\item problemlose Registrierung und einfacher Login
+	\item nachvollziehbare Schritte während der Anmeldung bei der Eingabe des Einmalpasswortes
+	\item übersichtliche Darstellung und Verwaltung der einzuloggenden Nutzer
+	\item Login als Admin und (einfacher) Benutzer
+	\item vor jeden konfigurierten Dienst schalten und nach Eingabe der Nutzerdaten freigeben
+	\item sicher sein und Zugriff von Dritten verweigern
+	\item kompatibel mit einer Authenticator-Software sein
+	\item schnelle Eingabe der Nutzerdaten
+\end{itemize}
+
+\subsubsection{Nicht-Funktional}
+\label{sec:Nicht-Funktional}
+Authentik muss folgende nicht-funktionale Anforderungen erfüllen:
+\begin{itemize} [label=--]
+	\item Skalierbarkeit der Dienste
+	\item das Überleiten auf den nächsten Dienst sollte in weniger als 2 Sekunden erfolgt sein
+	\item Enthalten des Brandings von der Deloitte Wirtschaftsprüfungsgesellschaft GmbH
+	\item übersichtliche, englischsprachiges Willkommens-Display
+\end{itemize}
+	
