@@ -14,35 +14,33 @@ von Dienstleistungen für Unternehmen und Organisationen in verschiedenen Branch
 Im \acs{B and TCL}, auch dem Business \& Technology Center Leipzig, erbringt die Deloitte
 GmbH mit ihren 100 Mitarbeitern eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
 Transformationsprojekte rund um die Themen Cyber Security, Digitalisierung,
-Prozessoptimierung oder Automatisierung voran.
-\\Das Projekt ist ein Tochterprojekt eines größeren und beinhaltet die Implementierung eines Teilfeatures, was zur 
-Verbesserung des Gesamtprojektes führt. In diesem arbeiten interne Mitarbeiter aktiv mit, um die Entwicklung des
-Projektes voranzutreiben. Dabei stellen diese die Zielgruppe dar.
+Prozessoptimierung oder Automatisierung voran. 
+\\Das Projekt mit dem Fokus auf Multi-Faktor-Authentifizierung bei verschiedenen Services in einer 
+Cloud-Infrastruktur ist ein Tochterprojekt eines Größeren. Dabei ist gemeint, dass dieses 
+''Tochterprojekt'' nicht alleine existiert, sondern als Teil des größeren Projektes agiert und es sich 
+um ein Subprojekt handelt. Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die 
+Cloud-Infrastruktur von OVHCloud, um einen Business Hosting Service bereitzustellen.
+Die Zielgruppe stellt das Projektteam dar, welche in dem größeren Projekt mit entwickeln.
 
+\subsection{Projektaufgabe}
+\label{sec:Projektaufgabe}
+Der Zweck des Projektes ist es, den Entwicklern der Cloud-Infrastruktur mit den darauf gehosteten Services bzw. 
+Diensten, eine Authentifizierungsmöglichkeit zu bieten, die die Sicherheit des Einloggens erhöht.
+Die Implementierung der \acs{MFA} steigert nicht nur die Sicherheit, sondern gewährleistet gleichermaßen, 
+dass der Zugang zu den Diensten und Daten in der Cloud-Infrastruktur nicht allein durch den Diebstahl eines 
+Passworts gefährdet wird. Benutzer müssen zusätzlich zur Eingabe des Nutzernamens und Passwortes einen weiteren 
+Authentifizierungsfaktor, wie zum Beispiel ein Einmalkennwort, eingeben. Dabei werden nicht nur firmeninterne und 
+kundenbezogene Daten geschützt, sondern auch die Kundenzufriedenheit und das Vertrauen gegenüber der zukünftigen 
+Kunden erhöht. Dies hat hohe Priorität und verhindert unbefugten Zugriff auf sensible Informationen.
 
 \subsection{Projektziel} 
 \label{sec:Projektziel}
-Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastruktur von OVHCloud, um einen Business 
-Hosting Service bereitzustellen. 
-\\Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
+Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
 Multi-Faktor-Authentifizierung (\acs{MFA}) eingeführt wird. Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
 Daten gewährleistet werden, indem nur eine Anmeldung mit \acs{MFA} möglich ist und resultierend daraus Risiken, wie Passwork-Leaks 
 und Phishing vermieden werden können.
-Um das Ziel zu erreichen, wird Authentik für die Implementierung von \acs{MFA} auf verschiedene Services in der 
-Cloud-Infrastruktur eingeführt. 
-Dabei ist Authentik ein Open-Source-Identitätsanbieter (Identity Provider), der den Zugriff auf verschiedene Dienste und 
-Ressourcen in der Cloud-Infrastruktur verwalten und sichern soll und legt den Fokus auf die Flexibilität und Vielseitigkeit. 
-
-
-\subsection{Projektbegründung} 
-\label{sec:Projektbegruendung}
-Die Implementierung der \acs{MFA} steigert die Sicherheit und gewährleistet, dass der Zugang zu Diensten und Daten in der 
-Cloud-Infrastruktur nicht allein durch den Diebstahl eines Passworts gefährdet wird. Benutzer müssen zusätzlich zur Eingabe des 
-Nutzernamens und Passwortes einen weiteren Authentifizierungsfaktor, wie zum Beispiel ein Einmalpasswort, eingeben. Diese 
-Eingabe erhöht erheblich die Sicherheit. Dabei werden nicht nur firmeninterne und kundenbezogene Daten geschützt, sondern auch 
-die Kundenzufriedenheit und das Vertrauen gegenüber der zukünftigen Kunden erhöht. Dies hat hohe Priorität und verhindert 
-unbefugten Zugriff auf sensible Informationen.
-
+Um das Ziel zu erreichen, soll eine MFA-Lösung implementiert werden, welche sich vor die verschiedenen Dienste in der 
+Cloud-Infrastruktur schaltet und den Zugriff der Benutzer verwalten und sichern soll.
 
 \subsection{Projektschnittstellen} 
 \label{sec:Projektschnittstellen}
@@ -51,7 +49,7 @@ unbefugten Zugriff auf sensible Informationen.
 \label{sec:Technisch}
 Die in Kapitel 1.2 besagte Cloud-Infrastruktur wird in vier  
 Hauptbereiche unterteilt, sodass in jedem dieser Bereiche verschiedene Dienste zur Verfügung werden. In jedem dieser Bereiche 
-werden die Dienste mittels Docker-Containern hochgefahren.
+werden die Dienste mittels Docker-Containern initialisiert.
 \\\textit{Compliance and Security Stack}
 \\Dieser Bereich umfasst den Einsatz, wie die OPNsense Firewall, den NGinx Proxy Manager, dem Authentik- und Guacamole Server 
 und Infection Monkey zur Sicherheitsüberprüfung. Zusammenfassend ist zu sagen, dass der NGinx Proxy Manager als Reverse Proxy 
@@ -74,18 +72,23 @@ wie zum Beispiele SSH-Schlüssel und Passwörter zu verwalten.
 \\\textit{E-Mail-Kommunikation}
 \\In diesem Bereich agiert der Mail-Server Mailcow, um E-Mails zu senden und empfangen, SOGO als Groupware-Lösung, 
 was eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb und außerhalb des Unternehmens ermöglicht.
-\\Insgesamt werden für dieses Projekt drei Instanzen verwendet. Zum Einen ist es die \textbf{''control\_node''} 
-als eine Instanz, auf welcher sich zu Beginn die Benutzer verbinden, woraufhin die folgende Verbindung auf die nächste Instanz, 
-entweder der auf den \textbf{''rev\_prox\_dev''} oder der \textbf{''tal\_cloud\_infra''} über SSH ablaufen. Dabei befinden 
-sich alle Services in den oben genannten Bereichen auf der \textbf{''tal\_cloud\_infra''} außer 
-der NGinx Reverse Proxy Manager, der auf dem \textbf{''rev\_prox\_dev''} lokalisiert ist. Eine Vorschau der Cloud-Infrastruktur befindet 
-sich im \nameref{sec:Anhang} im Kapitel \ref{app:Cloud-Infrastruktur} in der \nameref{app:Cloud-Infrastruktur}. Eine Darstellung, 
-wie der Zugriff eines Benutzers auf eine Instanz über die \acs{CLI} erhält, befindet sich im \nameref{sec:Anhang} 
-\ref*{app:Sequenzdiagramm CLI Zugriff auf die Instanzen} \nameref*{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}.
+\\Für dieses Projekt werden insgesamt drei Instanzen des Anbieters OVHCloud für Cloud-Computing-Dienste genutzt. 
+Alle drei Instanzen sind Linux-Systeme mit Ubuntu und variieren in ihren Ressourcen wie RAM und CPU. Auf 
+diesen Instanzen werden die im Kapitel genannten Dienste durch Containerisierung gestartet. Jeder Instanz 
+wird zur besseren Zuordnung eine spezifische Bezeichnung zugeordnet.
+Die erste Instanz, genannt \textbf{''control\_node''}, fungiert als Anlaufstelle, an der Benutzer sich zu Beginn verbinden müssen.
+Diese Instanz dient als Kontrollpunkt, über den der Zugang zu den anderen Instanzen erfolgt. Sie fungiert 
+gewissermaßen als Gateway zu entweder der Instanz \textbf{''rev\_prox\_dev''} oder der \textbf{''tal\_cloud\_infra''}. 
+Der Zugriff auf diese Instanzen geschieht mittels eines \acs{SSH}-Schlüssels von einem lokalen Notebook aus über die Kommandozeile (CLI).
+Alle Dienste, bis auf den NGinx Reverse Proxy Manager, sind in der ''tal\_cloud\_infra'' lokalisiert. 
+Letzterer läuft auf dem ''rev\_prox\_dev''. Die Bezeichnung ‘‘tal\_cloud\_infra‘‘ bezieht sich auf den Standort Deloitte in Leipzig, bekannt als \acs{TAL}. 
+''rev\_prox\_dev'' erhält seinen Namen aufgrund des dort laufenden NGinx Reverse Proxy Managers. Ein Diagramm, das den Zugriff eines Benutzers auf eine Instanz  
+über die CLI veranschaulicht, befindet sich im \nameref{sec:Anhang} \nameref{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}.
+
 
 \subsubsection{Organisatorisch}
 \label{sec:Organisatorisch}
-Nach der Implementierung Authentiks in der Cloud-Umgebung, finden erste Tests und Validierungen in den erstellten 
+Nach der Implementierung der MFA-Lösung in der Cloud-Umgebung, finden erste Tests und Validierungen in den erstellten 
 Docker-Containern via der \textit{docker-compose.yml}-Datei statt, um sicherzustellen, dass diese ordnungsgemäß funktioniert und den 
 Sicherheitsanforderungen entspricht. 
 Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall für das Entwicklerteam, zur genauen Verwendung von Authentik mit \acs{MFA}. 
@@ -95,16 +98,12 @@ Nach den Tests und der Schulungen wird die Authentik-\acs{MFA}-Implementierung i
 \label{sec:Personell}
 Das Projektteam besteht aus folgenden Personen:
 \begin{itemize} [label=--]
-	\item Projektauftraggeber/ Director: Herr Dr. Volker Stroetmann
 	\item Projektleiter/ Manager/ Projektentwickler: Herr Edgar Johann Kapler
-	\item Projektentwickler/ Auszubildender: Herr Dmytro Datsiuk
-	\item Projektentwickler/ dualer Student: Herr Neo-Pascal Loest
-	\item Projektentwicklerin/ duale Studentin: Frau Martyna Mol 
-	\item Projektentwickler/ Auszubildender: Herr Angelo Juliano Vogt
+	\item Projektentwickler/ dualer Student: Herr Birk Spinn
 	\item Projektentwicklerin/ Auszubildende: Frau Melissa Futtig
 \end{itemize}
-Der Projektauftraggeber und -leiter sind die Verantwortlichen für die Projektleitung und -finanzierung des Projektes. 
-Sie genehmigen dieses und stellen die notwendigen Ressourcen zur Entwicklung bereit.
-\\Die Projektentwickler sind die allgemeinen Benutzer und das Entwicklerteam. Sie sind für die Umsetzung und den 
+Der Projektleiter ist der Verantwortliche für die Projektleitung und -finanzierung des Projektes. 
+Er genehmigt dieses und stellt die notwendigen Ressourcen zur Entwicklung zur Verfügung.
+\\Die Projektentwickler sind die allgemeinen Benutzer \bzw das Entwicklerteam. Sie sind für die Umsetzung und den 
 reibungslosen Betrieb der Cloud-Infrastruktur verantwortlich und benötigen sichere Zugriffsmöglichkeiten zu den 
 bereitgestellten Anwendungen.
