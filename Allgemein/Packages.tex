@@ -24,6 +24,7 @@
 \usepackage{lscape}
 \newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbündig mit definierter Breite
 
+
 % Grafiken ---------------------------------------------------------------------
 \usepackage[dvips,final]{graphicx} % Einbinden von JPG-Grafiken ermöglichen
 \usepackage{graphics} % keepaspectratio
@@ -32,6 +33,11 @@
 
 % Sonstiges --------------------------------------------------------------------
 \usepackage[titles]{tocloft} % Inhaltsverzeichnis DIN 5008 gerecht einrücken
+% Änderungen am Tabellenverzeichnis vornehmen
+\renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cfttabaftersnum}{:}
+% \renewcommand{\cfttabdotsep}{\cftnodots}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
 \usepackage{amsmath,amsfonts} % Befehle aus AMSTeX für mathematische Symbole
 \usepackage{enumitem} % anpassbare Enumerates/Itemizes
 \usepackage{xspace} % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden

@@ -3,10 +3,9 @@
 \section{Einleitung}
 \label{sec:Einleitung}
 
-
 \subsection{Projektumfeld} 
 \label{sec:Projektumfeld}
-Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH ist ein internationales 
+Die \cite{Deloitte} Wirtschaftsprüfungsgesellschaft GmbH ist ein internationales 
 Unternehmen für Wirtschaftsprüfung, Steuer-, Unternehmens-, Risiko- und Finanzberatung.
 Sie hat Niederlassungen in vielen Ländern, darunter auch Deutschland. 
 Mit Vertretern in über 150 Ländern weltweit und 415.000 Mitarbeitern, bietet das Unternehmen eine breite Palette 
@@ -19,7 +18,7 @@ Prozessoptimierung oder Automatisierung voran.
 Cloud-Infrastruktur ist ein Tochterprojekt eines Größeren. Dabei ist gemeint, dass dieses 
 ''Tochterprojekt'' nicht alleine existiert, sondern als Teil des größeren Projektes agiert und es sich 
 um ein Subprojekt handelt. Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die 
-Cloud-Infrastruktur von OVHCloud, um einen Business Hosting Service bereitzustellen.
+Cloud-Infrastruktur von \cite{ovhcloud}, um einen Business Hosting Service bereitzustellen.
 Die Zielgruppe stellt das Projektteam dar, welche in dem größeren Projekt mit entwickeln.
 
 \subsection{Projektaufgabe}
@@ -56,7 +55,7 @@ und Infection Monkey zur Sicherheitsüberprüfung. Zusammenfassend ist zu sagen,
 fungiert und den HTTP-Verkehr umleitet und andere Ports für Streaming-Anforderungen bedient. Mittels von Apache Guacamole 
 erfolgt die Sicherstellung des Fernzugriffs auf die internen Dienste, die regulär nicht über eine Web-Schnittstelle erreichbar sind.
 Das Open-Source-Sicherheitstesttool Infection Monkey überprüft die Sicherheit der Infrastruktur. 
-Mit dem Identitätsanbieter Authentik, werden verschiedene Identitäts- und Authentifizierungsmethoden in 
+Mit dem Identitätsanbieter \cite{Authentik}, werden verschiedene Identitäts- und Authentifizierungsmethoden in 
 Anwendungen und Diensten ermöglicht, zu integrieren. Dadurch wird eine wichtige Schnittstelle für die 
 Benutzerauthenfizierung und -autorisierung bereitgestellt und kann von verschiedenen Anwendungen über 
 Docker-Container Authentifizierungsmechanismen einrichten.
@@ -76,12 +75,12 @@ was eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb und außer
 Alle drei Instanzen sind Linux-Systeme mit Ubuntu und variieren in ihren Ressourcen wie RAM und CPU. Auf 
 diesen Instanzen werden die im Kapitel genannten Dienste durch Containerisierung gestartet. Jeder Instanz 
 wird zur besseren Zuordnung eine spezifische Bezeichnung zugeordnet.
-Die erste Instanz, genannt \textbf{''control\_node''}, fungiert als Anlaufstelle, an der Benutzer sich zu Beginn verbinden müssen.
+Die erste Instanz, genannt \textbf{''control\_node''}, fungiert als Anlaufstelle, an der sich Benutzer zu Beginn verbinden müssen.
 Diese Instanz dient als Kontrollpunkt, über den der Zugang zu den anderen Instanzen erfolgt. Sie fungiert 
 gewissermaßen als Gateway zu entweder der Instanz \textbf{''rev\_prox\_dev''} oder der \textbf{''tal\_cloud\_infra''}. 
-Der Zugriff auf diese Instanzen geschieht mittels eines \acs{SSH}-Schlüssels von einem lokalen Notebook aus über die Kommandozeile (CLI).
+Der Zugriff auf diese Instanzen geschieht mittels eines \acs{SSH}-Schlüssels von einem lokalen Notebook aus über die Kommandozeile.
 Alle Dienste, bis auf den NGinx Reverse Proxy Manager, sind in der ''tal\_cloud\_infra'' lokalisiert. 
-Letzterer läuft auf dem ''rev\_prox\_dev''. Die Bezeichnung ‘‘tal\_cloud\_infra‘‘ bezieht sich auf den Standort Deloitte in Leipzig, bekannt als \acs{TAL}. 
+Letzterer läuft auf der ''rev\_prox\_dev''-Instanz. Die Bezeichnung ‘‘tal\_cloud\_infra‘‘ bezieht sich auf den Standort Deloitte in Leipzig, bekannt als \acs{TAL}. 
 ''rev\_prox\_dev'' erhält seinen Namen aufgrund des dort laufenden NGinx Reverse Proxy Managers. Ein Diagramm, das den Zugriff eines Benutzers auf eine Instanz  
 über die CLI veranschaulicht, befindet sich im \nameref{sec:Anhang} \nameref{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}.
 

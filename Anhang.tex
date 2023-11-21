@@ -1,13 +1,36 @@
 % !TEX root = Projektdokumentation.tex
+\appendix
 \section{Anhang}
 \label{sec:Anhang}
+
+\subsection*{Abkürzungsverzeichnis}
+\label{sec:Abkürzungsverzeichnis}
+\addcontentsline{toc}{subsection}{Abkürzungsverzeichnis}
+\begin{acronym}[WWWWW]
+	\acro{TAL}{Tech Accelerator Leipzig}
+	\acro{SSH}{Secure Shell}
+	\acro{B and TCL}{Business \& Technology Ceenter Leipzig}
+	\acro{API}{Application Programming Interface}
+	\acro{LDAP}{Lightweight Directory Access Protocol}
+	\acro{OIDC}{OpenID Connect}
+	\acro{CLI}{Command Line Interface}
+	\acro{GUI}{Graphical User Interface}
+	\acro{ISMS}{Informationssicherheits-Managementsystem}
+	\acro{BSI}{Bundesamt für Sicherheit in der Informationstechnik}
+	\acro{TOTP}{Time-based One-time Password}
+	\acro{SSO}{Single-Sign On}
+	\acro{MFA}{Multi Faktor Authentifizierung}
+	\acro{IDE}{Integrated Development Environment}
+	\acro{TCO}{Total Cost of Ownership}
+\end{acronym}
+\cleardoublepage
+
 \subsection{Gantt-Diagramm und Meilensteine}
 \label{app:Gantt}
 \includegraphicsKeepAspectRatio{Anhang/Gantt.pdf}{1}
 \clearpage
 
 \subsection{Detaillierte Zeitplanung}
-\label{app:Zeitplanung}
 \tabelleAnhang{ZeitplanungKomplett}
 \clearpage
 
@@ -25,13 +48,13 @@
 \includegraphicsKeepAspectRatio{Anhang/SequenzDiagrammCLI.png}{1}
 \clearpage
 
-% \subsection{Cloud-Infrastruktur}
-% \label{app:Cloud-Infrastruktur}
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphicsKeepAspectRatio{Anhang/Cloud-Infra-Topology.png}{1}
-% \end{figure}
-% \pagebreak
+\subsection{Cloud-Infrastruktur}
+\label{app:Cloud-Infrastruktur}
+\begin{figure}[htb]
+    \centering
+    \includegraphicsKeepAspectRatio{Anhang/CloudInfra.png}{0.8}
+\end{figure}
+\pagebreak
 
 \subsection{docker-compose.yml}
 \label{app:docker-compose.yml}
@@ -63,7 +86,13 @@
 
 \subsection{Authentik-Konfiguration}
 \label{app:AuthentikConfig}
-\includepdf[pages={1-3}, scale=0.9]{Anhang/Authentik-Konfiguration.pdf}
+% \includepdf[pages={1-3}, scale=0.9]{Anhang/Authentik-Konfiguration.pdf}
+\includegraphicsKeepAspectRatio{Anhang/AuthentikKonfig1.png}{0.9}
+\clearpage
+\includegraphicsKeepAspectRatio{Anhang/AuthentikKonfig2.png}{0.9}
+\clearpage
+\includegraphicsKeepAspectRatio{Anhang/AuthentikKonfig3.png}{0.9}
+\clearpage
 
 \subsection{NGinx Konfiguration}
 \label{app:CustomNGinxConfig}
@@ -91,3 +120,21 @@
 \subsection{Übernahmeprotokoll}
 \label{app:Übernahmeprotokoll}
 \includegraphicsKeepAspectRatio{Anhang/Übernahmeprotokoll.pdf}{0.9}
+
+% Abbildungsverzeichnis ------------------------------------------------------
+\phantomsection
+\listoffigures
+\cleardoublepage
+
+% Tabellenverzeichnis
+\phantomsection
+\listoftables
+\cleardoublepage
+
+% Literatur ------------------------------------------------------------------
+\clearpage
+\renewcommand{\refname}{Literaturverzeichnis}
+\bibliography{Bibliographie}
+\bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
+\input{Erklaerung}
+\cleardoublepage

@@ -1,0 +1,96 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Ist/Soll-Analyse} 
+\label{sec:IstSollAnalyse}
+
+
+\subsection{Ist-Analyse} 
+\label{sec:IstAnalyse}
+Die aktuelle Cloud-Infrastruktur nutzt den NGinx Reverse Proxy Manager für den Zugriff auf verschiedene Dienste. 
+Es besteht jedoch keine zusätzliche Sicherheitsschicht wie eine Multi-Faktor-Authentifizierung (\acs{MFA}), 
+was bedeutet, dass der Zugriff allein über Benutzernamen- und Passwörtereingabe erfolgt, ohne eine weitere 
+Überprüfung der Identität.
+% Die Cloud-Umgebung enthält die in den oberen Kapiteln erwähnten Instanzen 
+% (\textit{control\_node, rev\_prox\_dev und tal\_cloud\_infra}) und eine OPNSense-Firewall, die den Zugriff 
+% von unbefugten Dritten verhindern soll. Die drei Instanzen befinden sich in einem privaten Netzwerk, was 
+% bedeutet, dass diesen private nicht von außen sichtbare IP-Adressen zugewiesen werden, während der 
+% Firewall eine öffentliche IP-Adresse vergeben wird. 
+% Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Nutzern (\acs{CLI}) mit einem gültigen
+% SSH-Schlüssel die Möglichkeit geboten, von der Kontrollinstanz \textit{control\_node} auf die anderen Instanzen 
+% zuzugreifen. Die anderen für das Projekt relevanten Instanzen sind \textit{rev\_proxy\_dev} und \textit{tal\_cloud\_infra} 
+% auf denen sich, die im Kapitel \ref*{sec:Technisch} \nameref{sec:Technisch}e \nameref{sec:Projektschnittstellen} 
+% erwähnten Instanzen befinden. Die Graphical-User-Interface-Nutzer (\acs{GUI}) können die Services über den NGinx Reverse Proxy Manager 
+% zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, ohne einer weiteren 
+% Schutzebene erfolgt.
+
+\subsection{Soll-Analyse}
+\label{sec:SollAnalyse}
+Das Hauptziel besteht darin, die Sicherheit der Dienste durch die Implementierung einer \acs{MFA}-Lösung 
+zu verbessern. Geplant ist, vor jedem Dienst einen Identitätsanbieter zu schalten, um sicherzustellen, 
+dass sich die \acs{MFA} vor den Diensten positioniert. Benutzer sollen sich über die \acs{MFA} 
+authentifizieren, um den Identitätsbestätigungsprozess zu erfüllen und Zugang zu den Diensten zu 
+erhalten.
+
+
+\subsection{Wirtschaftlichkeitsanalyse}
+\label{sec:Wirtschaftlichkeitsanalyse}
+Durch die schon vorhandene Cloud-Infrastruktur des größeren Projektes entstehen keine weiteren Kosten. Bedingt dessen, dass die 
+OVH-Cloud-Infrastruktur zu einem Fix-Preis pro Instanz gemietet wird und keine weiteren Instanzen für die Implementierung 
+des Tochter-Projektes erforderlich sind, bleiben die Kosten unverändert. 
+An ressourcen wird zwar mehr CPU und Rechenleistung verwendet, was allerdings nicht nach dem \cite{Wiki}-Prinzip 
+berechnet wird, sondern bei OVHCloud pauschal nach Instanzpreis, sodass für das ''Tochter-Projekt'' keine weitere 
+Kosten entstehen. Die wirklich zu entstehenden Kosten sind ausschließlich Personal- und Materialkosten, wobei letztere 
+aus der Nutzung des Büromobiliars und der Strom- und Heizkosten zusammengefasst wird. 
+\\Durch die Einführung der \acs{MFA}-Lösung in der Cloud-Infrastruktur werden besonders die Schutzziele der 
+Einhaltung der Integrität und Vertraulichkeit der Daten auf den jeweiligen Diensten eingehalten. So wird die Sicherheit 
+erheblich verbessert und trägt dazu bei, unbefugten Zugriff, Datenverluste und Betrug zu verhindern. Dieser Schutz 
+vor Sicherheitsverletzungen kann erhebliche finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
+werden können. Des Weiteren erfolgen Kostenersparnisse in dem Punkt des Verhinderns der Passwort-Resets durch das Anfragen des 
+administrativen Supports, bei welchem Zeit und daraus Kosten entstehen, die vermieden werden können. Durch die Implementierung 
+kann den Nutzern ein sicherer und bequemerer Zugriff gewährleistet und die Kosten gesenkt werden.
+
+
+\subsection{Anforderungsanalyse}
+\label{sec:Anforderungsanalyse}
+
+\subsubsection{Funktionale Anforderungen}
+\label{sec:Funktional}
+Die MFA-Lösung muss folgende funktionale Anforderungen erfüllen:
+\begin{itemize} [label=--]
+	\item Benutzerfreundliche Registrierung und Login
+	\item Klare Anleitung für die Einmalpasswort-Eingabe
+	\item Übersichtliche Verwaltung von Nutzern
+	\item Einloggen als Admin und Benutzer
+	\item Dienste nach Benutzerdateneingabe aktivieren
+	\item Schutz vor Drittzugriff, sichere Lösung
+	\item Nutzung mit Authentikator-Software
+\end{itemize}
+
+\subsubsection{Nicht-Funktionale Anforderungen}
+\label{sec:Nicht-Funktional}
+Authentik muss folgende nicht-funktionale Anforderungen erfüllen:
+\begin{itemize} [label=--]
+	\item Skalierbarkeit der Dienste
+	\item Übergang zu Diensten in bis zu 2 Sekunden
+	\item Übersichtliches Willkommensdisplay (Englisch)
+\end{itemize}
+
+% \subsubsection{\gqq{Make or Buy}-Entscheidung}
+% \label{sec:MakeOrBuyEntscheidung}
+% In der Entscheidungsmatrix für die Zielplattform aus dem Kapitel~\ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool}
+% auf der Seite \pageref{sec:Authentifizierungs-Tool} sind einige alternative Produkte sichtbar, welche wie Authentik, 
+% implementiert werden müssen. Daraus resultierend wird sich für Authentik entschieden.
+
+\subsection{Anwendungsfälle}
+\label{sec:Anwendungsfaelle}
+Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \nameref{sec:Anhang} \ref{app:UseCase} \nameref{app:UseCase}.
+In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
+Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
+Nach der erfolgreichen Anmeldung mit der \acs{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
+Nginx Reverse Proxy Manager aus zuzugreifen.
+\\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
+integrierten Außenposten (Embedded oupost) besteht, werden einkommende Anfragen an den Server-Containern und den Authentik Server Core 
+und dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den Großteil der Logik von Authentik, wie \zB \acs{API}- und/ oder 
+\acs{SSO}-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
+eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
+oder Benachrichtigen von Ereignisses und alles, was im Frontend sichtbar ist. Authentik nutzt PostgreSQL, um alle seiner 
+Konfigurationen und Daten zu speichern. Redis wird als Message-Queue und Cache verwendet.

@@ -4,20 +4,18 @@
 
 \subsection{Vorbereitung der Entwicklungsumgebung}
 \label{sec:Vorbereitung der Entwicklungsumgebung}
-Die Voraussetzung zur Implementierung von Authentik ist, dass Docker und Docker Compose auf dem im Kapitel \ref{sec:Sachmittelplanung} 
-\nameref{sec:Sachmittelplanung} erwähnten Notebook vorinstalliert sind und einen Zugang zum Internet verfügen. Des Weiteren sollten die zu 
+Die Voraussetzung zur Implementierung von Authentik ist, dass Docker und Docker Compose auf allen Linux-Umgebungen der 
+Instanzen installiert sind und einen Zugang zum Internet verfügen. Des Weiteren sollten die zu 
 benötigenden Hard- und Softwarekomponenten, welche ebenfalls in der \nameref{sec:Sachmittelplanung} auf der Seite \pageref{sec:Sachmittelplanung} 
 gelistet sind, funktionierend sein. Wichtig für die Durchführung ist nicht nur Docker mit dem Notebook selbst, sondern auch der 
 Besitz einer Domain oder Subdomain, welche bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH, die \textbf{domain.de} ist. 
 Die eigentliche Domain der Deloitte wird mit der \textit{example.domain.de} und später der \textit{auth.example.domain.de} ersetzt.
 Diese muss entweder mit einem A- oder CNAME-Record versehen sein. Um die Domain-Names übersichtlich verwalten zu können, 
-empfiehlt sich ein Reverse Proxy, in diesem Fall wird es auf den NGinx Proxy Manager zurückzuführen sein. Und zu guter letzt einen SMTP 
+empfiehlt sich ein Reverse Proxy, in diesem Fall wird es auf den NGinx Proxy Manager zurückzuführen sein. Und zu guter letzt einen  
 E-Mail Server zur beispielsweise Zurücksetzung eines Passworts. Für das Testen der kommenden Schritte im Kapitel 
 \ref{sec:Einrichtung des zweiten Faktors} \nameref{sec:Einrichtung des zweiten Faktors} ab der Seite 
 \pageref{sec:Einrichtung des zweiten Faktors} wird das iPhone 12, erwähnt in der \nameref{sec:Sachmittelplanung}, verwendet. 
-Dieses mobile Endgerät ist ein Firmentelefon und beinhaltet zusätzlich den Microsoft Authenticator, um sich 
-gewissermaßen remote mit dem VPN des Firmennetzwerkes verbinden zu können. Aus diesem Grund muss kein weiteres Active Directory 
-installiert und eingerichtet werden. Ein Active Directory ist ein Verzeichnisdienst, der gebündelte Informationen zur Verfügung stellt.
+Dieses mobile Endgerät ist ein Firmentelefon und beinhaltet den vorinstallierten und schon eingerichteten Microsoft Authenticator. 
 
 \subsection{Auswahl einer MFA-Lösung}
 \label{sec:Auswahl einer MFA-Lösung}
@@ -28,7 +26,7 @@ die Optionen WebAuthn Authenticator Setup Stage und \acs{TOTP} Authenticator Set
 die Entscheidung des finalen Ergebnisses nicht anhand der \nameref{tab:Nutzwertanalyse} manifestierend festzulegen ist.
 \tabelle{Nutzwertanalyse zur MFA-Lösung}{tab:Nutzwertanalyse}{Nutzwertanalyse_MFA.tex}
 \\Die Entscheidungstreffung erfolgte besonders auf der Prämisse, dass die Deloitte Wirtschaftsprüfungsgesellschaft GmbH das \acs{TOTP}-Verfahren, 
-also die Eingabe eines Einmalpassworts, durch einen Authenticator, wie in dem iPhone 12, gestellt durch die Deloitte, bei allen zur Verfügung 
+also die Eingabe eines Einmalpassworts, durch einen Authenticator, wie in dem iPhone 12, bei allen zur Verfügung 
 stehenden Diensten verwendet wird. So fiel die Entscheidung auf das \textbf{\acs{TOTP}-Verfahren}, was hingegen zum WebAuth Authenticator 
 Setup Stage weniger Sicherheit aber weniger Implementierungsaufwand erfordert und kein weiteres Gerät oder eine weitere Datei oder Software 
 notwendig ist, um die in der zu entstehenden hardwarebasierten Token zu verwalten. In dem \acs{TOTP} Authenticator Setup Stage geben die 
@@ -37,25 +35,31 @@ Benutzer weitergeleitet, um ihren 6-stelligen Zahlencode, der in dem Microsoft A
 Wenn die Benutzer sich noch nicht über Authentik angemeldet hatten, werden diese nach der Anmeldung durch einen QR-Code aufgefordert 
 den 6-stelligen Code einzugeben.
 
-\subsection{Erstellung der docker-compose.yml, .env}
-\label{sec:Erstellung der docker-compose.yml, .env}
+\subsection{Erstellung der docker-compose.yml und .env}
+\label{sec:Erstellung der docker-compose.yml .env}
 Um Authentik über eine \textit{\nameref{app:docker-compose.yml}}-Datei im \nameref{sec:Anhang} des Kapitels \ref{app:docker-compose.yml} 
 zum Laufen zu bringen, ist es erforderlich, dass nicht nur der Authenik-Server, sondern auch der Authentik-Worker, 
 Redis und PostgreSQL gleichzeitig erstellt werden. PostgreSQL ist eine objektrelationale Datenbank und unterstützt 
 die Erweiter- und Skalierbarkeit der Cloud-Infrastruktur. Redis hingegen ist ein In-Memory-Datenspeicher, der als 
 schneller Datenspeicher dient. Die ''\nameref{app:dotenv}''-Datei im Kapitel \ref{app:dotenv} \nameref{app:dotenv} 
-enthält die individuellen Umgebungsvariablen für die Zugangsdaten der Nutzer :innen. 
-\\Beide Dateien werden in einem Ordner ''Authentik'' auf der Instanz \textbf{''tal\_cloud\_infra''} durch docker erstellt. 
-Eine Darstellung der Instanzen befindet sich im Kapitel \ref{app:Cloud-Infrastruktur} \nameref{app:Cloud-Infrastruktur}  auf der Seite 
-\pageref{app:Cloud-Infrastruktur}. Die ''\nameref{app:docker-compose.yml}''-Datei wurde über \href{https://www.composerize.com/}{Composerize}, einer 
+enthält die individuellen Umgebungsvariablen für die Zugangsdaten der Nutzern. 
+% \\Beide Dateien werden in einem Ordner ''Authentik'' auf der Instanz \textbf{''tal\_cloud\_infra''} durch docker erstellt. 
+Eine Darstellung der Instanzen befindet sich im Kapitel \ref{app:Cloud-Infrastruktur} \nameref{app:Cloud-Infrastruktur}. 
+Die ''\nameref{app:docker-compose.yml}''-Datei wurde über \cite{Composerize}, einer 
 Applikation aus dem Internet entnommen, welche öffentlich zugänglich ist. Auch die ''\nameref{app:dotenv}''-Datei ist öffentlich über die 
-Webpage von \href{https://goauthentik.io/}{Authentik} einsehbar. Die einzigen in dieser Datei vorzunehmenden Änderungen, sind die Variablen: 
-''PG\_PASS'', ''AUTHENTIK\_SECRET\_KEY'', ''AUTHENTIK\_EMAIL\_\_HOST'', ''AUTHENTIK\_EMAIL\_\_USERNAME'', sowie ''AUTHENTIK\_EMAIL\_\_PASSWORD'' 
-und ''AUTHENTIK\_EMAIL\_\_FROM''. Um Authentik zu starten, werden beide Dateien im Unterordner Authentik eingefügt. Nun wird mit dem Befehl 
+Webpage von Authentik einsehbar. 
+\\Die einzigen in dieser Datei vorzunehmenden Änderungen, sind die Variablen 
+\textit{PG\_PASS, AUTHENTIK\_SECRET\_KEY, AUTHENTIK\_EMAIL\_\_HOST, AUTHENTIK\_EMAIL\_\_USERNAME}, sowie \textit{AUTHENTIK\_EMAIL\_\_PASSWORD} 
+und \textit{AUTHENTIK\_EMAIL\_\_FROM}. 
+Um Authentik zu starten, werden beide Dateien im Unterordner Authentik eingefügt. Nun wird mit dem Befehl 
 \textbf{docker-compose pull} in Docker Compose die \textbf{\nameref{app:docker-compose.yml}} mit deren enthaltenen Diensten heruntergeladen, 
-die Images und Volumes heruntergezogen. Mit dem Befehl \textbf{docker-compose up -d} erfolgt zu Beginn die Sicherstellung, dass das 
+die \cite{Images} und \cite{Volumes} heruntergezogen. Dabei enthält ein Docker-Image die zur Erzeugung eines Containers notwendigen Abhängigkeiten 
+und Konfigurationseinstellungen. 
+Ein Docker-Volumes ermöglicht, dass Daten erhalten bleiben, auch wenn ein Docker-Container gelöscht wird. 
+Volumes sind eine praktische Möglichkeit, Daten zwischen dem Host und dem Container auszutauschen.
+Mit dem Befehl \textbf{docker-compose up -d} erfolgt zu Beginn die Sicherstellung, dass das 
 \nameref{app:docker-compose.yml} wirklich vorhanden ist, um dann gelesen und den Container für die darin definierten Dienste im Hintergrund zu starten. Der 
-Parameter \textbf{-d (--detach)} bewirkt, dass die Conrainer im Hintergrund ausgeführt werden. Nach dem Start der Container erfolgt die Statusüberprüfung dieser 
+Parameter \textbf{-d (--detach)} bewirkt, dass die Container im Hintergrund ausgeführt werden. Nach dem Start der Container erfolgt die Statusüberprüfung dieser 
 mit dem Befehl \textbf{docker-compose ps}. Die Einsicht mit dem Ergebnis der Befehle ist im \nameref{sec:Anhang} \ref{app:dockercommands} 
 \nameref{app:dockercommands} einzusehen.
 
@@ -64,7 +68,7 @@ mit dem Befehl \textbf{docker-compose ps}. Die Einsicht mit dem Ergebnis der Bef
 Nachdem Authentik in einem Docker-Container läuft, erfolgt die Konfiguration des NGinx Reverse Proxy Managers:
 \begin{enumerate}[label=\arabic*.]
     \item Erstellung einer Authentifizierungs-Domain (auth.example.domain) und Einstellung eines A-Records im DNS-Resolver
-    \item Im NGinx Reverse Proxy Managers einen neuen Host erstellen, was im \nameref{sec:Anhang} in der \nameref{app:ProxyHostConfig} einsehbar ist
+    \item Im NGinx Reverse Proxy Managers einen neuen Host erstellen, was im \nameref{sec:Anhang} in der \ref{app:ProxyHostConfig} \nameref{app:ProxyHostConfig} einsehbar ist
     \item private IP-Adresse des Authentik-Servers mit der in der \textbf{\nameref{app:dotenv}}-Datei eingegebenen Portnummer (80) eingeben 
     mit dem Resultat für das Beispiel: \textbf{0.0.0.0:80} - Einsicht im \ref{app:ProxyHostConfig} \nameref{app:ProxyHostConfig}
     \item im SSL-Tab des Konfigurationsfeldes, anklicken: \textit{Force SSL}, \textit{HTTP/2 Support}, \textit{HSTS Enabled} und \textit{HSTS Subdomains}
@@ -76,13 +80,13 @@ Nachdem Authentik in einem Docker-Container läuft, erfolgt die Konfiguration de
 \subsection{Konfiguration von Authentik}
 \label{sec: Konfiguration von Authentik}
 Nach der Konfiguration des NGinx Reverse Proxy Managers, werden in Authenik ein Projekt und die vorhandenen User erstellt. Diese Vorgehensweise 
-ist im \nameref{sec:Anhang} in der \nameref{app:AuthentikConfig} detailliert beschrieben.
-Grobe Vorgehensweise:
+ist im \nameref{sec:Anhang} in der \ref{app:AuthentikConfig} \nameref{app:AuthentikConfig} detailliert beschrieben.
+\\Grobe Vorgehensweise:
 \begin{enumerate}
     \item Einrichtung eines Projektes
     \item Erstellung von Benutzern
     \item Hinzufügen des NGinx Proxy Managers
-    \item \nameref{sec:Einrichtung des zweiten Faktors} erfolgt in Kapitel \ref*{sec:Einrichtung des zweiten Faktors} auf der 
+    \item \nameref{sec:Einrichtung des zweiten Faktors} erfolgt in Kapitel \ref{sec:Einrichtung des zweiten Faktors} auf der 
     Seite \pageref{sec:Einrichtung des zweiten Faktors}
 \end{enumerate}
 
@@ -110,5 +114,24 @@ zweiten Faktors.
     \end{itemize}
    \item Logout bei Authentik
    \item erneut Login - QR-Code mit Microsoft Azure scannen
-   \item 6-stelligen Code eingeben und eingeloggt
+   \item 6-stelligen Code eingeben und einloggen
 \end{enumerate}
+
+\subsection{Maßnahmen zur Qualitätssicherung}
+\label{sec:Qualitaetssicherung}
+
+\subsubsection{Produktorientierte Maßnahmen}
+\label{sec:ProduktorientierteMaßnahmen}
+
+\subsubsection{Prozessorientierte Maßnahmen}
+\label{sec:ProzessorientierteMaßnahmen}
+Durch die kontinuierliche Anwendung des Qualitätsmanagementsystems gemäß ISO 9001 im Qualitätsmanagement erfolgt nach der Planung 
+eine sorgfältige Überprüfung jedes Schrittes auf Richtigkeit. Bei festgestellten Fehlern wird nach alternativen Wegen zur 
+Zielerreichung gesucht, um diese erfolgreich umzusetzen. Dieser Prozess folgt dem \cite{pdca}-Zyklus.
+\\Als Online-Dienstleister ist es laut den Vorschriften des Bundesamts für Sicherheit in der Informationstechnik (BSI) 
+zwingend erforderlich, Daten und Geräte durch eine Mehrfaktor-Authentifizierung (\acs{MFA}) zu schützen, bei der der Login durch 
+die Verwendung eines Passworts und eines weiteren Faktors abgesichert wird. Authentik, als Identitätsprovider, nutzt ein 
+Informationssicherheitssystem, das auf etablierten Standards wie BSI100-2 und ISO27001 basiert und die Anforderungen erfüllt.
+Der Standard \acs{BSI} 100-2 ist ein Standard des Bundesamtes für Sicherheit in der Informationstechnik, der allgemeine Anforderungen 
+an eine Managementsystem für Informationssicherheit (\acs{ISMS}) definiert. Die ISO 27001 ist eine internationale Norm für \acs{ISMS} 
+und ist auf der Basis von IT-Grundschutz für die Standard-Absicherung, als auch für die Kern-Absicherung möglich.
