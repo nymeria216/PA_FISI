@@ -1,0 +1,28 @@
+\glsdefs@newdocentry{SSH}%
+{%
+name={LaTeX},%
+sort={LaTeX},%
+type={main},%
+first={LaTeX},%
+firstplural={LaTeXs},%
+text={LaTeX},%
+plural={LaTeXs},%
+description={Ein Textsatzsystem, das häufig für wissenschaftliche Dokumente verwendet wird.},%
+descriptionplural={Ein Textsatzsystem, das häufig für wissenschaftliche Dokumente verwendet wird.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+

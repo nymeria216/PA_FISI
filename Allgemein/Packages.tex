@@ -1,7 +1,9 @@
 % !TEX root = ../Projektdokumentation.tex
 
 % Anpassung an Landessprache ---------------------------------------------------
-\usepackage{babel}
+% \usepackage{babel}
+\usepackage[ngerman]{babel}
+\usepackage{microtype}
 
 % Umlaute ----------------------------------------------------------------------
 %   Umlaute/Sonderzeichen wie äüöß direkt im Quelltext verwenden (CodePage).
@@ -19,6 +21,7 @@
 \usepackage{tabularx}
 % für lange Tabellen
 \usepackage{longtable}
+\usepackage{calc}
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{lscape}
@@ -34,14 +37,15 @@
 % Sonstiges --------------------------------------------------------------------
 \usepackage[titles]{tocloft} % Inhaltsverzeichnis DIN 5008 gerecht einrücken
 % Änderungen am Tabellenverzeichnis vornehmen
-\renewcommand{\cfttabpresnum}{Tabelle }
-\renewcommand{\cfttabaftersnum}{:}
+% \renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cfttabaftersnum}{\hspace{0.5em}}
 % \renewcommand{\cfttabdotsep}{\cftnodots}
 \renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
 \usepackage{amsmath,amsfonts} % Befehle aus AMSTeX für mathematische Symbole
 \usepackage{enumitem} % anpassbare Enumerates/Itemizes
 \usepackage{xspace} % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
-
+\usepackage[utf8]{inputenc}
+\usepackage[acronym]{glossaries}
 \usepackage{makeidx} % für Index-Ausgabe mit \printindex
 \usepackage[printonlyused]{acronym} % es werden nur benutzte Definitionen aufgelistet
 

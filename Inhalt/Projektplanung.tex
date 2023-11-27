@@ -16,11 +16,154 @@ Eine detailliertere Zeitplanung befindet sich im \nameref{sec:Anhang} \nameref{t
 \tabelle{Zeitplanung}{tab:Zeitplanung}{ZeitplanungKurz}
 
 
+\subsection{Authentifizierungs-Tool}
+\label{sec:Authentifizierungs-Tool}
+Anhand der Entscheidungsmatrix in Tabelle~\ref{tab:Nutzwert} wurde Authentik ausgewählt. 
+\\Die Gewichtung bildet sich durch den Gesamtwert von 100 Wertungspunkten mit einem Maximalwert von 25 und Mindestwert von 10 Punkten. 
+Grund dafür sind die unterschiedlichen Eigenschaften, welche in der Entwicklung und bei der Auswahl der 
+Authentifizierungsmethode jeweils verschiedene Rollen spielen und folglich daraus evaluiert werden. Nach der Zuordnung 
+und Addierung der Punkte bei den vier Authentifizierungs-Tools, wird die Gesamtheit aller Punkte eines Produktes durch den 
+Wert 100 dividiert und das Endergebnis ausgerechnet. Dabei hat die Einhaltung der Sicherheit Priorität und erhält den 
+Maximalwert von 25 Punkten, aufgrund dessen, dass Dritten der Zugriff auf die jeweiligen Dienste mit kunden- und 
+firmeninternen Daten der Cloud-Infrastruktur verweigert werden sollte. Die \acs{MFA} wird mit 20 Punkten bewertet, weil 
+dass das Ziel des Projektes ist. Die Benutzerfreundlichkeit, das Implementieren mit Open-Source und die Skalierbarkeit 
+erhalten 15 Punkte, weil jeder User schnell und einfach auf den jeweiligen Dienst zugreifen muss. 
+Für dieses Projekt ist es des Weiteren wichtig, ein Tool zu implementieren, was den zeitlichen Rahmen nicht überschreitet und die 
+Gesamtheit der Einführung zu komplex gestaltet. Die Skalierbarkeit hat für das Projekt eine durchschnittliche Relevanz, da die 
+Möglichkeit bestehen soll, Dienste hinzuzufügen oder rauszunehmen. Am wenigsten bedeutend sind die Erfahrungswerte, welche 
+gleichermaßen nicht zu unterschätzen sind, weil eine Community über das Produkt bei der Entwicklung unterstützend wirkend kann.
+\\Dabei erhält Authentik den größten Nutzwert mit 17,05 Punkten und schneidet vor Authelia, Microsoft Azure AD und Sitecar am besten ab. 
+Aus diesem Grund wird sich für Authentik anstatt für Sitecar entschieden, da besonders die Implementierungsdauer und -komplexität 
+bei Sitecar den Rahmen des Projektes sprengen würde.
+\tabelle{Entscheidungsmatrix}{tab:Nutzwert}{Nutzwert.tex}
+\\Dabei steht \textit{Mic. Az.} für Microsoft Azure.
+\\Die zu resultierende Zielplattform definiert sich über die Benutzerfreundlichkeit, die Sicherheit und dem Fokus auf der Interaktion 
+mit \acs{OIDC} und \acs{LDAP}, welche zukünftig für das Projekt vorgesehen sind, sowie der Implementierung vom Open-Source, dem Arbeiten mit MFA, 
+der Skalierbarkeit und den Erfahrungswerten von anderen Entwicklern mit dem entsprechenden Produkt. Das Resultat wird im Kapitel 
+\ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool} der dargestellten~\nameref{tab:Nutzwert} sichtbar.
+
+\subsection{Ressourcenplanung}
+\label{sec:Ressourcenplanung}
+
+\subsubsection{Sachmittelplanung}
+\label{sec:Sachmittelplanung}
+Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
+\begin{itemize} [label=--]
+	\item Notebook - Lenovo ThinkPad T15 Gen 1 (für die Entwicklung)
+	\item Betriebssystem - Microsoft Windows 10 Enterprise auf dem Lenovo-Notebook
+	\item iPhone 12 - iOS 17.0.3 (zum Testen des Einmalpassworts)
+	\item Microsoft Authenticator (auf dem iPhone 12 vorinstalliert)
+	\item \acs{IDE} - Visual Studio Code 1.83.1 (Benutzereinstellung)
+	\item Docker-Containerisierung auf der OVH-Cloud-Infrastruktur in einer Linux-Umgebung mit Ubuntu 22.04
+	\item OVH-Cloud-Instanz - firewall\_instance\_dev
+	\item OVH-Cloud-Instanz - tal\_cloud\_infra
+	\item OVH-Cloud-Instanz - rev\_prox-dev
+	\item Google Chrome - Browser
+\end{itemize}
+Die von OVH-Cloud gestellten Instanzen sind Cloud-Instanzen mit Linux-Umgebungen, auf denen 
+die Containerisierungen laufen. Dabei wurde im Kapitel \ref{sec:Projektschnittstellen} 
+\nameref{sec:Projektschnittstellen} detaillierter auf die Namen der jeweiligen Instanzen eingegangen.
+
+\subsubsection{Personalplanung}
+\label{sec:Personalplanung}
+% \paragraph{Tabelle}
+Tabelle~\ref{tab:Personalplanung} zeigt die \nameref{tab:Personalplanung} des Projektes.
+\tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung.tex}\\
+In diesem Projekt arbeitet die Autorin Melissa Futtig 40 Stunden am Projekt, während der Projektmanager 
+Edgar Johann Kapler 2 Stunden für das Testen der Anwendung und dem Übergabeprozess aufwendet, da ihm 
+das Ergebnis des Projektes schlussendlich übergeben wird. Der duale Student Birk Spinn unterstützt bei 
+der Implementierung und dem Testen der Anwendung und benötigt für diese Aufgaben insgesamt 3 Stunden.
+
+\subsection{Kostenplanung}
+\label{sec:Kostenplanung}
+Die Kosten für die Durchführung des Projekts setzen sich aus den Personal- und Ressourcenkosten zusammen.   
+Das Brutto-Einkommen eines Auszubildenden im 3. Lehrjahr im Fachbereich Fachinformatik bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH 
+beträgt \eur{1400,00} pro Monat. Zu den \eur{1400,00} kommen \eur{1090,00} Versicherungskosten dazu, die die Deloitte bezahlt. 
+Die reguläre Arbeitszeit in einer normalen Arbeitswoche von Montag bis Freitag beträgt 40 Stunden, 8 Stunden am Tag und 
+220 Arbeitstage im Jahr. Die 220 Tage entstehen, da von den 365 Tagen eines Kalenderjahres 104 Wochenendtage, 11 Feiertage und 30 Urlaubstage abgezogen.
+Für die weiteren Mitarbeiter werden pauschale Beträge zur Berechnung des Stundensatzes genutzt. 
+Duale Studenten werden pauschal mit \eur{15,00}, während die Manager mit \eur{75,00} pro Stunde berechnet werden. 
+Bei jeweils beiden addiert sich die Summe der Ressourcenkosten auf.
+Anhand der oben genannten Formel ergibt sich ein Stundenlohn von \eur{9,55}. Dieser wird aus dem Brutto-Einkommen des Auszubildenden berechnet.
+\\Die Durchführungszeit des Projekts beträgt 40 Stunden. 
+Die Anforderungen durch die Ressourcen, wie der Stromverbrauch, die zu verwendende Hardware und die Räumlichkeiten, sowie das Büromaterial, 
+wie \zB der zu nutzende Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) und das Mobiliar zusammen.
+Der Mittelwert wird pauschal mit \eur{15,00} kalkuliert.  
+\begin{eqnarray}
+	8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
+	\eur{2490}\mbox{/Monat} \cdot 12 \mbox{ Monate/Jahr} = \eur{29880} \mbox{/Jahr}\\
+	\frac{\eur{29880} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{16,98}\mbox{/h}
+\end{eqnarray}
+\tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
+Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung} betragen \eur{1.561,88}.
+
+\subsection{Wirtschaftlichkeitsanalyse}
+\label{sec:Wirtschaftlichkeitsanalyse}
+Durch die schon vorhandene Cloud-Infrastruktur des größeren Projektes entstehen keine weiteren Kosten. Bedingt dessen, dass die 
+OVH-Cloud-Infrastruktur zu einem Fix-Preis pro Instanz gemietet wird und keine weiteren Instanzen für die Implementierung 
+des Tochter-Projektes erforderlich sind, bleiben die Kosten unverändert. 
+An Ressourcen wird zwar mehr \acs{CPU} und Rechenleistung verwendet, was allerdings nicht nach dem \cite{Wiki}-Prinzip 
+berechnet wird, sondern bei OVH-Cloud pauschal nach Instanzpreis, sodass für das ''Tochter-Projekt'' keine weitere 
+Kosten entstehen. In dem Pay-As-You-Go-Prinzip werden nur die Ressourcen bezahlt, die auch tatsächlich genutzt werden. 
+Die wirklich zu entstehenden Kosten sind ausschließlich Personal- und Materialkosten, wobei letztere 
+aus der Nutzung des Büromobiliars und der Strom- und Heizkosten zusammengefasst wird. 
+\\Durch die Einführung der \acs{MFA}-Lösung in der Cloud-Infrastruktur werden besonders die Schutzziele der 
+Einhaltung der Integrität und Vertraulichkeit der Daten auf den jeweiligen Diensten eingehalten. So wird die Sicherheit 
+erheblich verbessert und trägt dazu bei, unbefugten Zugriff, Datenverluste und Betrug zu verhindern. Dieser Schutz 
+vor Sicherheitsverletzungen kann erhebliche finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
+werden können. Zusätzlich ermöglicht die Implementierung, dass Passwortänderungen nur auf Anwendungsebene vorgenommen 
+werden, wodurch weniger Zurücksetzungen erforderlich sind. Dies reduziert die Wahrscheinlichkeit von gleichen Passwörtern 
+und verhindert dadurch den Bedarf an administrativem Support für Passwort-Resets, wodurch Zeit- und Kostenaufwände vermieden 
+werden können. Durch die Implementierung kann den Nutzern ein sicherer und bequemerer Zugriff gewährleistet und die Kosten gesenkt werden. 
+Die Einsicht erfolgt in der \nameref{sec:Kostenplanung} im Kapitel \ref{sec:Kostenplanung}.
+
+\subsubsection{Ablaufplanung und Meilensteine}
+\label{sec:Ablaufplaung und Meilensteine}
+Die Ablaufplanung ist mit einem \nameref{app:Gantt} im Kapitel \ref{app:Gantt} des \nameref{sec:Anhang}s dargestellt. 
+Dabei stellt die Farbe pink \textit{keine Arbeitszeit}, die Farbe grün eine \textit{reine Abrbeitszeit} 
+von 8 Stunden am Tag und die hellblaue Farbe einen \textit{halben Arbeitstag} von 4 Stunden dar. Die jeweiligen Phasen 
+werden mit Meilensteinen abgeschlossen. Die erste Phase startet am Mittwoch, den 01.11.2023, während die letzte 
+mit ihrem Meilenstein am 08.11.2023 endet. Dabei erfolgt die reguläre Arbeitszeit in einer normalen Arbeitswoche 
+von Montag bis Freitag.
+
+\subsection{Amortisationsdauer}
+\label{sec:Amortisationsdauer}
+Die Amortisation beschleunigt sich durch die Verwendung von Docker, GitLab und Authentik. 
+Grund dafür ist, dass diese Plattformen Open-Source sind und kostenlos genutzt werden können, was zu einer Reduzierung der  
+Gesamtbetriebskosten (Total Cost of Ownerships (\acs{TCO})) führt, da Lizenzkosten eingespart werden können.  
+% Des Weiteren ermöglicht Docker eine Arbeitszeitersparnis durch die einfache Bereitstellung und Verwaltung von Diensten, was die Arbeitszeit für die 
+% Einrichtung und Wartung von Umgebungen verkürzt.
+Eine Zeitersparnis entsteht durch das nicht wiederholte Eingeben der Benutzerdaten, zumal sich durch Authentik nur 
+einmal eingeloggt werden muss und dadurch ein Zugriff auf alle Applikationen erfolgt.
+\\Bei der Einsparung von einer Minute am Tag für jeden der 7 Anwender, nach der dualen Ausbildung und/ oder dem Studium und 
+220 Arbeitstagen im Jahr, ergibt sich eine gesamte Zeiteinsparung von 
+\begin{eqnarray}
+7 \cdot 220 \mbox{ Tage/Jahr} \cdot 1 \mbox{ min/Tag} = 1540 \mbox{ min/Jahr} \approx 25,67 \mbox{ h/Jahr} 
+\end{eqnarray}
+Die \eur{40} wird der Pauschalbetrag für alle Projektmitarbeiter sein.
+\\Die Amortisationszeit setzt sich aus der Division der Gesamtkosten des Projektes und der jährlichen 
+Einsparung zusammen.
+\\\\$\frac{\eur{1.264,68}}{\eur{1.411,85}\mbox{/Jahr}} \approx 0,90 \mbox{ Jahre} \approx 47 \mbox{ Wochen}$.\\
+\\Dadurch ergibt sich eine jährliche Einsparung von 
+\begin{eqnarray}
+25,67 \mbox{ h} \cdot \eur{(40 + 15)}{\mbox{/h}} = \eur{1.411,85}
+\end{eqnarray}
+
+\subsection{Nicht-monetärer Nutzen}
+\label{sec:Nicht-monetärer Nutzen}
+Für das Projekt werden die Produkte Authelia, Authentik, Microsoft Azure AD und Sitecar, zur Implementierung in Erwägung gezogen. 
+Wobei mittels einer Nutzwertanalyse, welche im Kapitel \ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool} zu sehen ist, der 
+Sachverhalt durch eine Entscheidungsmatrix dargestellt wird.
+\\Da die Ergebnisse der Wirtschaftlichkeitsanalyse bereits eine ausreichende Begründung für die Umsetzung des Projekts bieten, 
+ist es an dieser Stelle nicht notwendig, eine eingehende Untersuchung der nicht-monetären Vorteile vorzunehmen.
+\\Ohne der Einführung eines Authentifizierungs-Tools wird die Sicherheit der angebotenen Dienste nicht geboten und das Risiko des 
+Datenverlustes gewährleistet. Um das Risiko zu minimieren, soll durch die Nutzwertanalyse ein Ergebnis und die Entscheidungsfindung 
+der jeweiligen Authentifizierungsmethode erleichtert werden.
+
 \subsection{Abweichungen vom Projektantrag}
 \label{sec:AbweichungenProjektantrag}
 Die im Projektantrag mit in \textit{Auflage genehmigt}en Inhalte, erfordern Änderungen in der 
-Projektdurchführung und -dokumentation. Einige Änderungen sind im Kapitel 
-\ref{sec:Authentifizierungs-Tool} \nameref{sec:Authentifizierungs-Tool} einsehbar. 
+Projektdurchführung und -dokumentation.
 \\Erforderliche Änderungen:
 \begin{itemize} [label=--]
 	\item gesamte Zeitplanung - von 35 auf \textit{40} Stunden gestreckt
@@ -42,140 +185,12 @@ Nicht erforderliche Änderungen:
 	Kapitel \ref*{sec:Authentifizierungs-Tool} \nameref{sec:Authentifizierungs-Tool}
 \end{itemize}
 
-\subsection{Ressourcenplanung}
-\label{sec:Ressourcenplanung}
-
-\subsubsection{Sachmittelplanung}
-\label{sec:Sachmittelplanung}
-Um die Umsetzung des Projektes zu ermöglichen, wurden folgende Hard- und Software verwendet:
-\begin{itemize} [label=--]
-	\item Notebook - Lenovo ThinkPad T15 Gen 1 (für die Entwicklung)
-	\item Betriebssystem - Microsoft Windows 10 Enterprise auf dem Lenovo-Notebook
-	\item iPhone 12 - iOS 17.0.3 (zum Testen des Einmalpassworts)
-	\item Microsoft Authenticator (auf dem iPhone 12 vorinstalliert)
-	\item \acs{IDE} - Visual Studio Code 1.83.1 (Benutzereinstellung)
-	\item Docker-Containerisierung auf der OVHCloud-Infrastruktur in einer Linux-Umgebung mit Ubuntu 22.04
-	\item OVHCloud-Instanz - firewall\_instance\_dev
-	\item OVHCloud-Instanz - tal\_cloud\_infra
-	\item OVHCloud-Instanz - rev\_prox-dev
-	\item Google Chrome
-\end{itemize}
-Die von OVHCloud gestellten Instanzen sind Cloud-Instanzen mit Linux-Umgebungen, auf denen 
-die Containerisierungen laufen und nicht von den Benutzerkonten aus betrieben werden. Dabei wurde im Kapitel 
-\ref{sec:Projektschnittstellen} \nameref{sec:Projektschnittstellen} detaillierter auf die Namen der jeweiligen 
-Instanzen eingegangen.
-
-
-\subsubsection{Personalplanung}
-\label{sec:Personalplanung}
-% \paragraph{Tabelle}
-Tabelle~\ref{tab:Personalplanung} zeigt die \nameref{tab:Personalplanung} des Projektes.
-\tabelle{Personalplanung}{tab:Personalplanung}{Personalplanung.tex}\\
-In diesem Projekt arbeitet die Autorin Melissa Futtig 40 Stunden die Woche, während der Projektmanager 
-Edgar Johann Kapler 2 Stunden in das Projekt für das Testen der Anwendung investiert und in dem 
-Übergabeprozess, da ihm das Ergebnis des Projektes schlussendlich vorgelegt wird. Der duale Student 
-Birk Spinn unterstützt bei der Implementierung und dem Testen der Anwendung und benötigt für diese 
-Aufgaben insgesamt 3 Stunden.
-
-\subsubsection{Kostenplanung}
-\label{sec:Kostenplanung}
-Die Kosten für die Durchführung des Projekts setzen sich aus den Personal- und Ressourcenkosten zusammen.   
-Anhand der oben genannten Formel ergibt sich ein Stundenlohn von \eur{9,55}. Dieser wird aus dem Brutto-Einkommen des Auszubildenden berechnet.
-\\Die Durchführungszeit des Projekts beträgt 40 Stunden. 
-Dabei sind mögliche Ressourcen, wie der Stromverbrauch, die zu verwendende Hardware und die Räumlichkeiten, sowie das Büromaterial, 
-wie \zB der zu nutzende Monitor, die Peripheriegeräte (Maus, Tastatur, etc.) oder das Möbelar, was pauschal mit \eur{15,00} kalkuliert werden kann. 
-Das Brutto-Einkommen eines Auszubildenden im 3. Lehrjahr im Fachbereich Fachinformatik bei der Deloitte Wirtschaftsprüfungsgesellschaft GmbH 
-beträgt \eur{1400,00} pro Monat. 
-Für die weiteren Mitarbeiter werden pauschale Beträge zur Berechnung des Stundensatzes genutzt, aus den Gründen, dass die 
-Deloitte Wirtschaftsprüfungsgesellschaft GmbH die Kosten pro Stunde nicht preisgeben möchte. Duale Studenten werden pauschal mit 
-\eur{15,00}, während die Manager mit \eur{75,00} pro Stunde berechnet werden. Bei jeweils beiden addiert sich die Summe der 
-Ressourcenkosten auf.
-\\Die reguläre Arbeitszeit in einer normalen Arbeitswoche von Montag bis Freitag beträgt 40 Stunden, 8 Stunden am Tag und 
-220 Arbeitstage im Jahr. Dabei werden von den 365 Tagen eines Kalenderjahres die 104 Wochenendtage, 11 Feiertage und 30 Urlaubstage abgezogen.
-\begin{eqnarray}
-	8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
-	\eur{1400}\mbox{/Monat} \cdot 12 \mbox{ Monate/Jahr} = \eur{16800} \mbox{/Jahr}\\
-	\frac{\eur{16800} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{9,55}\mbox{/h}
-\end{eqnarray}
-Die Gesamtkosten, dargestellt in der Tabelle~\ref{tab:Kostenaufstellung} betragen \eur{1.264,68}.
-\tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
-
-\subsubsection{Ablaufplanung und Meilensteine}
-\label{sec:Ablaufplaung und Meilensteine}
-Die Ablaufplanung ist mit einem \nameref{app:Gantt} im Kapitel \ref{app:Gantt} des \nameref{sec:Anhang}s dargestellt. 
-Dabei stellt die Farbe pink \textit{keine Arbeitszeit}, die Farbe grün eine \textit{reine Abrbeitszeit} 
-von 8 Stunden am Tag und die hellblaue Farbe einen \textit{halben Arbeitstag} von 4 Stunden dar. Die jeweiligen Phasen 
-werden mit Meilensteinen abgeschlossen. Die erste Phase startet am Mittwoch, den 01.11.2023, während die letzte 
-mit ihrem Meilenstein am 08.11.2023 endet. Dabei erfolgt die reguläre Arbeitszeit in einer normalen Arbeitswoche 
-von Montag bis Freitag.
-
-\subsubsection{Amortisationsdauer}
-\label{sec:Amortisationsdauer}
-Die Amortisation beschleunigt sich durch die Verwendung von Docker, GitLab und Authentik, was die Einsparung von Lizenzkosten zur Folge hat. 
-Grund dafür ist, dass diese Plattformen Open-Source sind und kostenlos genutzt werden können, was zu einer Reduzierung der  
-Gesamtbetriebskosten (Total Cost of Ownerships (\acs{TCO})) führt.  
-% Des Weiteren ermöglicht Docker eine Arbeitszeitersparnis durch die einfache Bereitstellung und Verwaltung von Diensten, was die Arbeitszeit für die 
-% Einrichtung und Wartung von Umgebungen verkürzt.
-Die Zeitersparnis rendiert sich durch das nicht wiederholte Eingeben der Benutzerdaten, sondern das eingeloggt Sein.
-\\Bei der Einsparung von einer Minute am Tag für jeden der 7 Anwender, nach der dualen Ausbildung und/ oder dem Studium und 
-220 Arbeitstagen im Jahr, ergibt sich eine gesamte Zeiteinsparung von 
-\begin{eqnarray}
-7 \cdot 220 \mbox{ Tage/Jahr} \cdot 1 \mbox{ min/Tag} = 1540 \mbox{ min/Jahr} \approx 25,67 \mbox{ h/Jahr} 
-\end{eqnarray}
-Dadurch ergibt sich eine jährliche Einsparung von 
-\begin{eqnarray}
-25,67 \mbox{ h} \cdot \eur{(40 + 15)}{\mbox{/h}} = \eur{1.411,85}
-\end{eqnarray}
-Die \eur{40} wird der Pauschalbetrag für alle Projektmitarbeiter sein.
-\\Die Amortisationszeit beträgt also $\frac{\eur{1.264,68}}{\eur{1.411,85}\mbox{/Jahr}} \approx 0,90 \mbox{ Jahre} \approx 47 \mbox{ Wochen}$.
-
-\subsection{Nicht-monetärer Nutzen}
-\label{sec:Nicht-monetärer Nutzen}
-Für das Projekt werden die Produkte Authelia, Authentik, Microsoft Azure AD und Sitecar, zur Implementierung in Erwägung gezogen. 
-Wobei mittels einer Nutzwertanalyse, welche im Kapitel \ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool} zu sehen ist, der 
-Sachverhalt durch eine Entscheidungsmatrix dargestellt wird.
-\\Da die Ergebnisse der Wirtschaftlichkeitsanalyse bereits eine ausreichende Begründung für die Umsetzung des Projekts bieten, 
-ist es an dieser Stelle nicht notwendig, eine eingehende Untersuchung der nicht-monetären Vorteile vorzunehmen.
-\\Ohne der Einführung eines Authentifizierungs-Tools wird die Sicherheit der angebotenen Dienste nicht geboten und das Risiko des 
-Datenverlustes gewährleistet. Um das Risiko zu minimieren, soll durch die Nutzwertanalyse ein Ergebnis und die Entscheidungsfindung 
-der jeweiligen Authentifizierungsmethode erleichtert werden.
-
-\subsection{Authentifizierungs-Tool}
-\label{sec:Authentifizierungs-Tool}
-Anhand der Entscheidungsmatrix in Tabelle~\ref{tab:Nutzwert} wurde Authentik ausgewählt. 
-\\Die im Kapitel~\ref{sec:Zielplattform}: \nameref{sec:Zielplattform} erwähnten Eigenschaften, tragen zur 
-Entscheidungsfindung bei, sodass sich anhand der gegebenen~\nameref{tab:Nutzwert} Authentik herauskristallisierte.
-\\Die Gewichtung bildet sich durch den Gesamtwert von 100 Wertungspunkten mit einem Maximalwert von 25 und Mindestwert von 10 Punkten. 
-Grund dafür sind die unterschiedlichen Eigenschaften, welche in der Entwicklung und bei der Auswahl der 
-Authentifizierungsmethode jeweils verschiedene Rollen spielen und folglich daraus evaluiert werden. Nach der Zuordnung 
-und Addierung der Punkte bei den vier Authentifizierungs-Tools, wird die Gesamtheit aller Punkte eines Produktes durch den 
-Wert 100 dividiert und das Endergebnis ausgerechnet. Dabei hat die Einhaltung der Sicherheit Priorität und erhält den 
-Maximalwert von 25 Punkten, aufgrund dessen, dass Dritten der Zugriff auf die jeweiligen Dienste mit kunden- und 
-firmeninternen Daten der Cloud-Infrastruktur verweigert werden sollte. Die \acs{MFA} wird mit 20 Punkten bewertet, weil 
-dass das Ziel des Projektes ist. Die Benutzerfreundlichkeit, das Implementieren mit Open-Source und die Skalierbarkeit 
-erhalten 15 Punkte, weil jeder User schnell und einfach auf den jeweiligen Dienst zugreifen muss. 
-Für dieses Projekt ist es des Weiteren wichtig, ein Tool zu implementieren, was den zeitlichen Rahmen nicht überschreitet und die 
-Gesamtheit der Einführung zu komplex gestaltet. Die Skalierbarkeit hat für das Projekt eine durchschnittliche Relevanz, da die 
-Möglichkeit bestehen soll, Dienste hinzuzufügen oder rauszunehmen. Am wenigsten bedeutend sind die Erfahrungswerte, welche 
-gleichermaßen nicht zu unterschätzen sind, weil eine Community über das Produkt bei der Entwicklung unterstützend wirkend kann.
-\\Dabei erhält Authentik den größten Nutzwert mit 17,05 Punkten und schneidet vor Authelia, Microsoft Azure AD und Sitecar am besten ab. 
-Aus diesem Grund wird sich für Authentik anstatt für Sitecar entschieden, da besonders die Implementierungsdauer und -komplexität 
-bei Sitecar den Rahmen des Projektes sprengen würde.
-\tabelle{Entscheidungsmatrix}{tab:Nutzwert}{Nutzwert.tex}
-
-\subsection{Zielplattform}
-\label{sec:Zielplattform}
-Die zu resultierende Zielplattform definiert sich über die Benutzerfreundlichkeit, die Sicherheit und dem Fokus auf der Interaktion 
-mit \acs{OIDC} und \acs{LDAP}, welche zukünftig für das Projekt vorgesehen sind, sowie der Implementierung vom Open-Source, dem Arbeiten mit MFA, 
-der Skalierbarkeit und den Erfahrungswerten von anderen Entwicklern mit dem entsprechenden Produkt. Das Resultat wird im Kapitel 
-\ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool} der dargestellten~\nameref{tab:Nutzwert} sichtbar.
-
-
 \subsection{Entwicklungsprozess}
 \label{sec:Entwicklungsprozess}
 Das Projekt unterteilt sich in einem überschaubaren, zeitlich und inhaltlich begrenzten Entwicklungsprozess 
 mit gesondert eingeteilten Phasen, die nach- und voneinander aufbauen. So wird eine Sicherstellung der Schritt- 
-für Schritt-Fertigstellung der jeweiligen Phasen und Übersicht garantiert. Bedingt dessen, dass das Projekt klare Anforderungen 
-hat, welche umfassend mit vorhersehbaren Bedingungen formuliert sind und einen linearen Fortschritt ermöglicht, braucht 
-die agile Methode nicht verwendet zu werden. Auch ist der Umfang des Projektes zeitlich eingegrenzt und besitzt eine 
-strukturierte Vorgehensweise mit einer geringen Interaktion zum und mit dem Entwicklerteam und des Projektleiters als Kunden.
+für Schritt-Fertigstellung der jeweiligen Phasen und Übersicht garantiert. Die klaren und umfassend 
+definierten Anforderungen des Projekts ermöglichen eine strukturierte Herangehensweise, die auf 
+vorhersehbaren Bedingungen basiert und einen geradlinigen Fortschritt gewährleistet. Auch ist der 
+Umfang des Projektes zeitlich eingegrenzt und besitzt eine strukturierte Vorgehensweise mit einer 
+geringen Interaktion zum und mit dem Entwicklerteam und des Projektleiters als Kunden.

@@ -2,52 +2,119 @@
 \section{Ist/Soll-Analyse} 
 \label{sec:IstSollAnalyse}
 
+\subsection{Projektumfeld} 
+\label{sec:Projektumfeld}
+Die \cite{Deloitte} Wirtschaftsprüfungsgesellschaft GmbH ist ein internationales 
+Unternehmen für Wirtschaftsprüfung, Steuer-, Unternehmens-, Risiko- und Finanzberatung.
+Sie hat Niederlassungen in vielen Ländern, darunter auch Deutschland. 
+Mit Vertretern in über 150 Ländern weltweit und 415.000 Mitarbeitern, bietet das Unternehmen eine breite Palette 
+von Dienstleistungen für Unternehmen und Organisationen in verschiedenen Branchen.
+Im \acs{B and TCL}, auch Business \& Technology Center Leipzig genannt, erbringt die Deloitte
+GmbH mit ihren 100 Mitarbeitern eine Vielfalt an Business Services, mit und ohne IT-Bezug und treibt
+Transformationsprojekte rund um die Themen Cyber Security, Digitalisierung,
+Prozessoptimierung oder Automatisierung voran. 
+\\Das Projekt mit dem Fokus auf Multi-Faktor-Authentifizierung bei verschiedenen Services in einer 
+Cloud-Infrastruktur ist ein Tochterprojekt eines Größeren. Dabei ist gemeint, dass dieses 
+''Tochterprojekt'' nicht alleine existiert, sondern als Teil des größeren Projektes agiert. 
+Die Deloitte Wirtschaftsprüfungsgesellschaft GmbH verwendet die Cloud-Infrastruktur von 
+\cite{ovhcloud}, um einen Business Hosting Service bereitzustellen.
+Die Zielgruppe stellt das Projektteam dar, welche in dem größeren Projekt mit entwickeln.
 
-\subsection{Ist-Analyse} 
-\label{sec:IstAnalyse}
-Die aktuelle Cloud-Infrastruktur nutzt den NGinx Reverse Proxy Manager für den Zugriff auf verschiedene Dienste. 
-Es besteht jedoch keine zusätzliche Sicherheitsschicht wie eine Multi-Faktor-Authentifizierung (\acs{MFA}), 
-was bedeutet, dass der Zugriff allein über Benutzernamen- und Passwörtereingabe erfolgt, ohne eine weitere 
-Überprüfung der Identität.
-% Die Cloud-Umgebung enthält die in den oberen Kapiteln erwähnten Instanzen 
-% (\textit{control\_node, rev\_prox\_dev und tal\_cloud\_infra}) und eine OPNSense-Firewall, die den Zugriff 
-% von unbefugten Dritten verhindern soll. Die drei Instanzen befinden sich in einem privaten Netzwerk, was 
-% bedeutet, dass diesen private nicht von außen sichtbare IP-Adressen zugewiesen werden, während der 
-% Firewall eine öffentliche IP-Adresse vergeben wird. 
-% Um einen Zugriff auf die Instanzen zu ermöglichen, wird den Command-Line-Interface-Nutzern (\acs{CLI}) mit einem gültigen
-% SSH-Schlüssel die Möglichkeit geboten, von der Kontrollinstanz \textit{control\_node} auf die anderen Instanzen 
-% zuzugreifen. Die anderen für das Projekt relevanten Instanzen sind \textit{rev\_proxy\_dev} und \textit{tal\_cloud\_infra} 
-% auf denen sich, die im Kapitel \ref*{sec:Technisch} \nameref{sec:Technisch}e \nameref{sec:Projektschnittstellen} 
-% erwähnten Instanzen befinden. Die Graphical-User-Interface-Nutzer (\acs{GUI}) können die Services über den NGinx Reverse Proxy Manager 
-% zu erreichen, indem der Zugriff klassisch mittels einer einfachen Nutzer- und Passworteingabe, ohne einer weiteren 
-% Schutzebene erfolgt.
+\subsection{Projektaufgabe}
+\label{sec:Projektaufgabe}
+Der Zweck des Projektes ist es, den Entwicklern der Cloud-Infrastruktur mit den darauf gehosteten Services bzw. 
+Diensten, eine Authentifizierungsmöglichkeit zu bieten, die die Sicherheit des Einloggens erhöht.
+Die Aufgabe besteht darin, die Entwicklungsumgebung vorzubereiten und einzurichten, indem Docker als 
+eine Containerisierungstechnologie, installiert sein muss, um die Docker-Dateien für die Containerisierung 
+erst zu erstellen und schlussendlich auszuführen. Im Anschluss wird die \acs{MFA}-Lösung eingerichtet. Dazu gehört 
+das Hinzufügen der Dienste und die Aktivierung von \acs{MFA}. Schlussendlich wird der Fokus nach der Fertigstellung 
+der Entwicklungsumgebung auf das Testen der \acs{MFA}-Lösung gesetzt und das vollständige Ergebnis in die 
+Produktivumgebung umgesezt.
 
-\subsection{Soll-Analyse}
-\label{sec:SollAnalyse}
-Das Hauptziel besteht darin, die Sicherheit der Dienste durch die Implementierung einer \acs{MFA}-Lösung 
-zu verbessern. Geplant ist, vor jedem Dienst einen Identitätsanbieter zu schalten, um sicherzustellen, 
-dass sich die \acs{MFA} vor den Diensten positioniert. Benutzer sollen sich über die \acs{MFA} 
-authentifizieren, um den Identitätsbestätigungsprozess zu erfüllen und Zugang zu den Diensten zu 
-erhalten.
+\subsection{Projektziel} 
+\label{sec:Projektziel}
+Ziel ist es, die Sicherheit des Zugriffs auf verschiedene Dienste innerhalb dieser Cloud-Infrastruktur zu verbessern, indem 
+Multi-Faktor-Authentifizierung (\acs{MFA}) eingeführt wird. Dadurch soll eine erhöhte Sicherheit für firmeninterne und kundenbezogene 
+Daten gewährleistet werden, indem nur eine Anmeldung mit \acs{MFA} möglich ist und resultierend daraus Risiken, wie Passwork-Leaks 
+und Phishing vermieden werden können.
+Um das Ziel zu erreichen, soll eine MFA-Lösung implementiert werden, welche sich vor die verschiedenen Dienste in der 
+Cloud-Infrastruktur schaltet und den Zugriff der Benutzer verwalten und sichern soll.
+
+\subsection{Projektschnittstellen} 
+\label{sec:Projektschnittstellen}
+
+\subsubsection{Technisch}
+\label{sec:Technisch}
+Die besagte Cloud-Infrastruktur ist in vier Hauptbereiche unterteilt, wobei in jedem Bereich verschiedene Dienste, 
+inklusive die MFA-Lösung Authentik, welche mit allen Diensten interagiert, über Docker-Container bereitgestellt werden.
+\\\textit{Compliance and Security Stack}
+\\Dieser Bereich umfasst den Einsatz, wie die OPNsense Firewall, den NGinx Proxy Manager, dem Authentik- und Guacamole Server 
+und Infection Monkey zur Sicherheitsüberprüfung. Zusammenfassend ist zu sagen, dass der NGinx Proxy Manager als Reverse Proxy 
+fungiert und den HTTP-Verkehr umleitet und andere Ports für Streaming-Anforderungen bedient. Mittels von Apache Guacamole 
+erfolgt die Sicherstellung des Fernzugriffs auf die internen Dienste, die regulär nicht über eine Web-Schnittstelle erreichbar sind.
+Das Open-Source-Sicherheitstesttool Infection Monkey überprüft die Sicherheit der Infrastruktur. 
+Mit dem Identitätsanbieter \cite{Authentik}, werden verschiedene Identitäts- und Authentifizierungsmethoden in 
+Anwendungen und Diensten ermöglicht, zu integrieren. Dadurch wird eine wichtige Schnittstelle für die 
+Benutzerauthenfizierung und -autorisierung bereitgestellt und kann von verschiedenen Anwendungen über 
+Docker-Container Authentifizierungsmechanismen einrichten.
+\\\textit{Monitoring}
+\\Im Überwachungsbereich agiert die Open-Source-Software Grafana für die Visualisierung und Überwachung von Leistungsdaten, sowie 
+Uptime Kuma als Webserver für Statusseiten und Healtchchecks, um die Verfügbarkeit der Dienste zu kontrollieren. 
+\\\textit{DevOps}
+\\Der Fokus liegt bei den Anwendungen in der Entwicklung und Bereitstellung und enthält die 
+Kollaborationsplattform GitLab, um beispielsweise Projekte zu verwalten. 
+Nexus kommt als Verwaltungstool der Repositories für die Anwendungsabhängigkeiten zum Einsatz. Sonarqube ermöglicht die 
+statische Analyse und Bewertung der Quelltextqualität. Zusätzlich wird SFTPGo verwendet, um sichere Authentifizierungsmethoden, 
+wie zum Beispiele SSH-Schlüssel und Passwörter zu verwalten.
+\\\textit{E-Mail-Kommunikation}
+\\In diesem Bereich agiert der Mail-Server Mailcow, um E-Mails zu senden und empfangen, SOGO als Groupware-Lösung, 
+was eine effiziente E-Mail-Kommunikation und Zusammenarbeit innerhalb und außerhalb des Unternehmens ermöglicht.
+\\Für dieses Projekt werden insgesamt drei Instanzen des Anbieters OVH-Cloud für Cloud-Computing-Dienste genutzt. 
+Alle drei Instanzen sind Linux-Systeme mit Ubuntu und variieren in ihren Ressourcen wie \acs{RAM} und \acs{CPU}. Auf 
+diesen Instanzen werden die im Kapitel genannten Dienste durch Containerisierung betrieben. Jeder Instanz 
+wird zur besseren Zuordnung eine spezifische Bezeichnung zugeordnet.
+Die erste Instanz, genannt \textbf{''control\_node''}, fungiert als Anlaufstelle, an der sich Benutzer zu Beginn verbinden müssen.
+Diese Instanz dient als Kontrollpunkt, über den der Zugang zu den anderen Instanzen erfolgt. Sie fungiert 
+gewissermaßen als Gateway zu entweder der Instanz \textbf{''rev\_prox\_dev''} oder der \textbf{''tal\_cloud\_infra''}. 
+Der Zugriff auf diese Instanzen geschieht mittels eines \acs{SSH}-Schlüssels von einem lokalen Notebook aus über die Kommandozeile.
+Alle Dienste, auch Authentik, bis auf den NGinx Reverse Proxy Manager, sind auf der ''tal\_cloud\_infra'' lokalisiert. 
+Letzterer läuft auf der ''rev\_prox\_dev''-Instanz. Die Bezeichnung ‘‘tal\_cloud\_infra‘‘ bezieht sich auf den Standort Deloitte in Leipzig, bekannt als \acs{B und TAL}. 
+''rev\_prox\_dev'' erhält seinen Namen aufgrund des dort laufenden NGinx Reverse Proxy Managers. Ein Diagramm, das den Zugriff eines Benutzers auf eine Instanz  
+über die \acs{CLI} veranschaulicht, befindet sich im \nameref{sec:Anhang} \nameref{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}.
+\\Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \nameref{sec:Anhang} \ref{app:UseCase} \nameref{app:UseCase}.
+In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
+Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
+Nach der erfolgreichen Anmeldung mit der \acs{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
+Nginx Reverse Proxy Manager aus zuzugreifen.
+\\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Core Server) und dem 
+integrierten Außenposten (Embedded outpost) besteht, werden einkommende Anfragen an den Server-Containern und den Authentik Core Server 
+und dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den Großteil der Logik von Authentik, wie \zB \acs{API}- und/ oder 
+\acs{SSO}-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
+eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
+oder Benachrichtigen von Ereignisses und alles, was im Frontend sichtbar ist. Authentik nutzt PostgreSQL, um alle seiner 
+Konfigurationen und Daten zu speichern. Redis wird als Message-Queue und Cache verwendet.
 
 
-\subsection{Wirtschaftlichkeitsanalyse}
-\label{sec:Wirtschaftlichkeitsanalyse}
-Durch die schon vorhandene Cloud-Infrastruktur des größeren Projektes entstehen keine weiteren Kosten. Bedingt dessen, dass die 
-OVH-Cloud-Infrastruktur zu einem Fix-Preis pro Instanz gemietet wird und keine weiteren Instanzen für die Implementierung 
-des Tochter-Projektes erforderlich sind, bleiben die Kosten unverändert. 
-An ressourcen wird zwar mehr CPU und Rechenleistung verwendet, was allerdings nicht nach dem \cite{Wiki}-Prinzip 
-berechnet wird, sondern bei OVHCloud pauschal nach Instanzpreis, sodass für das ''Tochter-Projekt'' keine weitere 
-Kosten entstehen. Die wirklich zu entstehenden Kosten sind ausschließlich Personal- und Materialkosten, wobei letztere 
-aus der Nutzung des Büromobiliars und der Strom- und Heizkosten zusammengefasst wird. 
-\\Durch die Einführung der \acs{MFA}-Lösung in der Cloud-Infrastruktur werden besonders die Schutzziele der 
-Einhaltung der Integrität und Vertraulichkeit der Daten auf den jeweiligen Diensten eingehalten. So wird die Sicherheit 
-erheblich verbessert und trägt dazu bei, unbefugten Zugriff, Datenverluste und Betrug zu verhindern. Dieser Schutz 
-vor Sicherheitsverletzungen kann erhebliche finanzielle Auswirkungen haben, da die Wiederherstellungskosten vermieden 
-werden können. Des Weiteren erfolgen Kostenersparnisse in dem Punkt des Verhinderns der Passwort-Resets durch das Anfragen des 
-administrativen Supports, bei welchem Zeit und daraus Kosten entstehen, die vermieden werden können. Durch die Implementierung 
-kann den Nutzern ein sicherer und bequemerer Zugriff gewährleistet und die Kosten gesenkt werden.
+\subsubsection{Organisatorisch}
+\label{sec:Organisatorisch}
+Nach der Integration der \acs{MFA}-Lösung in die Cloud-Umgebung werden zunächst Tests und Überprüfungen in den konfigurierten Docker-Containern mithilfe der 
+\textit{docker-compose.yml}-Datei durchgeführt. Dies gewährleistet eine ordnungsgemäße Funktionsweise und die Erfüllung der Sicherheitsstandards.
+Im Anschluss erfolgen Schulungen der Benutzer, in dem Fall für das Entwicklerteam, zur genauen Verwendung von Authentik mit \acs{MFA}. 
+Nach den Tests und der Schulungen des ENtwicklerteams wird die \acs{MFA}-Implementierung in der Cloud-Umgebung bereitgestellt.
 
+\subsubsection{Personell}
+\label{sec:Personell}
+Das Projektteam besteht aus folgenden Personen:
+\begin{itemize} [label=--]
+	\item Projektleiter/ Manager/ Projektentwickler: Herr Edgar Johann Kapler
+	\item Tester/ dualer Student: Herr Birk Spinn
+	\item Projektentwicklerin/ Auszubildende: Frau Melissa Futtig
+\end{itemize}
+Der Projektleiter ist der Verantwortliche für die Projektleitung und -finanzierung des Projektes. 
+Er genehmigt dieses und stellt die notwendigen Ressourcen zur Entwicklung zur Verfügung.
+\\Die Projektentwickler sind die allgemeinen Benutzer \bzw das Entwicklerteam. Sie sind für die Umsetzung und den 
+reibungslosen Betrieb der Cloud-Infrastruktur verantwortlich und benötigen sichere Zugriffsmöglichkeiten zu den 
+bereitgestellten Anwendungen.
 
 \subsection{Anforderungsanalyse}
 \label{sec:Anforderungsanalyse}
@@ -67,30 +134,10 @@ Die MFA-Lösung muss folgende funktionale Anforderungen erfüllen:
 
 \subsubsection{Nicht-Funktionale Anforderungen}
 \label{sec:Nicht-Funktional}
-Authentik muss folgende nicht-funktionale Anforderungen erfüllen:
+Die \acs{MFA}-Lösung muss folgende nicht-funktionale Anforderungen erfüllen:
 \begin{itemize} [label=--]
 	\item Skalierbarkeit der Dienste
-	\item Übergang zu Diensten in bis zu 2 Sekunden
-	\item Übersichtliches Willkommensdisplay (Englisch)
+	\item Weiterleitung zu den Diensten in unter 2 Sekunden
+	\item Übersichtliches Willkommensdisplay
+	\item Verfügbarkeit einer englischen Oberfläche
 \end{itemize}
-
-% \subsubsection{\gqq{Make or Buy}-Entscheidung}
-% \label{sec:MakeOrBuyEntscheidung}
-% In der Entscheidungsmatrix für die Zielplattform aus dem Kapitel~\ref{sec:Authentifizierungs-Tool}: \nameref{sec:Authentifizierungs-Tool}
-% auf der Seite \pageref{sec:Authentifizierungs-Tool} sind einige alternative Produkte sichtbar, welche wie Authentik, 
-% implementiert werden müssen. Daraus resultierend wird sich für Authentik entschieden.
-
-\subsection{Anwendungsfälle}
-\label{sec:Anwendungsfaelle}
-Ein Use Case-Diagramm zur Veranschaulichung des Prozesses der Cloud-Infrastruktur findet sich im \nameref{sec:Anhang} \ref{app:UseCase} \nameref{app:UseCase}.
-In diesem interagiert der Akteur aus der Sicht eines Projektentwicklers mit dem System, in welchem verschiedene 
-Anwendungsfälle existieren. Der Akteur meldet sich über den Authentik Server bei der Firewall und dem Nginx Proxy Manager an. 
-Nach der erfolgreichen Anmeldung mit der \acs{MFA} hat dieser die Möglichkeit auf die dann zur Verfügung stehenden Dienste vom 
-Nginx Reverse Proxy Manager aus zuzugreifen.
-\\Hat sich der Akteur mit dem Authentik Server verbunden, der aus dem dem eigentlichen Server (Authentik Server Core) und dem 
-integrierten Außenposten (Embedded oupost) besteht, werden einkommende Anfragen an den Server-Containern und den Authentik Server Core 
-und dem Embedded oupost geroutet. Der Authentik Core Server verarbeitet den Großteil der Logik von Authentik, wie \zB \acs{API}- und/ oder 
-\acs{SSO}-Anfragen, während der Embedded outpost die Verwendung von Proxy-Anbietern ermöglicht, ohne dass eine separate Außenstelle 
-eingerichtet werden muss. Der Hintergrundarbeiter (Background Worker) führt Hintergrundaufgaben aus, wie das Senden von E-Mails, 
-oder Benachrichtigen von Ereignisses und alles, was im Frontend sichtbar ist. Authentik nutzt PostgreSQL, um alle seiner 
-Konfigurationen und Daten zu speichern. Redis wird als Message-Queue und Cache verwendet.

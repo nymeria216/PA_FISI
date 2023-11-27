@@ -2,7 +2,7 @@
 
 % Seitenränder -----------------------------------------------------------------
 \setlength{\topskip}{\ht\strutbox} % behebt Warnung von geometry
-\geometry{a4paper,left=20mm,right=20mm,top=25mm,bottom=35mm}
+\geometry{a4paper,left=25mm,right=25mm,top=20mm,bottom=35mm}
 
 \usepackage[
 	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
@@ -23,11 +23,11 @@
 \chead{}
 % \ohead{\includegraphics[scale=0.1]{\betriebLogo}}
 \setlength{\headheight}{20mm} % Höhe der Kopfzeile
-\setheadwidth[0mm]{} % Kopfzeile über den Text hinaus verbreitern (falls Logo den Text überdeckt)
+% \setheadwidth[0mm]{} % Kopfzeile über den Text hinaus verbreitern (falls Logo den Text überdeckt)
 
 % Fußzeile
 \ifoot{\autorName}
-\setlength{\footheight}{10mm} % Hier die gewünschte Fußzeilenhöhe einstellen
+\setlength{\footheight}{15mm} % Hier die gewünschte Fußzeilenhöhe einstellen
 \cfoot{}
 \ofoot{\pagemark}
 
@@ -69,7 +69,7 @@
 \lstset{emph={square}, emphstyle=\color{red}, emph={[2]root,base}, emphstyle={[2]\color{blue}}}
 
 \counterwithout{footnote}{section} % Fußnoten fortlaufend durchnummerieren
-\setcounter{tocdepth}{3} % im Inhaltsverzeichnis werden die Kapitel bis zum Level der subsubsection übernommen
+% \setcounter{tocdepth}{3} % im Inhaltsverzeichnis werden die Kapitel bis zum Level der subsubsection übernommen
 \setcounter{secnumdepth}{3} % Kapitel bis zum Level der subsubsection werden nummeriert
 
 % Aufzählungen anpassen
@@ -78,5 +78,5 @@
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 
 % Tabellenfärbung:
-\definecolor{heading}{rgb}{0.64,0.78,0.86}
+\definecolor{heading}{RGB}{129, 193, 135}
 \definecolor{odd}{rgb}{0.9,0.9,0.9}

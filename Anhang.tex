@@ -7,14 +7,19 @@
 \label{sec:Abkürzungsverzeichnis}
 \addcontentsline{toc}{subsection}{Abkürzungsverzeichnis}
 \begin{acronym}[WWWWW]
-	\acro{TAL}{Tech Accelerator Leipzig}
+	% \acro{TAL}{Tech Accelerator Leipzig}
 	\acro{SSH}{Secure Shell}
-	\acro{B and TCL}{Business \& Technology Ceenter Leipzig}
+	\acro{B and TCL}{Business \& Technology Center Leipzig}
 	\acro{API}{Application Programming Interface}
 	\acro{LDAP}{Lightweight Directory Access Protocol}
 	\acro{OIDC}{OpenID Connect}
-	\acro{CLI}{Command Line Interface}
-	\acro{GUI}{Graphical User Interface}
+	\acro{CPU}{Control Processing Unit}
+  \acro{RAM}{Random Access Memory}
+  \acro{CLI}{Command Line Interface}
+  \acro{A}{Adresse}
+  \acro{CNAME}{Canonical name}
+  \acro{DNS}{Domain Name System}
+  \acro{HSTS}{HTTP Strict Transport Security}
 	\acro{ISMS}{Informationssicherheits-Managementsystem}
 	\acro{BSI}{Bundesamt für Sicherheit in der Informationstechnik}
 	\acro{TOTP}{Time-based One-time Password}
@@ -23,6 +28,32 @@
 	\acro{IDE}{Integrated Development Environment}
 	\acro{TCO}{Total Cost of Ownership}
 \end{acronym}
+\cleardoublepage
+
+\subsection*{Begriffserklärung}
+\label{sec:Begriffserklärung}
+\addcontentsline{toc}{subsection}{Begriffserklärung}
+\begin{description}
+  \item[SSH] Secure Shell - Netzwerkprotokoll zur sicheren Datenübertragung
+  \item[B and TCL] Business \& Technology Center Leipzig - Deloitte Standort in Leipzig
+  \item[API] Application Programming Interface - Schnittstelle zur Kommunikation zwischen Softwareanwendungen
+  \item[LDAP] Lightweight Directory Access Protocol - Protokoll zum Abrufen von Informationen aus einem Verzeichnisdienst
+  \item[OIDC] OpenID Connect - Authentifizierungsprotokoll für Webanwendungen
+  \item[CPU] Control Processing Unit - zentrale Recheneinheit eines Computers
+  \item[RAM] Random Access Memory - Speichertyp, der Daten temporär speichert und schnell darauf zugreifen kann
+  \item[CLI] Command Line Interface - textbasierte Benutzeroberfläche zur Interaktion mit einem Computersystem
+  \item[A] Address (DNS Resource Record) - DNS-Ressourceneintrag, der eine IPv4-Adresse mit einem Domainnamen verknüpft
+  \item[CNAME] Canonical name - Eintrag in DNS, der eine Alias-Beziehung zwischen zwei Domainnamen darstellt
+  \item[DNS] Domain Name System - System zur Übersetzung von Domainnamen in IP-Adressen
+  \item[HSTS] HTTP Strict Transport Security - Sicherheitsmechanismus, der Webanwendungen vor bestimmten Angriffen schützt
+  \item[ISMS] Informationssicherheits-Managementsystem - Rahmenwerk zur Informationssicherheit in Organisationen
+  \item[BSI] Bundesamt für Sicherheit in der Informationstechnik - deutsche Behörde für IT-Sicherheit
+  \item[TOTP] Time-based One-time Password - Einmalpasswort, das basierend auf der Zeit generiert wird
+  \item[SSO] Single-Sign On - Authentifizierungsverfahren, bei dem sich Benutzer einmal anmelden, um auf verschiedene Dienste zuzugreifen
+  \item[MFA] Multi Faktor Authentifizierung - Authentifizierungsverfahren, das mehrere Methoden zur Bestätigung der Identität eines Benutzers verwendet
+  \item[IDE] Integrated Development Environment - intelligente Entwicklungsumgebung für die Softwareentwicklung
+  \item[TCO] Total Cost of Ownership - Gesamtkosten von Produktanschaffung und Nutzung
+\end{description}
 \cleardoublepage
 
 \subsection{Gantt-Diagramm und Meilensteine}
@@ -37,15 +68,19 @@
 \subsection{Use Case-Diagramm}
 \label{app:UseCase}
 \begin{figure}[htb]
-\centering
-\includegraphicsKeepAspectRatio{Anhang/UseCaseCloudInfra.png}{1}
-\caption{Use Case-Diagramm}
+  \centering
+  \includegraphicsKeepAspectRatio{Anhang/UseCaseCloudInfra.png}{1}
+  \caption{Use Case-Diagramm}
 \end{figure}
 \clearpage
 
 \subsection{Sequenzdiagramm CLI Zugriff auf die Instanzen}
 \label{app:Sequenzdiagramm CLI Zugriff auf die Instanzen}
-\includegraphicsKeepAspectRatio{Anhang/SequenzDiagrammCLI.png}{1}
+\begin{figure}[htb]
+  \centering
+  \includegraphicsKeepAspectRatio{Anhang/SequenzDiagrammCLI.png}{1}
+  \caption{Sequenzdiagramm}
+\end{figure}
 \clearpage
 
 \subsection{Cloud-Infrastruktur}
@@ -53,6 +88,7 @@
 \begin{figure}[htb]
     \centering
     \includegraphicsKeepAspectRatio{Anhang/CloudInfra.png}{0.8}
+    \caption{Cloud-Infrastruktur}
 \end{figure}
 \pagebreak
 
@@ -63,6 +99,7 @@
 \subsection{.env}
 \label{app:dotenv}
 \includegraphicsKeepAspectRatio{Anhang/(.)env.pdf}{0.9}
+\clearpage
 
 \subsection{Docker-Befehle}
 \label{app:dockercommands}
@@ -115,14 +152,15 @@
 
 \subsection{Testprotokoll}
 \label{app:Testprotokoll}
-\includegraphicsKeepAspectRatio{Anhang/Testprotokoll.pdf}{0.9}
+\includegraphicsKeepAspectRatio{Anhang/Test-Protokoll.pdf}{0.9}
 
 \subsection{Übernahmeprotokoll}
 \label{app:Übernahmeprotokoll}
-\includegraphicsKeepAspectRatio{Anhang/Übernahmeprotokoll.pdf}{0.9}
+\includegraphicsKeepAspectRatio{Anhang/Übernahme-Protokoll.pdf}{0.9}
+\cleardoublepage
 
 % Abbildungsverzeichnis ------------------------------------------------------
-\phantomsection
+% \phantomsection
 \listoffigures
 \cleardoublepage
 
@@ -130,7 +168,6 @@
 \phantomsection
 \listoftables
 \cleardoublepage
-
 % Literatur ------------------------------------------------------------------
 \clearpage
 \renewcommand{\refname}{Literaturverzeichnis}

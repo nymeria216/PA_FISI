@@ -16,6 +16,7 @@
 \input{Befehle} % eigene projektspezifische Befehle, z.B. Abkürzungen usw.
 
 \begin{document}
+% \pagenumbering{arabic}
 
 \phantomsection
 \thispagestyle{plain}
@@ -32,59 +33,20 @@
 
 % Preface --------------------------------------------------------------------
 \phantomsection
-\pagenumbering{Roman}
+% \pagenumbering{arabic}
 \pdfbookmark[1]{Inhaltsverzeichnis}{inhalt}
 \tableofcontents
 
 \cleardoublepage
 
-% \phantomsection
-% \listoffigures
-% \cleardoublepage
-
-% \phantomsection
-% \listoftables
-% \cleardoublepage
-
-% \phantomsection
-% \lstlistoflistings
-% \cleardoublepage
-
 % Inhalt ---------------------------------------------------------------------
 \pagenumbering{arabic}
 \input{Inhalt.tex}
 
-% Literatur ------------------------------------------------------------------
-% \clearpage
-% \renewcommand{\refname}{Literaturverzeichnis}
-% \bibliography{Bibliographie}
-% \bibliographystyle{Allgemein/natdin} % DIN-Stil des Literaturverzeichnisses
-% \input{Erklaerung}
-% \cleardoublepage
-
-% Tabellenverzeichnis --------------------------------------------------------
-% \phantomsection
-% \listoftables
-% \cleardoublepage
-
-% Abbildungsverzeichnis ------------------------------------------------------
-% \phantomsection
-% \listoffigures
-% \cleardoublepage
-
-% % Abkürzungsverzeichnis ------------------------------------------------------
-% \newcommand{\abkvz}{Abkürzungsverzeichnis}
-% \renewcommand{\nomname}{\abkvz}
-% \section*{\abkvz}
-% \markboth{\abkvz}{\abkvz}
-% \addcontentsline{toc}{section}{\abkvz}
-% \input{Abkuerzungen}
-% \clearpage
-
 % Anhang ---------------------------------------------------------------------
 \clearpage
 \appendix
-\pagenumbering{roman}
+% \pagenumbering{arabic}
 \input{Anhang}
 
 \end{document}
